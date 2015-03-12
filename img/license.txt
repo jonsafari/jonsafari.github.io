@@ -1,2 +1,0 @@
-All of the *-symbolic.png icons come from the Gnome project (gnome.org).
-The following icons come from cssflow.com: tasks.png, messages.png, settings.png

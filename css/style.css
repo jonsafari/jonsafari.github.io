@@ -296,25 +296,25 @@ header nav a.icon {
   background-repeat: no-repeat;
 }
 header nav a.tasks {
-  background-image: url("../img/tasks.png");
+  background-image: url("../images/icons/tasks.png");
 }
 header nav a.papers {
-  background-image: url("../img/view-paged-symbolic.png");
+  background-image: url("../images/icons/view-paged-symbolic.png");
 }
 header nav a.book {
-  background-image: url("../img/view-dual-symbolic.png");
+  background-image: url("../images/icons/view-dual-symbolic.png");
 }
 header nav a.star {
-  background-image: url("../img/user-bookmarks-symbolic.png");
+  background-image: url("../images/icons/user-bookmarks-symbolic.png");
 }
 header nav a.download {
-  background-image: url("../img/document-save-symbolic.png");
+  background-image: url("../images/icons/document-save-symbolic.png");
 }
 header nav a.messages {
-  background-image: url("../img/messages.png");
+  background-image: url("../images/icons/messages.png");
 }
 header nav a.settings {
-  background-image: url("../img/settings.png");
+  background-image: url("../images/icons/settings.png");
 }
 header nav li.active a, header nav a:active {
   padding-right: 16px;
