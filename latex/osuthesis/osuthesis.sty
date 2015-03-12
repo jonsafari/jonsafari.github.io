@@ -1,0 +1,383 @@
+%%%
+%
+%                        osuthesis.sty
+%
+%
+% LaTeX .sty file for Ohio State University Dissertations & Theses
+%
+%                   (c) Jon Dehdari, 2008-2014
+%
+% This file may be used under the terms of the free LaTeX Project
+% Public License (www.latex-project.org/lppl.txt).
+%
+%%%
+
+%%% Todo:
+
+
+%%% Make sure the first few lines of your .tex file look like:
+%
+% \documentclass[11pt,oneside]{book}
+% \usepackage{osuthesis}
+%
+% \author{Bob Smith}
+% \title{The Title goes here}
+% \papertype{Dissertation}
+% \degree{Doctor of Philosophy}
+% \dept{Underwater Basketweaving} % https://en.wikipedia.org/wiki/Underwater_basket_weaving
+% \subject{Statistical Underwater Basketweaving}
+% \keywords{Wicker, Brine, Container Topology}
+% \committeechair{Isaac Newton}
+% \committeemembera{Albert Einstein}
+% \committeememberb{Foo Lano}
+% %\committeememberc{SpongeBob SquarePants}
+% %\committeememberd{Brutus Buckeye}
+%
+% \abstract{
+%   This is the abstract.
+% }
+%
+% \ack{
+%   Stuff
+% }
+%
+% \vita{
+%   Stuff
+% }
+%
+% \publications{
+%   Stuff
+% }
+%
+% \studyfields{
+%   Stuff
+% }
+%
+% \begin{document}
+% \frontmatter
+%
+% \chapter{Introduction}
+% Stuff
+%
+%%%
+
+%%% See also:  http://www.gradsch.ohio-state.edu/Depo/PDF/Guidelines.pdf
+%%%            http://www.gradsch.ohio-state.edu/Depo/PDF/GuidelinesSamplePages.pdf
+
+
+\ProvidesPackage{osuthesis}[2014/06/18 v0.9.5.0 Style for Ohio State University dissertations and theses]
+%%% Use mathpazo for Palatino fonts, or txfonts for Times fonts, or comment both lines to use Computer Modern fonts
+%%% See http://www.tug.dk/FontCatalogue  for using other fonts
+%\RequirePackage{mathpazo}
+%\RequirePackage{txfonts}
+\RequirePackage[letterpaper,includeheadfoot,top=1.0in,bottom=1.0in,right=1.0in,left=1.5in]{geometry}
+\RequirePackage[doublespacing]{setspace} % `doublespacing' is actually about 1.6 spacing, which is better anyway
+\RequirePackage{graphicx}
+\RequirePackage{fancyhdr}
+\RequirePackage[hyperref,table,x11names]{xcolor} % See documentation PDF at http://www.ctan.org/pkg/xcolor
+\definecolor{linkblue}{rgb}{0,0,0.30}
+\RequirePackage{url}
+\RequirePackage[pdfborder=0 0 0, colorlinks=true, citecolor=linkblue, linkcolor=linkblue, urlcolor=linkblue, letterpaper, bookmarksopen=true, bookmarksopenlevel=1, unicode=true, pdfa=true]{hyperref}
+
+\pagestyle{plain}
+
+
+%%% Change this to increase Table of Contents depth, beyond just chapters and sections
+\setcounter{tocdepth}{2}
+\renewcommand\contentsname{\normalsize {\normalfont Table of Contents}}
+
+
+%%% Some initial definitions
+\def\degree#1{\gdef\@degree{#1}}
+\def\papertype#1{\gdef\@papertype{#1}}
+\def\dept#1{\gdef\@dept{#1}}
+\def\subject#1{\gdef\@subject{#1}}
+\def\keywords#1{\gdef\@keywords{#1}}
+\def\committeechair#1{\gdef\@committeechair{#1}}
+\def\committeemembera#1{\gdef\@committeemembera{#1}}
+\def\committeememberb#1{\gdef\@committeememberb{#1}}
+\def\committeememberc#1{\gdef\@committeememberc{#1}}
+\def\committeememberd#1{\gdef\@committeememberd{#1}}
+%% \long\def allows for multiple paragraphs
+\long\def\abstract#1{\gdef\@abstract{#1}}
+\long\def\ack#1{\gdef\@ack{#1}}
+\long\def\dedication#1{\gdef\@dedication{#1}}
+\long\def\vita#1{\gdef\@vita{#1}}
+\long\def\publications#1{\gdef\@publications{#1}}
+\long\def\studyfields#1{\gdef\@studyfields{#1}}
+\renewcommand\bibname{References}
+
+
+%%% The following commands were modified from book.cls
+%%
+%
+\def\@makechapterhead#1{%
+  %\addcontentsline{toc}{chapter}{#1}
+  \vspace*{0\p@}%
+  {\parindent \z@ \raggedright \normalfont
+    \begin{center}
+    \ifnum \c@secnumdepth >\m@ne
+      \if@mainmatter
+        %\huge\bfseries {\uppercase\expandafter{\@chapapp\space \thechapter}}
+        \@chapapp\space \thechapter
+        \par
+        \vspace{2em}
+      \fi
+    \fi
+    \interlinepenalty\@M
+	{\bf\Large#1}\par\nobreak
+    \vskip 40\p@
+    \end{center}
+  }}
+
+\def\@makeschapterhead#1{%
+  %\addcontentsline{toc}{chapter}{#1}
+  \vspace*{-20\p@}%
+  {\parindent \z@ \raggedright \normalfont
+    \begin{center}
+    \ifnum \c@secnumdepth >\m@ne
+      \if@mainmatter
+        %\huge\bfseries {\uppercase\expandafter{\@chapapp\space \thechapter}}
+        %\MakeUppercase{\@chapapp\space \thechapter}
+        \par
+        \vspace{2em}
+      \fi
+    \fi
+    \interlinepenalty\@M
+     %\MakeUppercase{#1}\par\nobreak
+	{\bf\Large#1}\par\nobreak
+    \vskip 40\p@
+    \end{center}
+  }}
+
+%%% Change TOC header
+\renewcommand\tableofcontents{%
+    \begin{spacing}{1.0}
+    \if@twocolumn
+      \@restonecoltrue\onecolumn
+    \else
+      \@restonecolfalse
+    \fi
+    \chapter*{
+        \vspace*{0.1in}
+        \begin{center}
+        \normalsize \contentsname
+        \end{center}
+        \@mkboth{%
+           \contentsname}{\contentsname}}%
+    \@starttoc{toc}%
+    \if@restonecol\twocolumn\fi
+    \end{spacing}
+    \clearpage
+}
+
+%%% Make chapters in TOC boring
+%\renewcommand*\l@chapter{\@dottedtocline{1}{1.0em}{1.5em}}
+\renewcommand*\l@chapter[2]{%
+  \ifnum \c@tocdepth >\m@ne
+    \addpenalty{-\@highpenalty}%
+    \vskip 1.0em \@plus\p@
+    \setlength\@tempdima{1.5em}%
+    \begingroup
+      \parindent \z@ \rightskip \@pnumwidth
+      \parfillskip -\@pnumwidth
+      \leavevmode 
+      \advance\leftskip\@tempdima
+      \hskip -\leftskip
+      %#1\nobreak\dotfill \nobreak\hb@xt@\@pnumwidth{\hss #2}\par
+      #1 \dotfill \hb@xt@\@pnumwidth{\hss #2}\par
+      \penalty\@highpenalty
+    \endgroup
+  \fi}
+
+%
+%%
+%%% The previous commands were modified from book.cls
+
+
+%%% Specify Front Matter
+\renewcommand{\frontmatter}{
+    \pagenumbering{roman}
+    \titlepage
+    \copyrightpage
+    \abstractpage
+    %\dedicationpage
+    \ackpage
+    \vitapage
+    \tableofcontents
+    \clearpage
+    \phantomsection
+    \addcontentsline{toc}{chapter}{List of Figures}
+    \listoffigures
+    %\rule{2in}{1pt}
+    \clearpage
+    \phantomsection
+    \addcontentsline{toc}{chapter}{List of Tables}
+    \listoftables
+    \clearpage
+    \pagenumbering{arabic}
+}
+
+%%% Set orphan and widow penalties really high
+\brokenpenalty=9999
+\clubpenalty=9999
+\widowpenalty=9999
+
+
+
+
+%%% Title page
+\renewcommand{\titlepage}{
+\hypersetup{pdfauthor={\@author}, pdftitle={\@title}, pdfsubject={\@subject}, pdfkeywords={\@keywords}} % Populates PDF metadata with info that the user has already supplied
+ \thispagestyle{empty}
+
+  %\setlength{\columnsep}{1.0em}
+  %\twocolumn[
+
+    \vspace*{0.0in}
+    \begin{center}
+
+    \@title
+
+    \vspace{0.65in}
+
+    \@papertype
+
+    \vspace{0.5in}
+
+    Presented in Partial Fulfillment of the Requirements for the Degree
+
+    \@degree
+
+    in the Graduate School of The Ohio State University
+
+    \vspace{0.45in}
+
+    By
+
+    \@author
+
+    \vspace{1.4em}
+
+    %%% Separator
+    % $* * * * *$
+    %%% Nice tilde + double not separator
+    \resizebox{12mm}{\height}{$\large \sim$}\hspace{ -7.3mm }$\scriptstyle \not\,\not$ \hspace{5mm}
+
+    \vspace{2.3em}
+
+    Graduate Program in \@dept
+
+    The Ohio State University
+
+    \number\year
+
+
+    \vspace{2.3em}
+  %]
+
+
+  \@papertype \ Committee:
+
+  Professor \@committeechair , Advisor
+
+  Professor \@committeemembera
+
+  Professor \@committeememberb
+
+  %Professor \@committeememberc
+
+  %Professor \@committeememberd
+
+  %\vspace{40em}
+  %\begin{center}
+  %Approved by
+  %
+  %\vspace{2em}
+  %
+  %\underline{\hspace{0.5\textwidth}}
+  %
+  %Adviser % Yes, the graduate school styleguide spells it adviser  :-/
+  %
+  %\end{center}
+  %\onecolumn
+  \end{center}
+  \clearpage
+}
+%%% End Title page
+
+
+%%% Copyright page
+\newcommand{\copyrightpage}{
+    \setcounter{page}{1}
+    \thispagestyle{empty}
+    \vspace*{2.5in}
+    \begin{center}
+    \copyright{} \@author, \number\year
+    \end{center}
+    \clearpage
+}
+
+
+
+%%% Abstract page
+\newcommand{\abstractpage}{
+    \phantomsection
+    \addcontentsline{toc}{chapter}{Abstract}
+    \vspace*{0.0in}
+
+    \begin{center}
+    Abstract
+    \end{center}
+
+    \vspace{3em}
+    \@abstract
+    \clearpage
+}
+
+
+%%% Acknowledgments page
+% The extra 'e' is optional in English
+\newcommand{\ackpage}{
+    \phantomsection
+    \addcontentsline{toc}{chapter}{Acknowledgements}
+    \vspace*{0.0in}
+    \begin{center}
+    Acknowledgements
+    \end{center}
+    \vspace{3em}
+    \@ack
+    \clearpage
+}
+
+
+%%% Vita page
+\newcommand{\vitapage}{
+    \phantomsection
+    \addcontentsline{toc}{chapter}{Vita}
+    \vspace*{0.0in}
+    \begin{center}
+    Vita
+    \end{center}
+    \vspace{2em}
+    \@vita
+
+    \vspace{2em}
+
+    \begin{center}
+    Publications
+    \end{center}
+    \vspace{2em}
+    \@publications
+
+    \vspace{2em}
+
+    \begin{center}
+    Fields of Study
+    \end{center}
+    \vspace{2em}
+    \@studyfields
+
+    \clearpage
+}
+

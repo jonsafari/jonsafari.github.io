@@ -1,0 +1,8 @@
+@mastersthesis{dehdari2006,
+ author = {Jon Dehdari},
+ title  = {Crossing Dependencies in {P}ersian},
+ year   = {2006},
+ school = {Brigham Young University},
+ url    = {http://contentdm.lib.byu.edu/utils/getfile/collection/ETD/id/752/filename/etd1441.pdf},
+}
+

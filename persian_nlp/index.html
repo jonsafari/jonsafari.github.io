@@ -1,0 +1,215 @@
+<html>
+    <head>
+	<title>Persian NLP</title>
+	<link rel="stylesheet" href="style.css">
+    </head>
+    <body style="width:650px; text-align:justify; margin-left:auto; margin-right:auto; line-height:135%">
+
+[<a href="http://ling.osu.edu/~jonsafari">Home</a>]
+<p>
+Some Persian NLP projects of mine
+<p/>
+<ul>
+    <li> <a href="persianlg">Persian LG Syntax Parser</a> - based on the <a href="http://www.abisource.com/projects/link-grammar">Link Grammar</a> parser <br/> </li>
+<ul>
+    <li> <a href="persianlg/persianlg-0.8.5.tar.gz">PersianLG code</a> <br/> </li>
+</ul>
+<li> <a href="http://sourceforge.net/projects/perstem">Perstem</a> - Persian Stemmer and Morphological Analyzer (also does character-set conversion, and some part-of-speech tagging)<br/> </li>
+<li> <a href="persian_nlp/light_verbs.html">Persian Light Verbs</a> - a table of the top light verbs in Persian, based on their frequency in corpora</a><br/>
+<!-- <li> <a href="persian_lexicon.html">Persian Lexicon Project</a> <br/> </li> -->
+<li> <a href="persian_lexicon.txt">Persian Lexicon Project</a> <br/> </li>
+<li> <a href="persian_charmaps.pdf">Persian character set encoding mappings</a> (pdf) - (<a href="persian_charmaps.tex">LaTeX source</a>) <br/> </li>
+<!-- <li> <a href="buckwalter.html">Buckwalter Arabic Morphological Analyzer frontend</a> <br/> </li> -->
+<!-- <li> <a href="code2code.html">Convert to and from different character sets</a> (old) <br/> </li> -->
+<!-- <li> <a href="win1256_2_roman.html">Convert from Win-1256 to Romanized Persian</a> (old) <br/> </li> -->
+<li> <a href="persian_nlp/kayhan_2005_wc_top10000_utf8.tsv">Kayhan 2005 word frequency count</a> - top 10,000 words (UTF-8)</a><br/>
+<li> <a href="persian_nlp/kayhan_2005_wc_top10000_romanized.tsv">Kayhan 2005 word frequency count</a> - top 10,000 words (Romanized - Dehdari)</a><br/>
+<!-- <li> <a href=""> </a><br/> -->
+<!-- <li> <a href=""> </a><br/> -->
+<br/>
+</ul>
+<p/>
+
+<h2>Here's how many of the Persian programs fit together:</h2>
+<br/>
+Using an input text like "&#1605;&#1606; &#1705;&#1578;&#1575;&#1576;&#8204;&#1607;&#1575;&#1740; &#1578;&#1608; &#1585;&#1575; &#1606;&#1605;&#1740;&#8204;&#1576;&#1740;&#1606;&#1605;" in Unicode HTML decimal form
+
+<br/><br/>
+<!--
+Could get converted in the command line to a romanized form using various scripts:
+<pre>
+isiri2roman.pl
+isiri2unicode.pl
+unicode2roman.pl
+utf8_2_roman.pl
+win1256_2_roman.pl
+win1256_2_roman.tcl
+</pre>
+Note that copying and pasting text often changes the encoding type. <br/>
+For this example, we will use unicode2roman.pl .  We will then type:
+<pre>echo &#1605;&#1606; &#1705;&#1578;&#1575;&#1576;&#8204;&#1607;&#1575;&#1740; &#1578;&#1608; &#1585;&#1575; &#1606;&#1605;&#1740;&#8204;&#1576;&#1740;&#1606;&#1605;" | ./unicode2roman.pl</pre>
+and will look like:
+<pre>mn ktAb-hAi tu rA nmi-binm</pre>
+If you have a web page, you could instead type:
+<pre>cat mywebpage.html | ./unicode2roman.pl</pre>
+to yeild the same result.
+
+<br/><br/><br/>
+-->
+<h4>Orthography</h4>
+    You can convert the text from one character-set encoding to another, including to and from: Romanized, ArabTeX, Windows-1256, ISIRI 3342, UTF-8, and Unicode HTML numeric entities.
+<ul>
+    <li>  For example, from romanized text to UTF-8:
+<pre>echo "mn ktAb-hAi tu rA nmi-binm" | perl perstem.pl --form untouched -i translit</pre>
+and the output:
+<pre>&#1605;&#1606; &#1705;&#1578;&#1575;&#1576;&#8204;&#1607;&#1575;&#1740; &#1578;&#1608; &#1585;&#1575; &#1606;&#1605;&#1740;&#8204;&#1576;&#1740;&#1606;&#1605;</pre> <!-- OK, not really UTF-8, but I wanted to make sure this rendered correctly in your browser without any fuss -->
+</li>
+<li>
+Or from Perso-Arabic script HTML numeric character references to <a href="http://en.wikipedia.org/wiki/ArabTeX">ArabTeX</a>:
+<pre>echo "&#1605;&#1606; &#1705;&#1578;&#1575;&#1576;&#8204;&#1607;&#1575;&#1740; &#1578;&#1608; &#1585;&#1575; &#1606;&#1605;&#1740;&#8204;&#1576;&#1740;&#1606;&#1605;" | perl perstem.pl -d -i unihtml -o arabtex</pre>
+and the output:
+<pre>mn ktAb\hspace{0ex}hAI tU rA nmI\hspace{0ex}bInm</pre>
+This could then be inserted into a LaTeX document as: <pre>
+  \documentclass{article}
+  \usepackage{arabtex}
+  
+  \begin{document}
+  \setfarsi
+  \novocalize
+  \&lt; mn ktAb\hspace{0ex}hAI tU rA nmI\hspace{0ex}bInm &gt;
+  \end{document}
+</pre>
+</li>
+</ul>
+
+
+<p>
+<h4>Morphology</h4>
+<ul>
+    <li> You can morphologically analyze this directly:
+<pre>echo "&#1605;&#1606; &#1705;&#1578;&#1575;&#1576;&#8204;&#1607;&#1575;&#1740; &#1578;&#1608; &#1585;&#1575; &#1606;&#1605;&#1740;&#8204;&#1576;&#1740;&#1606;&#1605;" | perl perstem.pl --form linked</pre>
+and the output:
+<pre>mn ktAb_+-hA_+e tu rA n+_mi-+_bin_+m</pre>
+<br/>
+    </li>
+    <li>
+Or you can analyze this as romanized text:
+<pre>echo "mn ktAb-hAi tu rA nmi-binm" | perl perstem.pl -f linked -i translit</pre>
+and the output:
+<pre>mn ktAb_+-hA_+e tu rA n+_mi-+_bin_+m</pre>
+<br/>
+    </li>
+
+    <li>
+You can analyze the text with part-of-speech tags (only for word containing inflexional morphemes):
+<pre>echo "mn ktAb-hAi tu rA nmi-binm" | perl perstem.pl -f linked -p -i translit</pre>
+and the output:
+<pre>mn ktAb_+-hA_+e/N+PL+EZ tu rA n+_mi-+_bin_+m/V+NEG+DUR+1S</pre>
+<br/>
+    </li>
+
+    <li>
+You can stem the words (hence the name):
+<pre>echo "mn ktAb-hAi tu rA nmi-binm" | perl perstem.pl -i translit -o translit</pre>
+and the output:
+<pre>mn ktAb tu rA didn</pre>
+<br/>
+    </li>
+
+    <li>
+You can remove morpheme links:
+<pre>echo "mn ktAb-hAi tu rA nmi-binm" | perl perstem.pl -f unlinked</pre>
+and the output:
+<pre>mn ktAb hA e tu rA n mi di m</pre>
+<br/>
+    </li>
+</ul>
+
+<p>
+<h4>Syntax</h4>
+<ul>
+    <li>
+This text can then go into the Link-Grammar syntax parser:
+<pre>echo "mn ktAb-hAi tu rA nmi-binm" | perl perstem.pl -i translit -o translit -f unlinked | link-grammar fa_home/data/4.0.dict</pre>
+and the output is:
+<pre>
+    +--------------------------------Wi-------------------------------+
+    |       +---------------------------Spn1--------------------------+
+    |       |      +---------------------On---------------------+     |
+    |       |      +-----------PA-----------+                   |     |
+    |       |      +-----EZ-----+           |     +----VMneg----+     |
+    |       |      +-NMSp-+     +--M-+      |     |      +-VMdur+-VMP-+
+    |       |      |      |     |    |      |     |      |      |     |
+LEFT-WALL mn.pn ktAb.n hA.nms e.ez tu.pn rA.acc n.vmn mi.vmd bin.vp m.vmp
+</pre>
+<br/>
+
+<!--
+You could do the entire process on one line:
+<pre>persianparse.sh "`echo &#1605;&#1606; &#1705;&#1578;&#1575;&#1576;&#8204;&#1607;&#1575;&#1740; &#1578;&#1608; &#1606;&#1605;&#1740;&#8204;&#1576;&#1740;&#1606;&#1605;' | unicode2roman_1-4.pl `"</pre>
+or the longer way:
+-->
+You can input Perso-Arabic script directly:
+<pre>echo "&#1605;&#1606; &#1705;&#1578;&#1575;&#1576;&#8204;&#1607;&#1575;&#1740; &#1578;&#1608; &#1606;&#1605;&#1740;&#8204;&#1576;&#1740;&#1606;&#1605;" | perl perstem.pl -o translit -f unlinked | link-grammar fa_home/data/4.0.dict</pre>
+which will result in the same output:
+<pre>
+    +--------------------------------Wi-------------------------------+
+    |       +---------------------------Spn1--------------------------+
+    |       |      +---------------------On---------------------+     |
+    |       |      +-----------PA-----------+                   |     |
+    |       |      +-----EZ-----+           |     +----VMneg----+     |
+    |       |      +-NMSp-+     +--M-+      |     |      +-VMdur+-VMP-+
+    |       |      |      |     |    |      |     |      |      |     |
+LEFT-WALL mn.pn ktAb.n hA.nms e.ez tu.pn rA.acc n.vmn mi.vmd bin.vp m.vmp
+</pre>
+
+<br/>
+    </li>
+</ul>
+
+
+<p>
+<h4>Further information on Perstem</h4>
+The command "perl perstem.pl --help" gives the following usage information:
+<pre>
+
+Usage:    perl perstem.pl [options] &lt; input &gt; output
+
+Function:  Persian (Farsi) stemmer, morphological analyzer, transliterator,
+           and partial part-of-speech tagger.
+
+Options:
+ -f, --form <x>         Output forms as one of the following:
+                          dict: as they appear in a dictionary (default)
+                          linked: show all morphemes, linked together
+                          unlinked: show all morphemes as separate tokens
+                          untouched: don't stem/analyze; mostly for char-set conversion
+     --flush            Autoflush buffer output after every line
+ -h, --help             Print this usage
+ -i, --input <type>     Input character encoding type {cp1256,isiri3342,ncr,
+                        translit,utf8} (default: utf8)
+     --irreg-stem {0|1} Resolve irregular present-tense verb stems to their
+                        past-tense stems (eg. kon ~ kar).  (default: 1 == true)
+ -n, --noroman          Delete all non-Arabic script characters (eg. HTML tags)
+ -o, --output <type>    Output character encoding type {arabtex,cp1256,
+                        isiri3342,ncr,translit,utf8} (default: utf8)
+ -p, --pos              Tag inflected words for parts of speech
+     --pos-sep <char>   Separate words from their parts of speech by <char>
+                        (default: "/" )
+ -r, --recall           Increase recall by parsing ambiguous affixes; may lower
+                        precision
+     --skip-comments    Skip commented-out lines, without printing them
+ -s, --stem             Return only word stems
+ -t, --tokenize {0|1}   Tokenize punctuation (default: 1 == true)
+ -u, --unvowel          Remove short vowels
+ -v, --version          Print version
+ -z, --zwnj {0|1}       Insert Zero Width Non-Joiners where they should be (default: 1 == true)
+
+</pre>
+
+
+
+
+</body>
+</html>
+

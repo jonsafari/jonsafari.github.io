@@ -1,0 +1,213 @@
+<html>
+    <head>
+	<title>LaTeX hints</title>
+	<link rel="stylesheet" href="../style.css">
+    </head>
+    <body style="width:650px; text-align:justify; margin-left:auto; margin-right:auto; line-height:135%">
+	<br>
+	<center>
+	    <img src="latex.png" alt="How do I do X in LaTeX?">
+        </center>
+	<h2>How do I do <b>squiggly lines</b> in LaTeX?</h2>
+	<pre>
+\usepackage[normalem]{ulem}	% Part of the standard distribution
+...
+\uwave{text goes here}
+	</pre>
+
+	<h2>How do I do <b>strikethrough lines</b> in LaTeX?</h2>
+	For normal text,
+	<pre>
+\usepackage[normalem]{ulem}	% Part of the standard distribution
+...
+\sout{text goes here}
+	</pre>
+
+	<p>
+	For math mode,
+	<pre>
+\usepackage{cancel}		% Part of the standard distribution
+...
+\cancel{math text goes here}
+	</pre>
+
+	<h2>How do I <b>use my favorite TrueType font (TTF)</b> in LaTeX?</h2>
+	Use the command <tt><a href="http://en.wikipedia.org/wiki/Xetex">xelatex</a></tt> &nbsp; &ndash; which is a part of TeXLive, MikTeX, and MacTeX &ndash; and in the preamble add the following:
+	<pre>
+\usepackage{fontspec}
+\setmainfont{Arial Unicode}	% For example
+	</pre>
+	This also works for OpenType fonts (OTF), which is a superior format.
+
+	<h2>How do I do hanging/<a href="http://en.wikipedia.org/wiki/Text_figures">old-style</a> numbers in LaTeX?</h2>
+	You can get them by using Palatino, one of the finest and most mature fonts available.  However, avoid the <tt>palatino</tt> package itself.
+	<pre>
+\usepackage[osf]{mathpazo}	% Mathpazo package includes accompanying math fonts
+	</pre>
+
+	<h2>How do I draw <a href="http://en.wikipedia.org/wiki/Dependency_grammar">dependency</a> arrows in LaTeX?</h2>
+	One way is to use the <tt><a href="http://www.ctan.org/tex-archive/help/Catalogue/entries/tree-dvips.html">tree-dvips</a></tt> package, part of the texlive-humanities package in Debian/Ubuntu.  Unfortunately you'll need to run the old-fashioned <tt>latex</tt>, <tt>dvipdf</tt> sequence since it depends on PostScript code.
+	<pre>
+\usepackage{tree-dvips}
+...
+\node{the}{the} \node{dog}{dog} \node{eats}{eats} \node{food}{food}
+
+\anodecurve[t]{the}{dog}{1.1em}
+\anodecurve[t]{eats}{the}{1.8em}
+\anodecurve[t]{eats}{food}{1.2em}
+	</pre>
+	<center><img src="deps.png" alt="Dependency arrows with tree-dvips"></center>
+
+	<h2>How do I get <b><a href="http://en.wikipedia.org/wiki/Arg_max">argmax</a></b> in LaTeX formulas?</h2>
+	<pre>
+\DeclareMathOperator*{\argmax}{arg\,max}   % In your preamble
+...
+\argmax_{...}                              % In your formula
+	</pre>
+
+	<h2>How do I get <em>really really</em> small fonts in LaTeX?</h2>
+	For a font smaller than <tt>\tiny</tt> (or larger than <tt>\Huge</tt>), add the following in your preample:
+	<pre>
+\def\Tiny{ \font\Tinyfont = cmr10 at 3pt \relax  \Tinyfont}
+	</pre>
+	Now you can use <tt>{\Tiny ... }</tt>.  Replace the <tt>3pt</tt> with any positive real-numbered value as you see fit.
+	Unfortunately this only uses <a href="https://en.wikipedia.org/wiki/Computer_Modern">Computer Modern</a> fonts with the <a href="https://en.wikipedia.org/wiki/Roman_type">roman</a> typeface.
+
+	<p>
+	A less robust, but more elegant solution is to put the following command in your preamble:
+	<pre>
+\def\Tiny{\fontsize{5pt}{5pt} \selectfont}
+	</pre>
+	The usage is the same as before, but this only scales down to 5pt.
+	It works with most fonts.
+
+	<p>
+	A really robust, but very different way is to use the <tt>\scalebox</tt> command from the <tt>graphicx</tt> package:
+	<pre>
+\usepackage{graphicx}                        % In your preamble.
+...
+\scalebox{0.20}{Really small text here}
+	</pre>
+	You could of course define a macro in your preamble using this:
+	<pre>
+\usepackage{graphicx}                        % In your preamble.
+\newcommand{\teeny}[1]{\scalebox{0.20}{#1}}  % In your preamble
+...
+\teeny{Really small text here, with math $\alpha_i$}
+	</pre>
+
+	<h2>How do I get bold Greek letters in math mode?</h2>
+		This is one of the lamest quirks about LaTeX 2&epsilon;.  Anyways, here's the sad answer:
+	<pre>
+\usepackage{amsmath}	% In your preamble.  or \usepackage{amsbsy}
+...
+$\boldsymbol{\lambda}$
+	</pre>
+		If &nbsp; <tt>\boldsymbol{}</tt> &nbsp; still doesn't work (like for &sum;, &prod;, &int;, etc.), then use the "poor man's bold", a bunch of jittered copies:
+		<pre>
+$\pmb{\sum}$
+		</pre>
+
+	<h2>How do I prevent a linguistic gloss from getting split across pages?</h2>
+	<!-- See also http://tex.stackexchange.com/questions/4471/unbreakable-block -->
+	Use the <tt>samepage</tt> environment around the whole block.
+	<pre>
+    \begin{samepage}
+    \exg. Dies ist eine erste Glosse \\
+          This is a first gloss
+
+    \end{samepage}
+	</pre>
+	The above example uses the <a href="http://www.ctan.org/pkg/linguex">Linguex</a> package, but the <tt>samepage</tt> environment should work for others as well.
+
+	<h2>How do I do multi-line comments or verbatims?</h2>
+	<pre>
+\usepackage{verbatim}	% Part of the standard distribution
+...
+\begin{comment}
+This is a comment
+!@#$%^&amp;*()_+{}|\][:";'&lt;&gt;?,./
+This is another comment
+\end{comment}
+	</pre>
+	The <a href="http://www.ctan.org/pkg/verbatim">verbatim</a> package also supports multiple line verbatims, using the <tt>verbatim</tt> environment.
+
+	<h2>How do I do use the <a href="http://www.ctan.org/pkg/verbatim">verbatim</a> package in <a href="https://en.wikipedia.org/wiki/Beamer_(LaTeX)">Beamer</a>?</h2>
+	Set your frame to fragile:
+	<pre>
+\usepackage{verbatim}  % Part of the standard distribution
+...
+\begin{frame}[fragile]
+\frametitle{The Frame Title}
+\begin{verbatim}
+!@#$%^&amp;*()_+{}|\][:";'&lt;&gt;?,./
+\end{verbatim}
+\end{frame}
+
+	</pre>
+
+	<h2>How do I do <a href="https://en.wikipedia.org/wiki/Hanging_indent">hanging indents</a>?</h2>
+	The easiest way is to use the <tt>description</tt> environment, with argumentless items:
+	<pre>
+\begin{description}
+  \item Text goes here
+  \item More text goes here
+\end{description}
+	</pre>
+
+	<h2>How do I do force math-mode subscripted items underneath, in running text or in fractions?</h2>
+	Instead of the underscore <tt>_</tt> use <tt>\limits_</tt> :
+	<pre>
+	... so that we have $ \sum\limits_{i \in C} g(i)$ and then ...
+	</pre>
+	<pre>
+	\begin{equation}
+		r = \frac{ \sum\limits_{j=1} f(i) }{Z}
+	\end{equation}
+	</pre>
+	Use judiciously.
+
+	<h2>How do I put a big "DRAFT" stamp across the first page of my document?</h2>
+	<pre>
+\usepackage[firstpage]{draftwatermark}  % Not part of the standard distribution.
+	</pre>
+	Download the package at <a href="http://www.ctan.org/pkg/draftwatermark">CTAN</a> .
+	If you want the message on every page, remove the optional argument, so just <tt>\usepackage{draftwatermark}</tt> .
+	You can customize or change the message, such as <tt>\SetWatermarkText{Hi!}</tt> . See the <a href="http://mirrors.ctan.org/macros/latex/contrib/draftwatermark/draftwatermark.pdf">documentation</a> for more details.
+
+	<h2>How do I produce an <a href="https://en.wikipedia.org/wiki/ISO_216">A4</a> (or <a href="https://en.wikipedia.org/wiki/Letter_(paper_size)">Letter</a>) document?</h2>
+	Current LaTeX distributions do not honor the page dimensions option (eg. <tt>a4paper</tt> or <tt>letterpaper</tt>) to your <tt>\documentclass</tt> command very well.
+	You can put the following TeX commands in your preamble:
+	<pre>
+\pdfpagewidth=210 true mm
+\pdfpageheight=297 true mm
+	</pre>
+
+	Another solution is to use the <tt><a href="http://www.ctan.org/pkg/geometry">geometry</a></tt> package, as:
+	<pre>
+\usepackage[a4paper]{geometry}   % Part of the standard distribution
+	</pre>
+	This is a great package, but it will change your default margins as well.
+	Manually adjusting the margins with this package is pretty easy; see the <a href="http://www.ctan.org/pkg/geometry">documentation</a> for details.
+
+	<h2>How do I extract a <a href="https://en.wikipedia.org/wiki/Vector_graphics">vector image</a> from a PDF, to use in my LaTeX document?</h2>
+	One relatively easy way is to use <a href="http://www.inkscape.org">Inkscape</a>, an excellent Free vector graphics program.
+	<ol>
+		<li> Open the PDF in Inkscape, selecting the page number that the image is found on.
+		<li> Select the entire range of the image, from one corner of a rectangle that would enclose it, to the opposite corner.
+		<li> Copy the selection, using the usual Control-C or clicking Edit-&gt;Copy.
+		<li> Create a new document, either by typing Control-N or clicking the top-left icon.
+		<li> Paste the saved image selection into the new document, using the usual Control-V or clicking Edit-&gt;Paste.
+		<li> Go to the Document Properties dialog box, either by typing Shift-Control-D or clicking File-&gt;Document Properties.
+		<li> Click on "Resize Page to Content", then on the button "Resize Page to Drawing or Selection"
+		<li> Now save the new document, either by the usual Control-S or clicking File-&gt;Save.
+		<li> In the bottom-right corner, choose the file type Portable Document Format (PDF).
+		<li> You can leave most of the defaults, although I recommend making sure that the button "Convert texts to paths" is <b>un</b>checked.  This will allow text in the image to be searchable in your LaTeX document.
+		<li> Now you can use this image PDF as a normal image in your LaTeX file, using the usual <tt>\includegraphics{}</tt> command (from the <tt>graphicx</tt> package).
+		<li> Enjoy your awesome document!  Don't forget to cite the original authors in your caption.
+	</ol>
+
+	<br> <br>
+	<center><tt>`` ''</tt> &ndash;LaTeX</center>
+    </body>
+</html>

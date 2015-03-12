@@ -1,0 +1,122 @@
+<html>
+    <head>
+	<title>A primer for localizing Link Grammar</title>
+	<link rel="stylesheet" href="../style.css">
+    </head>
+    <body style="width:650px; text-align:justify; margin-left:auto; margin-right:auto; line-height:135%">
+	<br>
+	<!-- <center>
+	    <img src="latex.png" alt="How do I do X in LaTeX?">
+	</center> -->
+	<h1>A Primer for Localizing Link Grammar</h1>
+
+	Every so often I get asked "How do I start a Link Grammar project for my language?"
+	This page seeks to answer that question.
+
+
+	<h2>Step 1: Read the <a href="http://en.wikipedia.org/wiki/Link_grammar">Wikipedia article on Link Grammar</a></h2>
+
+	It's a nice, short introduction.<!-- I'm really biased here :-) -->
+	Pay attention especially to the sections "Syntax" and "Examples", and make sure you understand everything in the example 1.
+
+
+	<h2>Step 2: Download and install the <a href="http://www.abisource.com/projects/link-grammar/#download">Link Grammar parser</a></h2>
+
+	If you use Debian or Ubuntu, you can just run this command instead: <tt>sudo apt-get install link-grammar link-grammar-dictionaries-en</tt> .
+	If you encounter difficulty with this step, contact your local systems administrator.
+
+	After installing it, you should be able to try it out with the English version, by running the command <tt>link-grammar</tt> (or <tt>./link-parser</tt>), then type a small English sentence at the prompt.
+
+
+	<h2>Step 3: Copy the English grammar files, and adapt them</h2>
+	If you downloaded the <tt>.tar.gz</tt> file directly, the English grammar files are under the directory <tt>data</tt>, then <tt>en</tt>.  
+	If you downloaded link-grammar from your package manager (on Debian or Ubuntu), they are located at <tt>/usr/share/link-grammar/en/</tt> .
+	Copy the <tt>en</tt> directory to a new directory named the language you're working on.
+	Now you should be able to run the link-grammar parser using this new language name: <tt>link-grammar <i>your_new_language</i></tt> (or <tt>./link-parser <i>your_new_language</i></tt>).
+	<p>
+	The most important file that you will be dealing with is "<tt>4.0.dict</tt>" .  Rename this existing (English) file to <tt>4.0.dict.english</tt> (so you can refer to it later if you need to) and start a new one by the same name.
+
+	<h2>Step 4: Start a tiny grammar file</h2>
+	Begin by writing just two rules, so that you can parse a simple subject-verb sentence.  Target a small sentence in your language like "horses run".
+	<p>
+	Remember the syntax section in the Wikipedia article?  Now you'll be using that information.
+
+	<h3>Subject-Verb Languages</h3>
+	If your language has subjects before verbs (such as <a href="http://en.wikipedia.org/wiki/Subject_Verb_Object">SVO</a> or <a href="http://en.wikipedia.org/wiki/Subject_Object_Verb">SOV</a>), then you can construct a small grammar like this:
+
+	<pre>
+"horses.nnp" "cows.nnp" "lawyers.nnp":	% These are plural nouns
+S+;
+
+"run.vb" "sneeze.vb" "dance.vb":	% These are (intransitive) verbs
+S- &amp; {W-};
+
+LEFT-WALL: W+;				% See below for an explanation
+	</pre>
+	This says that nouns should look to the right (indicated by the "+") to form a subject link (<tt>S</tt>), and that verbs should look to the left to form a subject link.  The <tt>W</tt> link connects to the top-most word in the sentence (usually an auxiliary verb, or if this is not present, a regular verb.
+
+	<p>
+	Now try parsing a sentence:
+	<pre>
+linkparser&gt; horses run
+Found 1 linkage (1 had no P.P. violations)
+        Unique linkage, cost vector = (UNUSED=0 DIS=0 AND=0 LEN=1)
+
+     +----S---+
+     |        |
+horses.nnp run.vb
+	</pre>
+
+	<h3>Verb-Subject Languages</h3>
+	If your language has verbs before subjects (such as <a href="http://en.wikipedia.org/wiki/Verb_Subject_Object">VSO</a>), then you can construct a small grammar like this:
+
+	<pre>
+"horses.nnp" "cows.nnp" "lawyers.nnp":	% These are plural nouns
+S-;
+
+"run.vb" "sneeze.vb" "dance.vb":	% These are (intransitive) verbs
+S+ &amp; {W-};
+
+LEFT-WALL: W+;				% See below for an explanation
+	</pre>
+	This says that nouns should look to the left (indicated by the "-") to form a subject link (<tt>S</tt>), and that verbs should look to the right to form a subject link.  The <tt>W</tt> link connects to the top-most word in the sentence (usually an auxiliary verb, or if this is not present, a regular verb.
+
+	<pre>
+linkparser&gt; run horses
+Found 1 linkage (1 had no P.P. violations)
+    Unique linkage, cost vector = (UNUSED=0 DIS=0 AND=0 LEN=0)
+
+    +----W---+----S---+
+    |        |        |
+LEFT-WALL run.vb horses.nnp
+	</pre>
+
+
+	<h2>Step 5: Expand your grammar file</h2>
+	Now you can expand your grammar file by adding links involving objects, determiners, etc.
+	I recommend that you put all your <a href="http://en.wikipedia.org/wiki/Function_word">function words</a> (a.k.a. stop words, such as "the", "you", "and") within the <tt>4.0.dict</tt> file, and you put all your <a href="http://en.wikipedia.org/wiki/Content_word">content words</a> (nouns, verbs, adjectives, and adverbs) in separate files.
+
+	<h2>Dealing with Morphology</h2>
+	The link-grammar parser has a very basic mechanism for dealing with inflexional morphemes, but you might need to preprocess your input.  One way to deal with morphologically-rich languages is to first use a real morphological analyzer to separate inflexional morphemes so that they look like separate words, then have your link-grammar localization link the morphemes together like you would for separate words.
+
+
+	<h2>Other Recommendations</h2>
+	I recommend that you always surround the entry for each word with double-quotes, and always add a part-of-speech tag as well.  Thus the entry for <i>horse</i> would be <tt>"horse.nn"</tt> .
+	<p>
+	Use the square brackets <tt><b>[...]</b></tt> very sparingly.
+	<p>
+	Also keep a running list of each new link you create, at the top of the grammar file, with a short description, and maybe even a short example sentence or phrase.  You'll eventually forget what some of the links are there for.
+	<p>
+	You can create a file containing all the sentences that you have already successfully parsed, one sentence per line.  Then when you add a new link, you can re-run this file to make sure your new link doesn't break other constructions.  This is similar to a regression test in software engineering.  The link-grammar parser accepts standard shell input techniques like <tt>link-grammar <i>your_new_language</i> &lt; test_sentences.txt</tt>
+	<p>
+	A general bit of advice, backup your <tt>4.0.dict</tt> file often, and occasionally to a different physical locations.
+	<p>
+	The developers of the Link Grammar parser have generously released the parser under a Free/open source license.  Consider doing the same, so that other speakers of your language can benefit.
+	<p>
+	While this doesn't cover everything, it should get you started.  Happy hacking!
+
+
+
+
+    </body>
+</html>

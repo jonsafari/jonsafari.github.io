@@ -1,0 +1,15 @@
+@incollection{jadidi-etal2010,
+ author    = {Amir Hossein Jadidinejad and  Fariborz Mahmoudi and Jon Dehdari},
+ title     = {Evaluation of {P}erstem: A Simple and Efficient Stemming Algorithm for {P}ersian},
+ booktitle = {Multilingual Information Access Evaluation I. Text Retrieval Experiments},
+ editor    = {Carol Peters and Giorgio Di Nunzio and Mikko Kurimo and Thomas Mandl and Djamel Mostefa and Anselmo Pe{\~n}as and Giovanna Roda},
+ year      = {2010},
+ volume    = {6241},
+ publisher = {Springer},
+ address   = {Heidelberg, Germany},
+ series    = {Lecture Notes in Computer Science},
+ pages     = {98--101},
+ isbn      = {978-3-642-15753-0},
+ url       = {http://dx.doi.org/10.1007/978-3-642-15754-7_11},
+}
+

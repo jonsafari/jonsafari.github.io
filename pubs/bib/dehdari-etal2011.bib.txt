@@ -1,0 +1,11 @@
+@inproceedings{dehdari-etal2011,
+ author    = {Jon Dehdari  and  Lamia Tounsi  and  van Genabith, Josef},
+ title     = {Morphological Features for Parsing Morphologically-rich Languages: A Case of {A}rabic},
+ booktitle = {Proceedings of the Second Workshop on Statistical Parsing of Morphologically Rich Languages},
+ month     = {October},
+ year      = {2011},
+ address   = {Dublin, Ireland},
+ publisher = {Association for Computational Linguistics},
+ pages     = {12--21},
+ url       = {http://aclweb.org/anthology-new/W/W11/W11-3802.pdf},
+}

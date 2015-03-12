@@ -1,0 +1,7 @@
+@inproceedings{mehay-dehdari2012,
+ author    = {Mehay, Dennis N. and Jon Dehdari},
+ title     = {The {O}hio {S}tate {U}niversity {F}arsi-{E}nglish System Submission to {OpenMT} 2012},
+ booktitle = {Proceedings of the NIST 2012 Open Machine Translation Workshop (OpenMT 2012)},
+ year      = {2012},
+ address   = {Washington D.C., USA},
+}

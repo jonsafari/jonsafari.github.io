@@ -1,0 +1,6 @@
+@book{dehdari2008,
+ title     = {Lee and Bonnie Edwards: In Memoriam},
+ editor    = {Jon Dehdari and Carolyn Dehdari},
+ year      = {2008},
+ publisher = {Garden Path Press},
+}

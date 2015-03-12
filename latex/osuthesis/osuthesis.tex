@@ -1,0 +1,123 @@
+\documentclass[11pt,letter,oneside]{book}
+\usepackage{osuthesis}
+\usepackage{natbib}
+\usepackage{setspace}
+
+\author{Bob Smith}
+\title{The Title goes here}
+\papertype{Dissertation}
+\degree{Doctor of Philosophy}
+\dept{Underwater Basketweaving} % https://en.wikipedia.org/wiki/Underwater_basket_weaving
+\subject{Statistical Underwater Basketweaving}
+\keywords{Wicker, Brine, Container Topology}
+\committeechair{Isaac Newton}
+\committeemembera{Albert Einstein}
+\committeememberb{Foo Lano}
+%\committeememberc{SpongeBob SquarePants}
+%\committeememberd{Brutus Buckeye}
+
+\abstract{
+  This is the abstract.
+}
+
+\ack{
+  Stuff
+}
+
+\vita{
+	\begin{spacing}{1.2}
+		\begin{tabular}{ll}
+		  %%% First line may need to be a little different.
+		  %%% If the first half of first line is longer than 2.5in, then you don't need this first line.
+		  \makebox[2.5in][s]{foo \dotfill } & bar \\
+		  foo \dotfill & bar \\
+		  foo \dotfill & bar \\
+		\end{tabular}
+	\end{spacing}
+}
+
+\publications{
+	\begin{spacing}{1.2}
+		\begin{description}
+			\item Lorem, Ipsum, Dolor Sit, and Amet Consectetur. 2020. Adipisicing elit.  In {\it Sed do eiusmod}, 1--15. Rome, Roman Empire.
+			\item ...
+		\end{description}
+	\end{spacing}
+}
+
+\studyfields{
+  Stuff
+}
+
+\begin{document}
+\frontmatter
+
+\chapter{Introduction}
+hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello
+
+hello hello hello hello hello\footnote{foobar} hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello
+
+\section{Foo section}
+hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello
+
+hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello
+
+hello hello hello hello hello\footnote{foobar} hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello
+
+\begin{table}
+\begin{center}
+\begin{tabular}{|l|l|}
+\hline
+Foo & 42 \\
+\hline
+\end{tabular}
+\end{center}
+\caption{Example table}
+\label{eg-table}
+\end{table}
+
+hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello
+
+
+\chapter{Foo chapter}
+hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello
+
+\begin{figure}
+\begin{center}
+Hi there
+%%% For charts and figures, PDF's are best, JPG's are worst
+%\includegraphics[width=0.8\textwidth]{chart.pdf}
+\end{center}
+\caption{Example figure}
+\label{eg-figure}
+\end{figure}
+
+hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello \citep{newton-etal2015}
+
+
+
+
+
+%%% The Bibliography
+\cleardoublepage
+\begin{spacing}{1.25}
+% Change bibliography style to suit your department (but apalike is good)
+\bibliographystyle{apalike}
+\phantomsection % The fact that this is necessary is disturbing
+\addcontentsline{toc}{chapter}{References}
+% You need a file named, say, "mybib.bib" for your BibTeX references
+\bibliography{mybib}
+\end{spacing}
+
+
+%%% Appendices
+\clearpage
+\phantomsection
+\addcontentsline{toc}{chapter}{Appendices}
+\appendix
+\chapter{Sample Appendix}
+hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello
+hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello
+
+
+\end{document}

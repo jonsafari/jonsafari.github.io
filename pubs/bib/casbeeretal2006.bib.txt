@@ -1,0 +1,15 @@
+@incollection{casbeer-etal2007,
+ author    = {Warren Casbeer and Jon Dehdari and Deryle Lonsdale},
+ title     = {A Link Grammar Parser for {A}rabic},
+ booktitle = {Perspectives on Arabic Linguistics},
+ editor    = {Mustafa A. Mughazy},
+ year      = {2007},
+ volume    = {20},
+ publisher = {John Benjamins},
+ address   = {Kalamazoo, MI, USA},
+ series    = {Current Issues in Linguistic Theory},
+ pages     = {233--244},
+ isbn      = {978-90-272-4805-3},
+ doi       = {10.1075/cilt.290},
+}
+

@@ -1,0 +1,75 @@
+\documentclass[11pt]{article}
+
+\usepackage{mathpazo}
+\usepackage{setspace}
+%\usepackage{natbib}
+%\usepackage{tipa}
+\usepackage{graphicx}
+%\usepackage{amsmath}
+\usepackage{amssymb}
+%\usepackage[dvipsnames]{color}
+%\usepackage{cancel}
+%\usepackage[normalem]{ulem}
+%\usepackage{qtree}
+%\usepackage{linguex}
+%\renewcommand{\refdash}{}
+%\usepackage{tree-dvips}
+%\usepackage{cgloss}
+%\usepackage{txfonts}
+%\usepackage{times}
+\usepackage{units}
+%\usepackage{avm}
+\usepackage{color}
+\definecolor{darkblue}{rgb}{0,0,.45}
+\definecolor{blue}{rgb}{0,0,.6}
+\definecolor{maroon}{rgb}{.4,0,0}
+\definecolor{lightgrey}{rgb}{.7,.7,.7}
+\usepackage[pdfborder=0 0 0, colorlinks=true, linkcolor=darkblue, urlcolor={blue}]{hyperref}
+\usepackage[vmargin=1.2in, hmargin=1.2in, a4paper]{geometry}
+%\addtolength{\topmargin}{-0.75in}
+%\addtolength{\textheight}{1.00in}
+
+%\bibliographystyle{lsalikealt}
+
+\newcommand{\bss}{\char`\\\hspace{-.45ex}\char`\\} % Stupid backslash, esp. in code
+\newcommand{\bs}{\char`\\} % Stupid backslash, esp. in code
+\newcommand{\code}[1]{{\texttt{{\color{lightgrey}\raisebox{.45ex}{$\ulcorner$}\hspace{-.5ex}{\color{maroon}#1}\hspace{-.54ex}\raisebox{.45ex}{$\urcorner$}}}}}
+
+\title{Assignment 1}
+
+\begin{document}
+\maketitle
+%\noindent%
+%{\Large \textsc{Assignment 1} } \\[.55ex]
+%{\large \textsc{Linguistics 384} } \\[.25ex]
+
+
+\begin{spacing}{1.35}
+Your boss has given you several files that need to be modified and summarized.
+Your elite shell scripting skills will save the day!
+Develop a shell script that can achieve the goals listed below, and email Jon the final shell script.
+\textbf{Be sure to read and follow all steps}, and include lots of useful comments in the script.\footnote{Start a line with the \, \textbf{\#} \, symbol, followed by your useful comments.}
+You can work with one other person in the class on this.
+
+The files are named \texttt{file\_00.txt.gz}, \,\texttt{file\_01.txt.gz}, etc.
+
+\begin{enumerate}
+	\item Use \texttt{wget} to download all files from \url{http://languagemodel.org/classes/uds/shell_and_python_basics/hw1_files/}.
+		You can use the following command to download the files: \\
+		\begin{footnotesize}
+		\verb|for i in {00..10}; do| \\
+		\verb|  wget -c http://languagemodel.org/classes/uds/shell_and_python_basics/hw1_files/file_$i.txt.gz;| \\
+		\verb|done|
+		\end{footnotesize} \\
+		Explain in a comment line above this command what is happening here.
+	\item Use \texttt{gunzip} to uncompress each file.  Use another loop for this step.
+	\item Use \texttt{cat} to compile all uncompressed files into a single file.%\footnote{You can use \texttt{zcat} instead if you want.}
+	\item Use \texttt{iconv} to convert the text from the old-school encoding \mbox{ISO-8859-1} to modern \mbox{UTF-8}.
+	\item Convert all uppercase letters to lowercase.
+	\item Use \texttt{grep} to find out how many lines contain ``Twitter''.  There is a command-line argument to grep that will simply tell you how many lines match, rather than print the lines that match.  Also find out how many lines contain ``Google'' and ``Facebook''.
+	\item Find out what the top 10 most fequent words are that \emph{start} with ``euro''.  Find out the top 10 words \emph{ending} in ``platz''.
+\end{enumerate}
+
+\end{spacing}
+%\bibliography{localbib}
+\end{document}

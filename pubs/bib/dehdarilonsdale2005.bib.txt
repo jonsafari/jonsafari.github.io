@@ -1,0 +1,12 @@
+@incollection{dehdari-lonsdale2008,
+ author    = {Jon Dehdari and Deryle Lonsdale},
+ title     = {A Link Grammar Parser for {P}ersian},
+ year      = {2008},
+ booktitle = {Aspects of Iranian Linguistics},
+ editor    = {Simin Karimi and Vida Samiian and Don Stilo},
+ volume    = {1},
+ publisher = {Cambridge Scholars Press},
+ isbn      = {9781847186393},
+ url       = {http://jon.dehdari.org/pubs/dehdari_lonsdale_2005.pdf}
+}
+
