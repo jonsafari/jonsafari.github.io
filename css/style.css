@@ -295,27 +295,51 @@ header nav a.icon {
   background-position: 12px 11px;
   background-repeat: no-repeat;
 }
+h2.icon {
+  padding-left: 38px;
+  background-position: 6px 30px;
+  background-repeat: no-repeat;
+}
+/*
 header nav a.tasks {
   background-image: url("../images/icons/tasks.png");
 }
+*/
+header nav a.star {
+  background-image: url("../images/icons/user-bookmarks-symbolic.png");
+}
+h2.star {
+  background-image: url("../images/icons/user-bookmarks-symbolic.png");
+}
 header nav a.papers {
+  background-image: url("../images/icons/view-paged-symbolic.png");
+}
+h2.papers {
   background-image: url("../images/icons/view-paged-symbolic.png");
 }
 header nav a.book {
   background-image: url("../images/icons/view-dual-symbolic.png");
 }
-header nav a.star {
-  background-image: url("../images/icons/user-bookmarks-symbolic.png");
+h2.book {
+  background-image: url("../images/icons/view-dual-symbolic.png");
 }
 header nav a.download {
+  background-image: url("../images/icons/document-save-symbolic.png");
+}
+h2.download {
   background-image: url("../images/icons/document-save-symbolic.png");
 }
 header nav a.messages {
   background-image: url("../images/icons/messages.png");
 }
+h2.messages {
+  background-image: url("../images/icons/messages.png");
+}
+/*
 header nav a.settings {
   background-image: url("../images/icons/settings.png");
 }
+*/
 header nav li.active a, header nav a:active {
   padding-right: 16px;
   background-color: #1b2b32;
