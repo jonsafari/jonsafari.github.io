@@ -1,0 +1,102 @@
+\documentclass[11pt]{article}
+
+\usepackage{mathpazo}    % For Palatino font (incl. math chars.)
+\usepackage{setspace}    % For spacing variation such as double space, etc.
+\usepackage{natbib}      % For complex bibliography stuff
+\usepackage{qtree}       % For trees
+\usepackage{linguex}     % For linguistic glosses
+%\usepackage{tree-dvips} % For drawing lines/arrows between two points
+\usepackage{txfonts}     % For Times font (incl. math chars.)
+\usepackage{times}       % For Times font
+\usepackage{tipa}        % For Phonetic characters
+\usepackage{avm}         % For HPSG-style Attribute Value Matrices
+\usepackage{stmaryrd}    % For semantic-y [[...]]
+%\usepackage[margin=1.50in]{geometry}
+
+\addtolength{\topmargin}{-0.9in}
+\addtolength{\textheight}{1.4in}
+
+\title{ \LaTeX{} for linguists }
+\author{Jon Dehdari}
+\bibliographystyle{apalike}
+
+\begin{document}
+\maketitle
+\begin{spacing}{1.2}
+
+\section{Introduction}
+\LaTeX{} makes nice looking documents.  By default it does \textsc{Justified Margins}, which looks \emph{really} professional.  It also does \textbf{hyphenation} really well, which is much \underline{harder} to do than it would \textsl{seem}, which is why other programs don't enable hyphenation by default.
+
+
+\section{Methods}
+We'll talk about linguistic glosses, phonetic characters, trees, AVM's, and semantic/logic symbols.
+
+
+\subsection{Gloss example}
+\ex.
+I am going to the store.
+
+
+\exg.
+Hem i wokbaot olsem krab \\
+He \textsc{Pred} {walk about} {all same} crab \\
+`He walks like a crab.'
+
+
+\subsection{Phonetics example}
+We can see in Penguinese \textipa{[k\super w\ae{}:k\textcorner]} ``stale raisin bread'', compared with English \textipa{/steIl "\*reIz1n brEd/}.
+
+
+\subsection{Tree example}
+Doing trees with qtree is just like bracketing sentences.\footnote{Remember to pad each bracket with a space on both sides.}
+
+\ex.
+\Tree[.S [.NP [.Det the ] [.N dogs ] ] [.VP [.V eat ] [.NP [.N food ] ] ] ]
+
+
+
+\subsection{AVM example}
+\begin{avm}
+\[
+SUBJ & \[ PERS & 3 \\
+          NUM  & SG \\
+	  \] \\
+PRED & \< NP$_{\@1}$, S:\@2 \>\\
+...
+\]
+\end{avm}
+
+
+\subsection{Semantics/Logic example}
+\ex. $ (G \rightarrow E) \lor (G \land \neg C)  $ \hfill 4, UI
+
+$\llbracket$ginocchi$\rrbracket$ is not $\llbracket$gnocchi$\rrbracket$ 
+
+$$\langle \alpha , \beta \rangle \in \Omega \leftrightarrow \forall x \exists y ( x \neq y ) $$
+
+
+\section*{Results}
+Here's a table:\footnote{I actually just made this up.}
+
+\begin{center}
+
+\begin{tabular}{|l|l|l|}
+\hline
+Red  &  Green  &  Blue \\
+\hline
+\hline
+% I don't know what happened to the other 1%
+33\% &  33\%   &  33\% \\
+\hline
+\end{tabular}
+
+\end{center}
+
+
+\section{Discussion}
+As we have seen in the previous table, $ 33 + 33 + 33 = 100$ for large values of 33.
+
+
+\end{spacing}
+%\bibliography{mybib}
+\end{document}
