@@ -1,20 +1,44 @@
 <html>
     <head>
 	<title>LaTeX hints</title>
-	<link rel="stylesheet" href="../style.css">
+	<link rel="stylesheet" href="../css/style.css">
+    <link rel="icon" type="image/png" href="../images/icons/favicon.png">
     </head>
-    <body style="width:650px; text-align:justify; margin-left:auto; margin-right:auto; line-height:135%">
-	<br>
+
+	<body>
+  <header>
+    <div class="container">
+      <h1><a href="../index.html">Jon Dehdari</a></h1>
+      <nav>
+        <ul>
+          <li class="active"><a href="index.html#interests" class="icon star">Interests</a></li>
+          <li><a href="../index.html#publications" class="icon papers">Publications</a></li>
+          <li><a href="../index.html#software-and-data" class="icon download">Software & Data</a></li>
+          <li><a href="../teaching/" class="icon book">Teaching</a></li>
+          <li><a href="../index.html#contact" class="icon messages">Contact Me</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+
+  <br/><br/>
 	<center>
 	    <img src="latex.png" alt="How do I do X in LaTeX?">
-        </center>
+    </center>
+  <br/><br/>
+	</div>
+
+	<div class="section">
 	<h2>How do I do <b>squiggly lines</b> in LaTeX?</h2>
 	<pre>
 \usepackage[normalem]{ulem}	% Part of the standard distribution
 ...
 \uwave{text goes here}
 	</pre>
+	</div>
 
+	<div class="section">
 	<h2>How do I do <b>strikethrough lines</b> in LaTeX?</h2>
 	For normal text,
 	<pre>
@@ -30,7 +54,9 @@
 ...
 \cancel{math text goes here}
 	</pre>
+	</div>
 
+	<div class="section">
 	<h2>How do I <b>use my favorite TrueType font (TTF)</b> in LaTeX?</h2>
 	Use the command <tt><a href="http://en.wikipedia.org/wiki/Xetex">xelatex</a></tt> &nbsp; &ndash; which is a part of TeXLive, MikTeX, and MacTeX &ndash; and in the preamble add the following:
 	<pre>
@@ -38,13 +64,17 @@
 \setmainfont{Arial Unicode}	% For example
 	</pre>
 	This also works for OpenType fonts (OTF), which is a superior format.
+	</div>
 
+	<div class="section">
 	<h2>How do I do hanging/<a href="http://en.wikipedia.org/wiki/Text_figures">old-style</a> numbers in LaTeX?</h2>
 	You can get them by using Palatino, one of the finest and most mature fonts available.  However, avoid the <tt>palatino</tt> package itself.
 	<pre>
 \usepackage[osf]{mathpazo}	% Mathpazo package includes accompanying math fonts
 	</pre>
+	</div>
 
+	<div class="section">
 	<h2>How do I draw <a href="http://en.wikipedia.org/wiki/Dependency_grammar">dependency</a> arrows in LaTeX?</h2>
 	One way is to use the <tt><a href="http://www.ctan.org/tex-archive/help/Catalogue/entries/tree-dvips.html">tree-dvips</a></tt> package, part of the texlive-humanities package in Debian/Ubuntu.  Unfortunately you'll need to run the old-fashioned <tt>latex</tt>, <tt>dvipdf</tt> sequence since it depends on PostScript code.
 	<pre>
@@ -57,14 +87,18 @@
 \anodecurve[t]{eats}{food}{1.2em}
 	</pre>
 	<center><img src="deps.png" alt="Dependency arrows with tree-dvips"></center>
+	</div>
 
+	<div class="section">
 	<h2>How do I get <b><a href="http://en.wikipedia.org/wiki/Arg_max">argmax</a></b> in LaTeX formulas?</h2>
 	<pre>
 \DeclareMathOperator*{\argmax}{arg\,max}   % In your preamble
 ...
 \argmax_{...}                              % In your formula
 	</pre>
+	</div>
 
+	<div class="section">
 	<h2>How do I get <em>really really</em> small fonts in LaTeX?</h2>
 	For a font smaller than <tt>\tiny</tt> (or larger than <tt>\Huge</tt>), add the following in your preample:
 	<pre>
@@ -95,7 +129,9 @@
 ...
 \teeny{Really small text here, with math $\alpha_i$}
 	</pre>
+	</div>
 
+	<div class="section">
 	<h2>How do I get bold Greek letters in math mode?</h2>
 		This is one of the lamest quirks about LaTeX 2&epsilon;.  Anyways, here's the sad answer:
 	<pre>
@@ -107,7 +143,9 @@ $\boldsymbol{\lambda}$
 		<pre>
 $\pmb{\sum}$
 		</pre>
+	</div>
 
+	<div class="section">
 	<h2>How do I prevent a linguistic gloss from getting split across pages?</h2>
 	<!-- See also http://tex.stackexchange.com/questions/4471/unbreakable-block -->
 	Use the <tt>samepage</tt> environment around the whole block.
@@ -119,7 +157,9 @@ $\pmb{\sum}$
     \end{samepage}
 	</pre>
 	The above example uses the <a href="http://www.ctan.org/pkg/linguex">Linguex</a> package, but the <tt>samepage</tt> environment should work for others as well.
+	</div>
 
+	<div class="section">
 	<h2>How do I do multi-line comments or verbatims?</h2>
 	<pre>
 \usepackage{verbatim}	% Part of the standard distribution
@@ -131,7 +171,9 @@ This is another comment
 \end{comment}
 	</pre>
 	The <a href="http://www.ctan.org/pkg/verbatim">verbatim</a> package also supports multiple line verbatims, using the <tt>verbatim</tt> environment.
+	</div>
 
+	<div class="section">
 	<h2>How do I do use the <a href="http://www.ctan.org/pkg/verbatim">verbatim</a> package in <a href="https://en.wikipedia.org/wiki/Beamer_(LaTeX)">Beamer</a>?</h2>
 	Set your frame to fragile:
 	<pre>
@@ -145,7 +187,9 @@ This is another comment
 \end{frame}
 
 	</pre>
+	</div>
 
+	<div class="section">
 	<h2>How do I do <a href="https://en.wikipedia.org/wiki/Hanging_indent">hanging indents</a>?</h2>
 	The easiest way is to use the <tt>description</tt> environment, with argumentless items:
 	<pre>
@@ -154,7 +198,9 @@ This is another comment
   \item More text goes here
 \end{description}
 	</pre>
+	</div>
 
+	<div class="section">
 	<h2>How do I do force math-mode subscripted items underneath, in running text or in fractions?</h2>
 	Instead of the underscore <tt>_</tt> use <tt>\limits_</tt> :
 	<pre>
@@ -166,7 +212,9 @@ This is another comment
 	\end{equation}
 	</pre>
 	Use judiciously.
+	</div>
 
+	<div class="section">
 	<h2>How do I put a big "DRAFT" stamp across the first page of my document?</h2>
 	<pre>
 \usepackage[firstpage]{draftwatermark}  % Not part of the standard distribution.
@@ -174,7 +222,9 @@ This is another comment
 	Download the package at <a href="http://www.ctan.org/pkg/draftwatermark">CTAN</a> .
 	If you want the message on every page, remove the optional argument, so just <tt>\usepackage{draftwatermark}</tt> .
 	You can customize or change the message, such as <tt>\SetWatermarkText{Hi!}</tt> . See the <a href="http://mirrors.ctan.org/macros/latex/contrib/draftwatermark/draftwatermark.pdf">documentation</a> for more details.
+	</div>
 
+	<div class="section">
 	<h2>How do I produce an <a href="https://en.wikipedia.org/wiki/ISO_216">A4</a> (or <a href="https://en.wikipedia.org/wiki/Letter_(paper_size)">Letter</a>) document?</h2>
 	Current LaTeX distributions do not honor the page dimensions option (eg. <tt>a4paper</tt> or <tt>letterpaper</tt>) to your <tt>\documentclass</tt> command very well.
 	You can put the following TeX commands in your preamble:
@@ -189,7 +239,9 @@ This is another comment
 	</pre>
 	This is a great package, but it will change your default margins as well.
 	Manually adjusting the margins with this package is pretty easy; see the <a href="http://www.ctan.org/pkg/geometry">documentation</a> for details.
+	</div>
 
+	<div class="section">
 	<h2>How do I extract a <a href="https://en.wikipedia.org/wiki/Vector_graphics">vector image</a> from a PDF, to use in my LaTeX document?</h2>
 	One relatively easy way is to use <a href="http://www.inkscape.org">Inkscape</a>, an excellent Free vector graphics program.
 	<ol>
@@ -206,6 +258,7 @@ This is another comment
 		<li> Now you can use this image PDF as a normal image in your LaTeX file, using the usual <tt>\includegraphics{}</tt> command (from the <tt>graphicx</tt> package).
 		<li> Enjoy your awesome document!  Don't forget to cite the original authors in your caption.
 	</ol>
+	</div>
 
 	<br> <br>
 	<center><tt>`` ''</tt> &ndash;LaTeX</center>

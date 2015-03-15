@@ -1,11 +1,28 @@
 <html>
     <head>
 	<title>Persian NLP</title>
-	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="../css/style.css">
+	<link rel="icon" type="image/png" href="../images/icons/favicon.png">
     </head>
-    <body style="width:650px; text-align:justify; margin-left:auto; margin-right:auto; line-height:135%">
 
-[<a href="http://ling.osu.edu/~jonsafari">Home</a>]
+	<body>
+  <header>
+    <div class="container">
+      <h1><a href="../index.html">Jon Dehdari</a></h1>
+      <nav>
+        <ul>
+          <li class="active"><a href="../index.html#interests" class="icon star">Interests</a></li>
+          <li><a href="../index.html#publications" class="icon papers">Publications</a></li>
+          <li><a href="../index.html#software-and-data" class="icon download">Software & Data</a></li>
+          <li><a href="../teaching/" class="icon book">Teaching</a></li>
+          <li><a href="../index.html#contact" class="icon messages">Contact Me</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+
+<br/><br/>
 <p>
 Some Persian NLP projects of mine
 <p/>
@@ -56,6 +73,7 @@ to yeild the same result.
 
 <br/><br/><br/>
 -->
+<div class="section">
 <h4>Orthography</h4>
     You can convert the text from one character-set encoding to another, including to and from: Romanized, ArabTeX, Windows-1256, ISIRI 3342, UTF-8, and Unicode HTML numeric entities.
 <ul>
@@ -81,9 +99,11 @@ This could then be inserted into a LaTeX document as: <pre>
 </pre>
 </li>
 </ul>
+</div>
 
 
 <p>
+<div class="section">
 <h4>Morphology</h4>
 <ul>
     <li> You can morphologically analyze this directly:
@@ -124,8 +144,10 @@ and the output:
 <br/>
     </li>
 </ul>
+</div>
 
 <p>
+<div class="section">
 <h4>Syntax</h4>
 <ul>
     <li>
@@ -166,9 +188,11 @@ LEFT-WALL mn.pn ktAb.n hA.nms e.ez tu.pn rA.acc n.vmn mi.vmd bin.vp m.vmp
 <br/>
     </li>
 </ul>
+</div>
 
 
 <p>
+<div class="section">
 <h4>Further information on Perstem</h4>
 The command "perl perstem.pl --help" gives the following usage information:
 <pre>
@@ -206,6 +230,7 @@ Options:
  -z, --zwnj {0|1}       Insert Zero Width Non-Joiners where they should be (default: 1 == true)
 
 </pre>
+</div>
 
 
 
