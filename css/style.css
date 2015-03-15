@@ -44,7 +44,7 @@ div.section {
 	background: #f3f3f3;
 	padding: 15px;
 	margin: 25px;
-	border-radius: 15px;
+	border-radius: 10px;
 }
 
 pre {
@@ -59,7 +59,7 @@ pre {
 img {  border-style: none; }
 
 ul, ol {
-    padding-left: 3.5ex;
+    padding-left: 4ex;
 }
 li {
     padding-bottom: 1.5ex;
