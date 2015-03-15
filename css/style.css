@@ -43,7 +43,7 @@ h3 {
 div.section {
 	background: #f3f3f3;
 	padding: 15px;
-	margin: 25px;
+	margin: 15px;
 	border-radius: 10px;
 }
 
@@ -217,7 +217,7 @@ body {
   font-size: 14px;
   font-family: "Lucida Grande", "Lucida Sans Unicode", sans-serif;
   font-weight: normal;
-  line-height: 155%;
+  line-height: 145%;
   margin-left: auto;
   margin-right: auto;
   padding-top: 50px;
