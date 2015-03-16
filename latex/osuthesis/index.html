@@ -1,0 +1,105 @@
+<html>
+ <head>
+  <title>OSUThesis.sty</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="../../css/style.css">
+  <link rel="icon" type="image/png" href="../../images/icons/favicon.png">
+ </head>
+
+ <body>
+  <header>
+   <div class="container">
+    <h1><a href="../index.html">Jon Dehdari</a></h1>
+    <nav>
+     <ul>
+      <li class="active"><a href="../index.html#interests" class="icon star">Interests</a></li>
+      <li><a href="../index.html#publications" class="icon papers">Publications</a></li>
+      <li><a href="../index.html#software-and-data" class="icon download">Software & Data</a></li>
+      <li><a href="../teaching/" class="icon book">Teaching</a></li>
+      <li><a href="../index.html#contact" class="icon messages">Contact Me</a></li>
+     </ul>
+    </nav>
+   </div>
+  </header>
+
+  <br/><br/>
+  <h1 style="line-height:150%">OSUThesis.sty - A LaTeX Style for Ohio State University Dissertations and Theses</h1>
+
+  <a name=""><br/><br/>
+  <div class="section">
+  <h2>Files</h2>
+   <ul>
+    <li><a href="README.TXT">README.TXT</a></li> 
+    <li><a href="osuthesis.sty">osuthesis.sty</a></li> 
+    <li><a href="osuthesis.tex">osuthesis.tex</a></li> 
+    <li><a href="osuthesis.pdf">osuthesis.pdf</a></li> 
+    <li><a href="mybib.bib">mybib.bib</a></li> 
+   </ul>
+  </div>
+
+  <div class="section">
+  <h2>Your .tex file</h2>
+Make sure the first few lines of your .tex file look like:
+
+<pre>
+\documentclass[11pt,oneside]{book}
+\usepackage{osuthesis}
+
+\author{Bob Smith}
+\title{The Title goes here}
+\papertype{Dissertation}
+\degree{Doctor of Philosophy}
+\dept{Underwater Basketweaving} % https://en.wikipedia.org/wiki/Underwater_basket_weaving
+\subject{Statistical Underwater Basketweaving}
+\keywords{Wicker, Brine, Container Topology}
+\committeechair{Isaac Newton}
+\committeemembera{Albert Einstein}
+\committeememberb{Foo Lano}
+%\committeememberc{SpongeBob SquarePants}
+%\committeememberd{Brutus Buckeye}
+
+\abstract{
+  This is the abstract.
+}
+
+\ack{
+  Stuff
+}
+
+\vita{
+  Stuff
+}
+
+\publications{
+  Stuff
+}
+
+\studyfields{
+  Stuff
+}
+
+\begin{document}
+\frontmatter
+
+\chapter{Introduction}
+Stuff
+</pre>
+  </div>
+
+  <div class="section">
+   <h2>See Also</h2>
+   <ul>
+    <li><a href="http://www.gradsch.ohio-state.edu/Depo/PDF/Guidelines.pdf">OSU Grad School Official Guidelines</a></li>
+    <li><a href="http://www.gradsch.ohio-state.edu/Depo/PDF/GuidelinesSamplePages.pdf">OSU Grad School Guidelines Example</a></li>
+   </ul>
+  </div>
+
+  <div class="section">
+   <h2>License</h2>
+    (c) <a href="http://jon.dehdari.org">Jon Dehdari</a>, 2008-2014<br/>
+    The osuthesis.sty file may be used under the terms of the free <a href="https://www.latex-project.org/lppl.txt">LaTeX Project Public License</a>.
+  </div>
+
+  <br>
+ </body>
+</html>
