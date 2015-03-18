@@ -285,6 +285,7 @@ header nav li {
   padding-bottom: 0ex;
 }
 header ul {
+  list-style: none; /* suppress dot after entry in navbar */
   margin: 0px;
   padding: 0px;
   border: 0px;
