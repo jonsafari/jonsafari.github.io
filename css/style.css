@@ -4,7 +4,7 @@ a, abbr, acronym, address, big, cite, code,
 del, dfn, em, img, ins, kbd, q, s, samp,
 small, strike, strong, sub, sup, tt, var,
 b, u, i, center,
-dl, dt, dd, ol, ul, li,
+dl, dt, dd, ul, li,
 fieldset, form, label, legend,
 table, caption, tbody, tfoot, thead, tr, th, td,
 article, aside, canvas, details, embed,
@@ -67,7 +67,7 @@ tt {
 
 img {  border-style: none; }
 
-ul, ol {
+ul {
     padding-left: 4ex;
 }
 li {
@@ -284,8 +284,7 @@ header nav li {
   float: left;
   padding-bottom: 0ex;
 }
-header ul, ol {
-  list-style: none;
+header ul {
   margin: 0px;
   padding: 0px;
   border: 0px;
