@@ -28,8 +28,8 @@ It is designed for people with no programming experience, and is practical and i
 * Office: **DFKI**: 1.11 Geb. D3.1; **FR4.6**: 1.15 Geb. A2.2
 
 ## Assignments
-* [Assignment 1](http://languagemodel.org/classes/uds/shell_and_python_basics/assignment_1.pdf)
-* [Hausarbeit / Term Paper](http://languagemodel.org/classes/uds/shell_and_python_basics/hausarbeit.pdf)
+* [Assignment 1](assignment_1.pdf)
+* [Hausarbeit / Term Paper](hausarbeit.pdf)
 
 
 # Linux Shell
@@ -37,7 +37,7 @@ It is designed for people with no programming experience, and is practical and i
 * and its full PDF book: <http://sourceforge.net/projects/linuxcommand/files/latest/download?source=files>
 
 ## Installation
-  * Windows Users: Install [Cygwin][], a Linux-like environment for Windows.  On the step "Select Packages", ensure that the "bin" box is checked for bash, antiword, catdoc, coreutils, dos2unix, file, findutils, gawk, git, grep, gzip, nano, pcre, pdftk, perl, poppler, python3, sed, tar, unzip, wget, xz, zip
+  * Windows Users: Install [Cygwin][], a Linux-like environment for Windows.  On the step "Select Packages", ensure that the "bin" box is checked for antiword, catdoc, dos2unix, git, grep, gzip, nano, pcre, pdftk, perl, poppler, python3, unzip, wget, xz, zip
   * Mac Users: Go to [Applications -> Utilities -> Terminal][macterminal]
   * Linux Users: You rock!  You already know what to do.
 
