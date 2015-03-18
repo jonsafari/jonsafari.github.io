@@ -152,7 +152,7 @@ It is designed for people with no programming experience, and is practical and i
 [cygwin]: http://cygwin.com
 [macterminal]: http://www.maclife.com/article/feature/terminal_tips_every_mac_usershould_know
 [frankie]: frankie.txt
-[mann1901]: mann_buddenbrooks.txt
+[mann1901]: ../../../corpora/mann_buddenbrooks.txt.xz
 [wmt2014]: http://www.statmt.org/wmt14/translation-task.html#download
 [google]: https://www.google.com
 [ddg]: https://duckduckgo.com
