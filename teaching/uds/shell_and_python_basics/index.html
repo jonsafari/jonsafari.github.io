@@ -1,0 +1,190 @@
+<p><html><!-- Markdown messes up HTML headers -->
+<head>
+    <title>Basics of Shell and Python Programming</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf8">
+</head>
+<body></p>
+
+<h1>Basics of Shell and Python Programming <br><small> for Applied Linguists </small></h1>
+
+<p><center>
+<img src="nautilus_shell.png" height=100px alt="Nautilus Shell" title="Nautilus Shell">
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+<img src="wikimedia_Python-logo-notext.svg.png" height=100px alt="Python Logo" title="Python Logo">
+</center></p>
+
+<h2>Course Description</h2>
+
+<p>This course teaches the basics of programming and working with text files.
+It is designed for people with no programming experience, and is practical and interactive.</p>
+
+<h2>Course Details</h2>
+
+<ul>
+<li>Instructor: Dr. Jon Dehdari</li>
+<li>Website: <a href="http://jon.dehdari.org/teaching/uds/shell_and_python_basics">http://jon.dehdari.org/teaching/uds/shell_and_python_basics</a></li>
+<li>Em&#1072;il: jon.dehdari ... dfki.de</li>
+<li>Time: Wednesdays 12:00 - 14:00</li>
+<li>Place: A2.2, room 214</li>
+<li>Office: <strong>DFKI</strong>: 1.11 Geb. D3.1; <strong>FR4.6</strong>: 1.15 Geb. A2.2</li>
+</ul>
+
+<h2>Assignments</h2>
+
+<ul>
+<li><a href="http://languagemodel.org/classes/uds/shell_and_python_basics/assignment_1.pdf">Assignment 1</a></li>
+<li><a href="http://languagemodel.org/classes/uds/shell_and_python_basics/hausarbeit.pdf">Hausarbeit / Term Paper</a></li>
+</ul>
+
+<h1>Linux Shell</h1>
+
+<ul>
+<li>Website: <a href="http://linuxcommand.org/lc3_learning_the_shell.php">http://linuxcommand.org/lc3_learning_the_shell.php</a></li>
+<li>and its full PDF book: <a href="http://sourceforge.net/projects/linuxcommand/files/latest/download?source=files">http://sourceforge.net/projects/linuxcommand/files/latest/download?source=files</a></li>
+</ul>
+
+<h2>Installation</h2>
+
+<ul>
+<li>Windows Users: Install <a href="http://cygwin.com">Cygwin</a>, a Linux-like environment for Windows.  On the step "Select Packages", ensure that the "bin" box is checked for bash, antiword, catdoc, coreutils, dos2unix, file, findutils, gawk, git, grep, gzip, nano, pcre, pdftk, perl, poppler, python3, sed, tar, unzip, wget, xz, zip</li>
+<li>Mac Users: Go to <a href="http://www.maclife.com/article/feature/terminal_tips_every_mac_usershould_know">Applications -> Utilities -> Terminal</a></li>
+<li>Linux Users: You rock!  You already know what to do.</li>
+</ul>
+
+<h2>Example Text Files</h2>
+
+<ul>
+<li>(Small) <a href="frankie.txt">Excerpt from Frankenstein</a></li>
+<li>(Medium) <a href="mann_buddenbrooks.txt">Thomas Mann - Buddenbrooks</a></li>
+<li>(Large) <a href="http://www.statmt.org/wmt14/translation-task.html#download">Workshop on Machine Translation (2014), Monolingual Data</a></li>
+</ul>
+
+<h2>Online Help for Commands:</h2>
+
+<ul>
+<li>Summary of commands: <a href="http://www.tldp.org/LDP/GNU-Linux-Tools-Summary/html/GNU-Linux-Tools-Summary.html">http://www.tldp.org/LDP/GNU-Linux-Tools-Summary/html/GNU-Linux-Tools-Summary.html</a></li>
+<li>Wikipedia: <a href="https://de.wikipedia.org/wiki/Unix-Kommando">Deutsch</a>, <a href="https://en.wikipedia.org/wiki/List_of_Unix_commands">English</a></li>
+<li>Online Manual of Commands: <a href="http://manpages.debian.org/cgi-bin/man.cgi?locale=de">Deutsch</a>, <a href="http://manpages.debian.org/cgi-bin/man.cgi">English</a> and other languages</li>
+<li><a href="https://www.google.com">Google</a> <em><a href="https://duckduckgo.com">et</a> <a href="https://startpage.com">al</a></em></li>
+</ul>
+
+<h2>Commands</h2>
+
+<ul>
+<li><code>ls</code> - <strong>L</strong>i<strong>s</strong>t files in current directory/folder/Verzeichnis</li>
+<li><code>man</code> - <strong>Man</strong>ual (documentation) of a command.  Also online in <a href="http://manpages.debian.org/cgi-bin/man.cgi?locale=de">Deutsch</a> &amp; <a href="http://manpages.debian.org/cgi-bin/man.cgi">English</a>.  These are usually referred to as "man pages"</li>
+<li><code>--help</code> - Common command argument to show quick help</li>
+<li><code>pwd</code> - <strong>P</strong>rint <strong>w</strong>orking <strong>d</strong>irectory (folder)</li>
+<li><code>cd</code> - <strong>C</strong>hange to a new <strong>d</strong>irectory.  "<strong>.</strong>" (without quotes) represents your current directory, and "<strong>..</strong>" represents the parent directory</li>
+<li><code>mv</code> - <strong>M</strong>o<strong>v</strong>e or rename a file/Datei</li>
+<li><code>cp</code> - <strong>C</strong>o<strong>p</strong>y a file</li>
+<li><code>mkdir</code> - <strong>M</strong>a<strong>k</strong>e a new <strong>dir</strong>ectory (folder)</li>
+<li><code>rm</code> - <strong>R</strong>e<strong>m</strong>ove (delete) a file. Use <code>rmdir</code> for empty directories</li>
+<li><code>cat</code> - Con<strong>cat</strong>enate (show) a file</li>
+<li><code>more</code> - Show a text file one screen at a time.  Use the spacebar to go down, <code>q</code> to quit</li>
+<li><code>head</code> - Show the first few lines of a text file</li>
+<li><code>tail</code> - Show the last few lines of a text file</li>
+<li><code>dos2unix</code> - Convert a Windows-formatted text file to Unix format</li>
+<li><code>unix2dos</code> - Vice versa</li>
+<li><code>nano</code> - Simple text editor</li>
+<li><code>antiword</code> - Convert Word document to plaintext file</li>
+<li><code>catdoc</code> - Like <code>antiword</code></li>
+<li><code>pdftk</code> - Useful tool for working with PDFs.  For example, to join two files: <code>pdftk file1.pdf file2.pdf cat output new.pdf</code>.  You can also split, extract specific pages, rotate, encrypt/decrypt, fill-in PDF forms. </li>
+<li><code>echo</code> - Display a message.  For example, <code>echo 'hello world'</code></li>
+<li><code>gzip</code> - Compress a file (also: <code>zip</code>, <code>xz</code>)</li>
+<li><code>gunzip</code> - Uncompress a file (also: <code>unzip</code>, <code>unxz</code>)</li>
+<li><code>zcat</code> - Display a compressed file (also: <code>xzcat</code>)</li>
+<li><code>wc</code> - Count the number of characters, words, and lines of a text file.  <code>--max-line-length</code> is also useful</li>
+<li><code>diff</code> - Show differences between two text files</li>
+<li><code>sort</code> - Sort the lines of a text file</li>
+<li><code>shuf</code> - Shuffle (randomize) the lines of a text file</li>
+<li><code>uniq</code> - Merge repeated lines in a text file (or with <code>--count</code>: show number of repeated lines. Useful on sorted input)</li>
+<li><code>cut</code> - Extract a column from a text file</li>
+<li><code>paste</code> - Merge multiple columns from different text files</li>
+<li><code>grep</code> - Search for a given pattern in a text file.  <a href="https://www.gnu.org/software/grep/manual/grep.html#Command_002dline-Options">Useful arguments</a>: <code>-r</code>, <code>-i</code>, <code>-c</code>, <code>-e</code>, <code>-v</code>, <code>-o</code>, <code>-w</code> (spells <em>ricevow</em> :-)</li>
+<li><code>pcregrep</code> - Like <code>grep</code> but more advanced.  See below for a handout on pattern matching (regular expressions).</li>
+<li><code>tr</code> - Substitute characters in a text file</li>
+<li><code>perl -p -e</code> - Advanced substitutions/replacements in a text file</li>
+<li><code>wget</code> - Download a file from the web</li>
+<li><code>iconv</code> - Convert text from one encoding to another (eg. <a href="https://en.wikipedia.org/wiki/ISO/IEC_8859-1">ISO-8859-1</a> to <a href="https://en.wikipedia.org/wiki/UTF-8">UTF-8</a>)</li>
+<li><code>fortune</code> - Try it and see!</li>
+<li><code>clear</code> - Clear the screen (but it doesn't clean your monitor :-)</li>
+<li><code>history</code> - See what you've been typing in your shell</li>
+<li><code>exit</code> - Exit command-line shell</li>
+</ul>
+
+<h3>Pattern Matching with Regular Expressions</h3>
+
+<ul>
+<li><a href="regex_handout.pdf">Regex Handout</a></li>
+</ul>
+
+<h2><a href="https://en.wikibooks.org/wiki/Bash_Shell_Scripting">Shell Scripting</a></h2>
+
+<ul>
+<li><code>command1 | command2</code> - Pipe: Make the output of one command as the input to another command</li>
+<li><code>command &gt; output.txt</code> - Redirect the output of a command into a file</li>
+<li><code>command &gt;&gt; output.txt</code> - Append the output of a command to the end of a (possibly already existing) file</li>
+<li><code>command1 &amp;&amp; command2</code> - Only do <code>command2</code> if <code>command1</code> is successful (no errors)</li>
+<li><code>command1 || command2</code> - Do <code>command2</code> regardless of whether <code>command1</code> is successful</li>
+<li><code>x=42</code>  - Save the value 42 to a variable <code>x</code>.  You can use the variable later as <code>$x</code></li>
+<li><code>if [...] command fi</code> - Do <code>command</code> if the thing in square brackets is true</li>
+<li><code>for x in a b c d; do command; done</code> - Loop (wiederholt) over list <code>a b c d</code>, doing <code>command</code> each time</li>
+</ul>
+
+<h1>Python 3</h1>
+
+<ul>
+<li><a href="http://www.afterhoursprogramming.com/tutorial/Python/Introduction">http://www.afterhoursprogramming.com/tutorial/Python/Introduction</a></li>
+<li><a href="https://en.wikibooks.org/wiki/Non-Programmer%27s_Tutorial_for_Python_3/Print_version">Wikibook Non-Programmer's Tutorial for Python 3</a></li>
+<li><a href="https://docs.python.org/3">Official Python Documentation</a></li>
+</ul>
+
+<h2>Einführungen auf Deutsch</h2>
+
+<ul>
+<li><a href="http://www.thomas-guettler.de/vortraege/python/einfuehrung.html">Python, Programmieren macht Spaß</a></li>
+<li><a href="http://www.python-kurs.eu/python3_kurs.php">Python-Kurs</a>
+<!-- http://www.pdfbooksplanet.org/development-and-programming/24602-einfhrung-in-python-3-in-einer-woche-programmieren-lernen.html --></li>
+<li><a href="https://books.google.de/books?id=xpGqBAAAQBAJ&amp;pg=PP1&amp;hl=de">Buch: „Einführung in Python 3“</a></li>
+</ul>
+
+<h1>Useful Translations: English - Deutsch</h1>
+
+<h2>Keys &amp; Symbols - Tasten u. Symbole</h2>
+
+<ul>
+<li><code>@</code> at sign - das At-Zeichen / die Klammeraffe</li>
+<li><code>#</code> hash / pound / number sign - die Raute / das Doppelkreuz</li>
+<li><code>^</code> caret - das Einfügezeichen / das Caret-Zeichen</li>
+<li><code>&amp;</code> ampersand / and - das Et-Zeichen / das Und-Zeichen / das Kaufmannsund</li>
+<li><code>*</code> asterisk / star / times - das Sternchen</li>
+<li><code>-</code> dash / hyphen / minus - der Bindestrich</li>
+<li><code>|</code> pipe / vertical bar - der senkrechte Strich</li>
+<li><code>/</code> slash / forward slash - der Schrägstrich</li>
+<li><code>\</code> backslash - der Backslash / der Rückstrich</li>
+<li><code>:</code> colon - der Doppelpunkt / das Kolon</li>
+<li><code>;</code> semicolon - der Strichpunkt / das Semikolon</li>
+<li><code>~</code> tilde - die Tilde</li>
+<li><code>_</code> underscore - der Unterstrich</li>
+<li><code>( )</code> parentheses - Runde Klammern</li>
+<li><code>[ ]</code> square brackets - Eckige Klammern</li>
+<li><code>{ }</code> curly brackets - Geschweifte/geschwungene Klammern</li>
+<li><code>&lt; &gt;</code> less-than sign / greater-than sign - Kleiner-als-Zeichen / Größer-als-Zeichen</li>
+<li>control key - die Steuerungstaste</li>
+<li>tab key - der Tabulator</li>
+</ul>
+
+<h2>Programming Concepts - Programmierkonzepte</h2>
+
+<ul>
+<li>assignment - Zuweisung</li>
+<li>conditional statement - bedingte Anweisung</li>
+<li>loop - Schleife</li>
+<li>string - Zeichenkette</li>
+<li>integer - Ganze Zahl</li>
+<li>scope - Umfang</li>
+</ul>
+
+<p></body>
+</html></p>
