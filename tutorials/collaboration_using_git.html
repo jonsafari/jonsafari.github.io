@@ -1,0 +1,120 @@
+<html>
+ <head>
+  <title>Research Collaboration using Git</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="icon" type="image/png" href="../images/icons/favicon.png">
+ </head>
+
+ <body>
+  <header>
+   <div class="container">
+    <h1><a href="../index.html">Jon Dehdari</a></h1>
+    <nav>
+     <ul>
+      <li class="active"><a href="../index.html#interests" class="icon star">Interests</a></li>
+      <li><a href="../index.html#publications" class="icon papers">Publications</a></li>
+      <li><a href="../index.html#software-and-data" class="icon download">Software & Data</a></li>
+      <li><a href="../teaching/" class="icon book">Teaching</a></li>
+      <li><a href="../index.html#contact" class="icon messages">Contact Me</a></li>
+     </ul>
+    </nav>
+   </div>
+  </header>
+
+  <br><br><br>
+  <center><a href="https://git-scm.com"><img src="../images/logos/git_logo_320px.png"  alt="Git Logo" width=40%></a></center>
+  <br><br><br><br>
+
+  <h1>Research Collaboration using Git</h1>
+
+  <a name="git"><br/><br/>
+  <div class="section">
+	  <h2>Git</h2>
+	  Git is a popular software for version control and collaboration.
+	  It tracks changes and helps you synchronize files across multiple computers.
+	  Using branches it's easy to try out crazy experimental changes and see if they work out.
+	  <p>
+	  If you don't know how to use it, well, now's a good time to learn!
+	  Here are some useful links to help you learn:
+	  <ul>
+		  <li><a href="http://git-scm.com/book/en/v2">Pro Git Book</a> - An excellent free book in multiple formats, translated into many languages</li>
+		  <li><a href="http://git-scm.com/doc">Official Documentation</a>, including videos</li>
+		  <li><a href="https://en.wikipedia.org/wiki/Git_(software)">Wikipedia Overview</a></li>
+		  <li><a href="https://training.github.com/kit/downloads/github-git-cheat-sheet.pdf">Git Cheatsheet</a></li>
+		  <li><a href="https://en.wikibooks.org/wiki/Git/Introduction">Wikibooks intro</a></li>
+	  </ul>
+
+	  <p>
+	  In addition to having your Git repository (repo) on your own computer, you can have your repo hosted on several different sites, including Github, Bitbucket, and Gitlab.
+	  You can synchronize between the repo on your computer and on a third-party site.
+	  Since your Git repo contains a full history, it's not very important (technologically) which website, if any, you use.
+	  They each have pluses and minuses.
+  </div>
+
+  <a name="public_repos">
+  <div class="section">
+	  <h2>Public Code</h2>
+	  <a href="https://github.com">Github</a> is a very popular site to share your software code.
+	  Think of it as a social network for programmers.
+	  You can have an unlimited number of <i>public</i> Git repositories, but you must pay for any <i>private</i> repos.
+	  <p>
+	  You can create a repo called <tt><i>yourusername</i>.github.io</tt> , and put web pages in that repo.
+	  It will then be accessible as <tt>http://<i>yourusername</i>.github.io</tt>
+	  Each software repo of yours can also have an <a href="https://help.github.com/articles/creating-project-pages-manually">accompanying website</a>, using a new branch called <tt>gh-pages</tt>.
+	  The project's website will then be <tt>http://<i>yourusername</i>.github.io/<i>projectname</i></tt>
+  </div>
+
+  <a name="private_repos">
+  <div class="section">
+	  <h2>Private Paper and Experimental Results</h2>
+	  Both <a href="https://bitbucket.org">Bitbucket</a> and <a href="https://about.gitlab.com/gitlab-com">Gitlab</a> allow you to have unlimited free <i>private</i> repos.
+        Bitbucket is more popular, but limits the number of people you can share your <i>private</i> repos to 5 people, then you must pay.  Gitlab has no such restrictions, but it less popular.
+		<p>
+        For example, let's say that your username is <tt>myusername</tt>, your repo is named <tt>lm-paper</tt> and you have a collaborator named Bob, who has a Bitbucket ID of <tt>bobusername</tt> :
+		<ol>
+			<li>First send an invitation of your private repo to your collaborator(s) (see top-right box "Invite users to this repo").  Then have them also share their fork back with you.  In your own repo, type:</li>
+			<li><tt>git remote add bob https://myusername@bitbucket.org/bobusername/lm-paper.git</tt></li>
+			<li><tt>git remote -v</tt></li>
+			<li><tt>git fetch bob</tt></li>
+			<li><tt>git merge bob/master</tt></li>
+			<li><tt>git push</tt></li>
+		</ol>
+  </div>
+
+  <a name="readme">
+  <div class="section">
+	  <h2>Readme Files</h2>
+	  Your Git repo should always include two files: <tt>README.md</tt> and <tt>LICENSE.txt</tt> .
+	  <p>
+	  The <tt>README.md</tt> file gives an overview of your Git project, including the software name, how to install/compile, command-line usage, copyright, etc.
+	  The <tt>.md</tt> suffix indicates that it is in the Markdown format, which is like plaintext, but includes some simple additions to make it look nice in your web browser.  Here is the <a href="https://en.wikipedia.org/wiki/Markdown">Wikipedia article on Markdown</a>
+	  <p>
+	  The <tt>LICENSE.txt</tt> file tells others how they can use your software.
+	  If you don't specify a license, then you're not granting the right for others to use your code.
+	  Consider using a <a href="https://en.wikipedia.org/wiki/Free_software#Licensing">Free</a> software license to encourage others to use and build upon your software.
+  </div>
+
+  <a name="large_files">
+  <div class="section">
+	  <h2>Large Data Files</h2>
+	  Really large data files should not be in a Git repo.
+	  Instead, you can use related tools like <a href="https://git-lfs.github.com">Git-LFS</a> or <a href="http://www.git-annex.org">Git-Annex</a>.
+	  These tools will <i>track</i> changes to the file, but they won't <i>store</i> the file within the Git repo itself.
+	  The Git repo will store the fact that a given large data file has changed, and help you to easily synchronize data changes across computers.
+  </div>
+
+	<br>
+	<br>
+	<div class="section">
+		<center>
+			<font size="-3">
+				<i>
+					I'm an egotistical bastard, and I name all my projects after myself. First Linux, now git.<br>
+					<div style="float:right">&ndash;Linus Torvalds&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div><br>
+				</i>
+			</font>
+		</center>
+	</div>
+ </body>
+</html>
