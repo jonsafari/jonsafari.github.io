@@ -61,10 +61,27 @@
 		<li>Installation<br>
 			Moses runs in the command-line.  This is no problem if your computer runs Linux or Mac OSX.  If your computer runs Windows, you will need to first install <a href="https://cygwin.com">Cygwin</a>.
 		<ul>
-			<li><a href="http://www.statmt.org/moses/RELEASE-3.0/binaries/">Binary Packages</a> - The Windows version depends on <a href="https://cygwin.com">Cygwin</a>.  The place the Moses files in the Cygwin folder (often <tt>c:\cygwin64\home\<i>username</i></tt> )</li>
+			<li>
+				<a href="http://www.statmt.org/moses/RELEASE-3.0/binaries/">Binary Packages</a> - The Windows version depends on <a href="https://cygwin.com">Cygwin</a>.<br>
+				After you install Cygwin (or if you run Linux or OSX), you can type the following commands to install Moses: <br>
+				<pre>
+wget -c http://www.statmt.org/moses/RELEASE-3.0/binaries/cygwin-64bit/cygwin-64bit.tgz
+tar zxvf cygwin-64bit.tgz
+mv cygwin-64bit moses
+				</pre>
+			</li>
 			<li><a href="http://www.statmt.org/moses/RELEASE-3.0/vm/">Virtual Machine Files</a> - This is the simplest method of installing Moses, but the file is 8 GB!</li>
 			<li><a href="http://www.statmt.org/moses/?n=Development.GetStarted">Compilation</a></li>
 		</ul>
+		After you install Moses you can try it out on a very small sample dataset:
+		<pre>
+cd moses
+wget -c http://www.statmt.org/moses/download/sample-models.tgz
+tar zxvf sample-models.tgz
+cd sample-models
+~/moses/bin/moses -f phrase-model/moses.ini < phrase-model/in | tee out
+		</pre>
+		The above command will take the sentence in the file <tt>in</tt>, which is »<i>das ist ein kleines haus</i>«, and translate it to English "<i>this is a small house</i>" in the file <tt>out</tt> .
 		</li>
 		<li>Machine Translation Overview</li>
 		<ul>
