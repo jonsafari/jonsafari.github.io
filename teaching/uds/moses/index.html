@@ -57,8 +57,10 @@
 	<h2>Outline</h2>
 	<p>
 	<ol>
-		<li>Course Organization</li>
-		<li>Installation<br>
+		<li><b>Course Organization</b></li>
+
+
+		<li><b>Installation</b><br>
 			Moses runs in the command-line.  This is no problem if your computer runs Linux or Mac OSX.  If your computer runs Windows, you will need to first install <a href="https://cygwin.com">Cygwin</a>.
 		<ul>
 			<li>
@@ -83,7 +85,9 @@ cd sample-models
 		</pre>
 		The above command will take the sentence in the file <tt>in</tt>, which is »<i>das ist ein kleines haus</i>«, and translate it to English "<i>this is a small house</i>" in the file <tt>out</tt> .
 		</li>
-		<li>Machine Translation Overview</li>
+
+
+		<li><b>Machine Translation Overview</b></li>
 		<ul>
 			<li><a href="http://static.lingenio.de/Publikationen/Eberle_Integration_JLCL09.pdf">Überblick über maschinelle Übersetzung</a> - Read all of section 1, sections 2.1-2.3.1, all of section 3.   CoLi student are strongly encouraged to get <a href="http://statmt.org/book/">this book</a></li>
 		<!--
@@ -94,22 +98,97 @@ cd sample-models
 		<li><a href="http://www.specgram.com/CLII.4/09.phlogiston.cartoon.iv.html">Silly, artificial illustration of statistical machine translation</a></li>
 		<li>Concepts: source language (<i>s</i> or <i>f</i>), target language (<i>t</i> or <i>e</i>), parallel text, Vauquois pyramid, fluency &amp; fidelity
 		</ul>
-		<li>Noisy Channel Model<br>
+		<li><b>Noisy Channel Model</b><br>
 			<ul>
 				<li>Concepts: encoding/decoding, probability, prior &amp; posterior probabilities </li>
 				<li>Applications: machine translation, speech recognition, spellchecking, <a href="https://en.wikipedia.org/wiki/Optical_character_recognition">OCR</a>, many others</li>
 				<li><img src="noisy_channel.png" alt="Noisy Channel Model Formula"></li>
 			</ul>
 		</li>
-		<li><a href="/tutorials/lm_overview.pdf">Language Models</a>
+
+
+		<li><b>Install and Prepare Text Corpora</b><br>
+			The following is adapted from the <a href="http://www.statmt.org/moses/manual/manual.pdf">Moses documentation</a>:
+			<ol>
+				<li>Create a directory/folder to store your corpora (text files)
+					<pre>
+mkdir ~/corpora
+					</pre>
+				</li>
+
+<li>Go to that directory
+<pre>
+cd ~/corpora
+</pre>
+		</li>
+
+		<li> Download a big parallel corpus
+<pre>
+wget -c http://www.statmt.org/wmt15/training-parallel-nc-v10.tgz
+</pre>
+</li>
+
+<li> Unzip the compressed corpus
+<pre>
+tar zxvf training-parallel-nc-v10.tgz
+</pre>
+</li>
+
+<li> Tokenize data (separate punctuation from words)
+<pre>
+~/moses/scripts/tokenizer/tokenizer.perl -l de \
+  < news-commentary-v10.de-en.de \
+  > news-commentary-v10.de-en.tok.de
+~/moses/scripts/tokenizer/tokenizer.perl -l en \
+  < news-commentary-v10.de-en.en \
+  > news-commentary-v10.de-en.tok.en
+</pre>
+</li>
+
+<li> Train a <a href="https://en.wikipedia.org/wiki/Truecasing">Truecaser</a>.  This helps Moses know which words should have an uppercase first letter, like nouns in German
+<pre>
+~/moses/scripts/recaser/train-truecaser.perl \
+  --model truecase-model.de \
+  --corpus news-commentary-v10.de-en.tok.de
+~/moses/scripts/recaser/train-truecaser.perl \
+  --model truecase-model.en \
+  --corpus news-commentary-v10.de-en.tok.en
+</pre>
+</li>
+
+<li> <a href="https://en.wikipedia.org/wiki/Truecasing">Truecase</a> the input data, so that words are in their normal case.  For example "Das" -&gt; "das"
+<pre>
+~/moses/scripts/recaser/truecase.perl \
+  --model truecase-model.de \
+  < news-commentary-v10.de-en.tok.de \
+  > news-commentary-v10.de-en.tok.truecase.de
+~/moses/scripts/recaser/truecase.perl \
+  --model truecase-model.en \
+  < news-commentary-v10.de-en.tok.en \
+  > news-commentary-v10.de-en.tok.truecase.en
+</pre>
+</li>
+			</ol>
+		</li>
+
+
+		<li><b><a href="/tutorials/lm_overview.pdf">Language Models</b></a>
 			<ul>
 				<li>Concepts: bigram, trigram, &amp; <i>n</i>-gram, history, perplexity, backoff, interpolation</li>
 			</ul>
 		</li>
-		<li>Word Alignment</li>
-		<li>Phrase-based MT</li>
-		<li>Hierarchical MT</li>
-		<li>Computer-aided Translation
+
+
+		<li><b>Word Alignment</b></li>
+
+
+		<li><b>Phrase-based MT</b></li>
+
+
+		<li><b>Hierarchical MT</b></li>
+
+
+		<li><b>Computer-aided Translation</b>
 		<ul>
 			<li>Translation Memory</li>
 			<li>Post-editing</li>
