@@ -65,7 +65,7 @@
 			Moses runs in the command-line.  This is no problem if your computer runs Linux or Mac OSX.  If your computer runs Windows, you will need to first install <a href="https://cygwin.com">Cygwin</a>.
 		<ul>
 			<li>
-				<a href="http://www.statmt.org/moses/RELEASE-3.0/binaries/">Binary Packages</a> - The Windows version depends on <a href="https://cygwin.com">Cygwin</a>.<br>
+				<a href="http://www.statmt.org/moses/RELEASE-3.0/binaries/">Binary Packages</a> - The Windows version depends on <a href="https://cygwin.com">Cygwin</a>.  While installing Cygwin, be sure to include the following software packages: wget (web), cmake (devel), gcc-core (devel), git (devel?), libboost-thread, and libboost-system.<br>
 				After you install Cygwin (or if you run Linux or OSX), you can type the following commands to install Moses: <br>
 				<pre>
 wget -c http://www.statmt.org/moses/RELEASE-3.0/binaries/cygwin-64bit/cygwin-64bit.tgz
@@ -73,7 +73,7 @@ tar zxvf cygwin-64bit.tgz
 mv cygwin-64bit moses
 				</pre>
 			</li>
-			<li><a href="http://www.statmt.org/moses/RELEASE-3.0/vm/">Virtual Machine Files</a> - This is the simplest method of installing Moses, but the file is 8 GB!</li>
+			<li><a href="http://www.statmt.org/moses/RELEASE-3.0/vm/">Virtual Machine Files</a> - This method requires installation of a <a href="https://www.virtualbox.org">virtual machine</a>, and the file is 8 GB!</li>
 			<li><a href="http://www.statmt.org/moses/?n=Development.GetStarted">Compilation</a></li>
 		</ul>
 		After you install Moses you can try it out on a very small sample dataset:
@@ -184,6 +184,7 @@ tar zxvf training-parallel-nc-v10.tgz
 			<ul>
 				<!-- <li>Concepts: </li> -->
 				<li><a href="http://people.csail.mit.edu/koehn/publications/tutorial2003.pdf">Overview</a>, slides 17-30</li>
+				<li><a href="http://statmt.org/book/slides/04-word-based-models.pdf">Additional slides</a></li>
 				<li>Download the word alignment program <a href="https://github.com/moses-smt/mgiza">MGIZA</a>:
 					<pre>cd ~/moses</pre>
 					<pre>wget https://github.com/moses-smt/mgiza/archive/master.zip</pre>
@@ -192,6 +193,7 @@ tar zxvf training-parallel-nc-v10.tgz
 				<li>Unzip the file
 					<pre>unzip mgiza.zip</pre>
 					<pre>mv mgiza-master mgiza</pre>
+					<pre>cd mgiza/mgizapp</pre>
 				</li>
 				<li>Compile the program.  You first need <tt>cmake</tt> and <tt>gcc</tt> (or clang)
 					<pre>cmake .</pre>
