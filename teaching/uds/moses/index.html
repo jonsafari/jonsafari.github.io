@@ -183,6 +183,34 @@ tar zxvf training-parallel-nc-v10.tgz
 		<li><b>Word Alignment</b></li>
 
 
+
+		<li><b>Moses <a href="http://www.statmt.org/moses/?n=FactoredTraining.EMS">Experiment Management System</a></b>
+			<ol>
+				<li>Download the <a href="moses_ems_nc10.conf">example configuration file</a>: <br>
+<pre>
+cd ~/corpora
+wget http://jon.dehdari.org/teaching/uds/moses/moses_ems_nc10.conf
+</pre>
+				</li>
+				<li>Edit the configuration file: <br>
+					<ol>
+						<li><pre>nano moses_ems_nc10.conf</pre></li>
+						<li>Change the first few lines according to your computer's setup</li>
+						<li>Type <tt>Ctrl/Strg</tt> + <tt>o</tt>  to save the file </li>
+						<li>Type <tt>Ctrl/Strg</tt> + <tt>x</tt>  to exit the Nano text editor
+						</li>
+					</ol>
+				</li>
+				<li>Do a dry run (Probelauf): <br>
+					<pre>~/moses/scripts/ems/experiment.perl -config moses_ems_nc10.conf</pre>
+				</li>
+				<li>Do a real Moses run: <br>
+					<pre>~/moses/scripts/ems/experiment.perl -config moses_ems_nc10.conf  -exec</pre>
+				</li>
+			</ol>
+		</li>
+
+
 		<li><b>Phrase-based MT</b></li>
 
 
