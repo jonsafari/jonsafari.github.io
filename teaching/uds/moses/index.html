@@ -180,7 +180,25 @@ tar zxvf training-parallel-nc-v10.tgz
 		</li>
 
 
-		<li><b>Word Alignment</b></li>
+		<li><b>Word Alignment</b>
+			<ul>
+				<!-- <li>Concepts: </li> -->
+				<li><a href="http://people.csail.mit.edu/koehn/publications/tutorial2003.pdf">Overview</a>, slides 17-30</li>
+				<li>Download the word alignment program <a href="https://github.com/moses-smt/mgiza">MGIZA</a>:
+					<pre>cd ~/moses</pre>
+					<pre>wget https://github.com/moses-smt/mgiza/archive/master.zip</pre>
+					<pre>mv master.zip mgiza.zip</pre>
+				</li>
+				<li>Unzip the file
+					<pre>unzip mgiza.zip</pre>
+					<pre>mv mgiza-master mgiza</pre>
+				</li>
+				<li>Compile the program.  You first need <tt>cmake</tt> and <tt>gcc</tt> (or clang)
+					<pre>cmake .</pre>
+					<pre>make -j 4</pre>
+				</li>
+			</ul>
+		</li>
 
 
 
