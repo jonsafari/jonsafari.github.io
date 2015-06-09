@@ -62,11 +62,21 @@
 
 
 		<li><b>Installation</b><br>
-			Moses runs in the command-line.  This is no problem if your computer runs Linux or Mac OSX.  If your computer runs Windows, you will need to first install <a href="https://cygwin.com">Cygwin</a>.
+			Moses runs in the command-line.  This is no problem if your computer runs <b>Linux</b>.  If you run <b>Mac OSX</b>, the only change you need to make is instead of the command <tt>wget</tt>, run the command <tt>curl -O</tt>.  If your computer runs <b>Windows</b>, you will need to first install <a href="https://cygwin.com">Cygwin</a>.
 		<ul>
 			<li>
-				<a href="http://www.statmt.org/moses/RELEASE-3.0/binaries/">Binary Packages</a> - The Windows version depends on <a href="https://cygwin.com">Cygwin</a>.  While installing Cygwin, be sure to include the following software packages: wget (web), cmake (devel), gcc-core (devel), git (devel?), libboost-thread, and libboost-system.<br>
-				After you install Cygwin (or if you run Linux or OSX), you can type the following commands to install Moses: <br>
+				<a href="http://www.statmt.org/moses/RELEASE-3.0/binaries/">Binary Packages</a> - The Windows version depends on <a href="https://cygwin.com">Cygwin</a>.  After you have installed Cygwin, an easy way to install new packages is to first run the following (once): <br>
+				<pre>
+echo 'alias cyg-get="/cygdrive/c/cygwin64/setup-x86_64.exe -q -P "' >> ~/.bashrc
+source ~/.bashrc
+</pre>
+				Then install the following packages, thus: <br>
+				<pre>
+cyg-get gcc-core, gcc-g++, git, libboost_thread, libboost_system, libboost-devel
+cyg-get wget, zip, unzip, graphviz, imagemagick, gv, make, cmake, automake
+</pre>
+
+				Now, for either Cygwin, Linux, or OSX, you can type the following commands to install Moses: <br>
 				<pre>
 wget -c http://www.statmt.org/moses/RELEASE-3.0/binaries/cygwin-64bit/cygwin-64bit.tgz
 tar zxvf cygwin-64bit.tgz
