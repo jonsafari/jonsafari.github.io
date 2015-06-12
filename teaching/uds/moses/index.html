@@ -198,19 +198,25 @@ tar zxvf dev-v2.tgz
 				<li><a href="http://people.csail.mit.edu/koehn/publications/tutorial2003.pdf">Overview</a>, slides 17-30</li>
 				<li><a href="http://statmt.org/book/slides/04-word-based-models.pdf">Additional slides</a></li>
 				<li>Download the word alignment program <a href="https://github.com/moses-smt/mgiza">MGIZA</a>:
-					<pre>cd ~/moses</pre>
-					<pre>wget https://github.com/moses-smt/mgiza/archive/master.zip</pre>
-					<pre>mv master.zip mgiza.zip</pre>
+					<pre>
+cd ~/moses
+wget https://github.com/moses-smt/mgiza/archive/master.zip
+mv master.zip mgiza.zip
+					</pre>
 				</li>
 				<li>Unzip the file
-					<pre>unzip mgiza.zip</pre>
-					<pre>mv mgiza-master mgiza</pre>
-					<pre>cd mgiza/mgizapp</pre>
+					<pre>
+unzip mgiza.zip
+mv mgiza-master mgiza
+cd mgiza/mgizapp
+					</pre>
 				</li>
 				<li>Compile the program.  You first need <tt>cmake</tt> and <tt>gcc</tt> (or clang)
-					<pre>cmake .</pre>
-					<pre>make -j 4</pre>
-					<pre>cp scripts/*.{sh,py,pl} bin/</pre>
+					<pre>
+cmake .
+make -j 4
+cp scripts/*.{sh,py,pl} bin/
+					</pre>
 				</li>
 			</ul>
 		</li>
