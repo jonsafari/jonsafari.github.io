@@ -262,7 +262,10 @@ wget http://jon.dehdari.org/teaching/uds/moses/moses_ems_nc10.conf
 					<pre>~/moses/scripts/ems/experiment.perl -config moses_ems_nc10.conf</pre>
 				</li>
 				<li>Do a real Moses run: <br>
-					<pre>~/moses/scripts/ems/experiment.perl -config moses_ems_nc10.conf  -exec</pre>
+					<pre>nice ~/moses/scripts/ems/experiment.perl -config moses_ems_nc10.conf -exec</pre>
+				</li>
+				<li>The last command can take several hours to run, so you can just leave it running overnight.
+					The output of a test set will be in the file: <tt>~/corpora/evaluation/newstest2009.truecased.<i>number</i></tt> .
 				</li>
 			</ol>
 		</li>
