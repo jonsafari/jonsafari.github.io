@@ -236,12 +236,21 @@ make -j 4
 cp scripts/*.{sh,py,pl} bin/
 					</pre>
 				</li>
+				<li>After running EMS (below), here is a sample alignment from the dataset, in <tt>~/corpora/training/giza.1/en-de.A3.final.gz</tt>:
+					<pre>
+elected parliaments do not own our liberties .
+NULL ({ }) gewählte ({ 1 }) Parlamente ({ 2 }) besitzen ({ 5 }) unsere ({ 6 }) Freiheiten ({ 7 }) nicht ({ 3 4 }) . ({ 8 })
+					</pre>
+					<br>
+					<img src="aligned_example.png" width="95%" alt="word alignment illustration">
+					<br>
+				</li>
 			</ul>
 		</li>
 
 
 
-		<li><b>Moses <a href="http://www.statmt.org/moses/?n=FactoredTraining.EMS">Experiment Management System</a></b>
+		<li><b>Moses <a href="http://www.statmt.org/moses/?n=FactoredTraining.EMS">Experiment Management System</a> (EMS)</b>
 			<ol>
 				<li>Download the <a href="moses_ems_nc10.conf">example configuration file</a>: <br>
 <pre>
