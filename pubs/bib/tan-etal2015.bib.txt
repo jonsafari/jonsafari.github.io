@@ -1,0 +1,8 @@
+@inproceedings{tan-etal2015,
+ author    = {Tan, Liling  and  Dehdari, Jon  and  van Genabith, Josef},
+ title     = {An Awkward Disparity between {BLEU} / {RIBES} Scores and Human Judgements in Machine Translation},
+ booktitle = {Proceedings of the Workshop on Asian Translation (WAT-2015)},
+ month     = {October},
+ year      = {2015},
+ address   = {Kyoto, Japan},
+}
