@@ -2,7 +2,9 @@
  author    = {Tan, Liling  and  Dehdari, Jon  and  van Genabith, Josef},
  title     = {An Awkward Disparity between {BLEU} / {RIBES} Scores and Human Judgements in Machine Translation},
  booktitle = {Proceedings of the Workshop on Asian Translation (WAT-2015)},
- month     = {October},
  year      = {2015},
+ month     = {October},
  address   = {Kyoto, Japan},
+ pages     = {74--81},
+ url       = {http://orchid.kuee.kyoto-u.ac.jp/WAT/papers/submissions/W15/W15-5009.pdf},
 }
