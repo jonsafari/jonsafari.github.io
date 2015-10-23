@@ -1,0 +1,41 @@
+\documentclass{beamer}
+
+\usepackage{verbatim}
+\usepackage{xcolor} % See documentation PDF at http://www.ctan.org/pkg/xcolor
+\definecolor{darkgreen}{rgb}{0,0.3,0}
+
+
+\setbeamertemplate{section in toc}[sections numbered]
+\setbeamertemplate{subsection in toc}[subsections numbered]
+\setbeamertemplate{subsubsection in toc}[subsubsections numbered]
+\usetheme{Singapore}
+
+\newcommand{\code}[1]{{\color{darkgreen}\texttt{#1}}}
+
+
+\begin{document}
+
+\title{Formal Models of Language: \\[1.0em] \small{Possibilities}}
+\author{\href{http://jon.dehdari.org}{Jon Dehdari}}
+\frame{\titlepage}
+
+\section{Overview}
+\begin{frame}{Introduction}
+hi
+\end{frame}
+
+% Formal language
+% Formal grammar: grammar, automaton
+% Chomsky Hierarchy
+% ?? complexity in time and memory
+% weak & strong generative capacity
+% applications of knowing this stuff
+% Some relevant formal languages for natural languages
+% Finite language: constant time (through hashing), constant memory (duh)
+% Regular language: fixed history: linear time, constant memory.  Regular grammars can actually do alot
+% DCF lang: full history, as long as unambiguous: linear time, log^2(n) memory
+% CF lang: full history, can be ambiguous, allow center-embedding: about n^3 time (basic), ?? mem
+% MCS lang: same, allows full reduplication (cross-serial deps) and a^n b^n c^n d^n: n^6 time. TAG, CCG, LIG, Head Grammars, 
+% Recursively enumerable langs: allows any string that a computer (eg. Turing machine, untyped \lambda calculus, MLP) can generate
+
+\end{document}
