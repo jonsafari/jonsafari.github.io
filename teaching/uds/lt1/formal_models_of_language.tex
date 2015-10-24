@@ -3,6 +3,7 @@
 \usepackage{verbatim}
 \usepackage{xcolor} % See documentation PDF at http://www.ctan.org/pkg/xcolor
 \definecolor{darkgreen}{rgb}{0,0.3,0}
+\usepackage{tikzsymbols}
 
 
 \setbeamertemplate{section in toc}[sections numbered]
@@ -25,17 +26,208 @@ hi
 \end{frame}
 
 % Formal language
+\begin{frame}{Formal Languages}
+\begin{block}{}
+\begin{itemize}
+	\item Once Upon a Time...
+	\pause
+	\item Mathematicians started to think about language...
+	\pause
+	\item They used ideas from logic to represent linguistic objects...
+	\pause
+	\item They had a craaaazy idea... \\
+	\pause
+	\begin{center}
+	\includegraphics[width=0.6\textwidth]{images/doc_brown_strings.jpg}
+	\end{center}
+\end{itemize}
+\end{block}
+\end{frame}
+
+
+\begin{frame}{Strings}
+\begin{block}{What's a String?}
+\begin{itemize}
+	\item A \textbf{string} in this context is just a sequence of letters
+	\pause
+	\item A \textbf{formal language} ($L$) is a subset of all the possible strings
+	\pause
+	\item An \textbf{alphabet} ($\Sigma$) here is a set of all the letters in the language
+	\pause
+	\item Alphabets and letters don't need to correspond to writing systems used for natural languages
+	\pause
+	\item For example,\\
+	\begin{center}
+	{\Large \{ \Smiley[][cyan], \Springtree, \Snowman \}}\\
+	\end{center}
+	is a perfectly valid alphabet for a formal language
+\end{itemize}
+\end{block}
+\end{frame}
+
+
 % Formal grammar: grammar, automaton
-% Chomsky Hierarchy
-% ?? complexity in time and memory
+\begin{frame}{Formal Grammar}
+\begin{block}{}
+\begin{itemize}
+	\item A formal grammar is a way of telling what a valid string is in a formal language
+	\item Formal grammars can also generate valid strings
+	\item 
+\end{itemize}
+\end{block}
+\end{frame}
+
+
 % weak & strong generative capacity
+\begin{frame}{Generative Capacity}
+\begin{block}{}
+\begin{description}
+	\item[Weak Generative Capacity]
+	\item[Strong Generative Capacity] 
+\end{description}
+\end{block}
+\end{frame}
+
+
+% Chomsky Hierarchy
+\begin{frame}{Formal Language Hierarchy}
+\begin{center}
+\begin{tabular}{|ll|}
+\hline
+& Formal Language \\
+\hline
+\hline
+& Non-Turing-acceptable\\
+\hline
+0: & Recursively enumerable \\
+\hline
+& Recursive/\,Decidable \\
+\hline
+1: & Context-sensitive \\
+\hline
+& Indexed \\
+\hline
+& Mildly context-sensitive \\
+\hline
+2: & Context-free \\
+\hline
+& Deterministic context-free \\
+\hline
+3: & Regular \\
+\hline
+& Finite \\
+\hline
+\end{tabular}
+\end{center}
+\end{frame}
+
+
 % applications of knowing this stuff
-% Some relevant formal languages for natural languages
-% Finite language: constant time (through hashing), constant memory (duh)
+\begin{frame}{Why is this Stuff Relevant??}
+\begin{block}{}
+\begin{itemize}
+	\item Knowing what types of formal languages a grammar/automaton can generate \& accept will give you an idea of what phenomena in natural languages that they can handle
+	\pause
+	\item For example: long-distance dependencies, complex reordering in machine translation, reduplication, etc.
+	\pause
+	\item You can also get an idea of how fast or slow it will take for a computer (or human) to process sequential stuff (like natural language!)
+\end{itemize}
+\end{block}
+\end{frame}
+
+
+\begin{frame}{Relevant Formal Languages for Dealing with Natural Languages}
+\begin{block}{}
+\begin{itemize}
+	\item 
+	\item 
+	\item 
+\end{itemize}
+\end{block}
+\end{frame}
+
+
+\begin{frame}{Finite Languages}
+\begin{block}{}
+\begin{itemize}
+	\item All of the 
+	\item Time: constant (through hash-table lookup)
+	\item Memory: constant (duh)
+\end{itemize}
+\end{block}
+\end{frame}
+
+
 % Regular language: fixed history: linear time, constant memory.  Regular grammars can actually do alot
+\begin{frame}{}
+\begin{block}{}
+\begin{itemize}
+	\item 
+	\item 
+	\item 
+\end{itemize}
+\end{block}
+\end{frame}
+
+
 % DCF lang: full history, as long as unambiguous: linear time, log^2(n) memory
+\begin{frame}{}
+\begin{block}{}
+\begin{itemize}
+	\item 
+	\item 
+	\item 
+\end{itemize}
+\end{block}
+\end{frame}
+
+
 % CF lang: full history, can be ambiguous, allow center-embedding: about n^3 time (basic), ?? mem
+\begin{frame}{}
+\begin{block}{}
+\begin{itemize}
+	\item 
+	\item 
+	\item 
+\end{itemize}
+\end{block}
+\end{frame}
+
+
 % MCS lang: same, allows full reduplication (cross-serial deps) and a^n b^n c^n d^n: n^6 time. TAG, CCG, LIG, Head Grammars, 
+\begin{frame}{}
+\begin{block}{}
+\begin{itemize}
+	\item 
+	\item 
+	\item 
+\end{itemize}
+\end{block}
+\end{frame}
+
+
 % Recursively enumerable langs: allows any string that a computer (eg. Turing machine, untyped \lambda calculus, MLP) can generate
+\begin{frame}{}
+\begin{block}{}
+\begin{itemize}
+	\item 
+	\item 
+	\item 
+\end{itemize}
+\end{block}
+\end{frame}
+
+
+
+\begin{frame}{}
+\begin{block}{}
+\begin{itemize}
+	\item 
+	\item 
+	\item 
+\end{itemize}
+\end{block}
+\end{frame}
+
 
 \end{document}
