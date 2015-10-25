@@ -16,13 +16,17 @@
 
 \begin{document}
 
-\title{Formal Models of Language: \\[1.0em] \small{Possibilities}}
+\title{Formal Models of Language \\[1.5em]
+ \includegraphics[width=0.5\textwidth]{images/kitten_string_flickr_albaraa.jpg} \\[-1.0em]
+ %\small{Possibilities} \\[1.0em]
+ %LT1 \\[1.0em]
+ }
 \author{\href{http://jon.dehdari.org}{Jon Dehdari}}
 \frame{\titlepage}
 
 \section{Overview}
 \begin{frame}{Introduction}
-hi
+Hi
 \end{frame}
 
 % Formal language
@@ -56,11 +60,11 @@ hi
 	\pause
 	\item Alphabets and letters don't need to correspond to writing systems used for natural languages
 	\pause
-	\item For example,\\
+	\item For example, this set:\\
 	\begin{center}
-	{\Large \{ \Smiley[][cyan], \Springtree, \Snowman \}}\\
+	{\LARGE \{ \Smiley[][cyan], \Springtree, \Snowman \}}\\
 	\end{center}
-	is a perfectly valid alphabet for a formal language
+	is a perfectly valid alphabet for a formal language. \pause But we usually use boring symbols like \{a, b, c\}
 \end{itemize}
 \end{block}
 \end{frame}
@@ -71,20 +75,13 @@ hi
 \begin{block}{}
 \begin{itemize}
 	\item A formal grammar is a way of telling what a valid string is in a formal language
-	\item Formal grammars can also generate valid strings
-	\item 
-\end{itemize}
-\end{block}
-\end{frame}
-
-
+	\item Formal grammars can also \textbf{generate} valid strings
+	\pause
 % weak & strong generative capacity
-\begin{frame}{Generative Capacity}
-\begin{block}{}
-\begin{description}
-	\item[Weak Generative Capacity]
-	\item[Strong Generative Capacity] 
-\end{description}
+	\item If two different grammars can generate \& accept the same formal languages, then they have the same \textbf{weak generative capacity}
+	\pause
+	\item If two different grammars can generate \& accept the same structures as well, then they have the same \textbf{strong generative capacity}
+\end{itemize}
 \end{block}
 \end{frame}
 
@@ -119,6 +116,8 @@ hi
 \hline
 \end{tabular}
 \end{center}
+\pause
+\footnotesize{This is extended from the older \textit{Chomsky hierarchy}.}
 \end{frame}
 
 
