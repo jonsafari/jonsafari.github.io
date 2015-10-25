@@ -52,19 +52,19 @@ Hi
 \begin{frame}{Strings}
 \begin{block}{What's a String?}
 \begin{itemize}
-	\item A \textbf{string} in this context is just a sequence of letters
+	\item A \textbf{string} in this context is just a sequence of words
 	\pause
 	\item A \textbf{formal language} ($L$) is a subset of all the possible strings
 	\pause
-	\item An \textbf{alphabet} ($\Sigma$) here is a set of all the letters in the language
+	\item An \textbf{vocabulary} ($\Sigma$, also sometimes called \textit{alphabet}) here is a set of all the words in the language
 	\pause
-	\item Alphabets and letters don't need to correspond to writing systems used for natural languages
+	\item Words here don't need to correspond to words used for natural languages
 	\pause
 	\item For example, this set:\\
 	\begin{center}
 	{\LARGE \{ \Smiley[][cyan], \Springtree, \Snowman \}}\\
 	\end{center}
-	is a perfectly valid alphabet for a formal language. \pause But we usually use boring symbols like \{a, b, c\}
+	is a perfectly valid vocabulary for a formal language. \pause But we usually use boring symbols like \{a, b, c\}
 \end{itemize}
 \end{block}
 \end{frame}
@@ -78,9 +78,9 @@ Hi
 	\item Formal grammars can also \textbf{generate} valid strings
 	\pause
 % weak & strong generative capacity
-	\item If two different grammars can generate \& accept the same formal languages, then they have the same \textbf{weak generative capacity}
+	\item If two different grammars can generate/accept the same formal languages, then they have the same \textbf{weak generative capacity}
 	\pause
-	\item If two different grammars can generate \& accept the same structures as well, then they have the same \textbf{strong generative capacity}
+	\item If two different grammars can generate/accept the same structures as well, then they have the same \textbf{strong generative capacity}
 \end{itemize}
 \end{block}
 \end{frame}
@@ -96,7 +96,7 @@ Hi
 \hline
 & Non-Turing-acceptable\\
 \hline
-0: & Recursively enumerable \\
+0: & \bf Recursively enumerable \\
 \hline
 & Recursive/\,Decidable \\
 \hline
@@ -104,20 +104,20 @@ Hi
 \hline
 & Indexed \\
 \hline
-& Mildly context-sensitive \\
+& \bf Mildly context-sensitive \\
 \hline
-2: & Context-free \\
+2: & \bf Context-free \\
 \hline
-& Deterministic context-free \\
+& \bf Deterministic context-free \\
 \hline
-3: & Regular \\
+3: & \bf Regular \\
 \hline
-& Finite \\
+& \bf Finite \\
 \hline
 \end{tabular}
 \end{center}
 \pause
-\footnotesize{This is extended from the older \textit{Chomsky hierarchy}.}
+\footnotesize{This is extended from the older \textit{Chomsky hierarchy}. \pause We'll discuss the ones in boldface, as they're relevant to natural languages.}
 \end{frame}
 
 
@@ -135,34 +135,54 @@ Hi
 \end{frame}
 
 
-\begin{frame}{Relevant Formal Languages for Dealing with Natural Languages}
+\begin{frame}{Finite Languages}
 \begin{block}{}
 \begin{itemize}
-	\item 
-	\item 
-	\item 
+	\item In a finite language, there are a finite (ie not infinite) number of valid \textit{sentences}.
+	\item Time: constant (through hash-table lookup)
+	\item Memory: constant (duh)
+	\pause
+	\item For natural language, this would correspond to having a finite number of possible sentences
 \end{itemize}
 \end{block}
 \end{frame}
 
 
-\begin{frame}{Finite Languages}
+\begin{frame}{Are Natural Languages Finite??!!}
 \begin{block}{}
 \begin{itemize}
-	\item All of the 
-	\item Time: constant (through hash-table lookup)
-	\item Memory: constant (duh)
+	\item It sounds crazy to think that you could ever list all of the possible sentences of a natural language
+	\pause
+	\item Really, really crazy
+	\pause
+	\item But...
+	\pause
+	\item There's a big difference between a really large number and infinity
+	\pause
+	\item {\small If a natural language has a vocabulary of, say, 100 million words ...}
+	\pause
+	\item And a sentence can have, say, up to 10,000 words in it, ...
+	\pause
+	\item Then there would be $10^{80,000}$ possible sentences
+	\pause
+	\item This number sounds way too big to be practical for either humans or computers to deal with!
+	\pause
+	\item But it's much smaller than infinity.
+	\pause
+	\item Much much smaller.
+	\pause
+	\item \tiny{\href{http://people.umass.edu/~partee/726_04/lectures/Is_Language_Infinite.pdf}{(There's more discussion on the interwebs if you're interested)}}
 \end{itemize}
 \end{block}
 \end{frame}
 
 
 % Regular language: fixed history: linear time, constant memory.  Regular grammars can actually do alot
-\begin{frame}{}
+\begin{frame}{Regular Languages}
 \begin{block}{}
 \begin{itemize}
-	\item 
-	\item 
+	\item Ok, so maybe for now it's too difficult to list all possible sentences
+	\item Let's assume that the vocabulary ($\Sigma$) is still fixed (or finite), but we can generate an infinite number of sentences from this fixed vocab
 	\item 
 \end{itemize}
 \end{block}
