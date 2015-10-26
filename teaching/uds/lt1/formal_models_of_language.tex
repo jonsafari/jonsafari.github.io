@@ -194,6 +194,8 @@ Hi!
 	\item Let's assume that the vocabulary ($\Sigma$) is still fixed (or finite), but we can generate an infinite number of sentences from this fixed vocab
 	\item Regular grammars have a fixed-length history, so they're limited in the types of long-distance phenomena they can handle
 	\pause
+	\item For example: $\bf a \ a^{\prime} \ b \ b^{\prime} \ c \ c^{\prime}$
+	\pause
 	\item Processing regular languages can be done in linear time \detail{($\mathcal{O}(n)$)}, with a constant size of memory \detail{($\mathcal{O}(1)$)}
 \end{itemize}
 \end{block}
@@ -217,7 +219,7 @@ Hi!
 \begin{block}{}
 \begin{itemize}
 	\item Context-free languages include phenomena like center embedding
-	\item For example ...
+	\item For example: $\bf a \ b \ c \ c^{\prime} \ b^{\prime} \ a^{\prime}$
 	%% (use whiteboard for now to draw example)
 	\pause
 	\item Context-free grammars have a full-length history, and they can backtrack for ambiguous sentences
@@ -233,11 +235,12 @@ Hi!
 \begin{block}{}
 \begin{itemize}
 	\item Mildly context-sensitive (MCS) languages include phenomena like reduplication and cross-serial dependencies.
-	\item Example:\pause
+	\item Example: $\bf a \ b \ c \ a^{\prime} \ b^{\prime} \ c^{\prime}$
+	\pause
 	\includegraphics[width=0.80\textwidth]{images/swiss_cross_serial_deps.png}
 	%% (use whiteboard for now to draw example)
 	\pause
-	\item Processing MCS languages can be done in $\mathcal{O}(n^6)$ time, with quadratic memory usage \detail{($\mathcal{O}(n^2)$)}
+	\item Processing MCS languages can be done in about $\mathcal{O}(n^6)$ time, with quadratic memory usage \detail{($\mathcal{O}(n^2)$)}
 	\pause
 	\item Some grammar formalisms that can handle MCS languages include:
 	\begin{itemize}
@@ -256,7 +259,7 @@ Hi!
 \begin{block}{}
 \begin{itemize}
 	\item Recursively enumerable languages allow any string that a computer (or equivalent device) can generate/accept
-	\item There's no guarantee that the computer will ever stop processing the sentence \detail{$\mathcal{O}(\infty)$}
+	\item There's no guarantee that the computer will ever stop processing the sentence
 	\item Essentially any word can occur in any place in the sentence
 	\pause
 	\item Some grammar formalisms that allow recursively enumerable languages include:
