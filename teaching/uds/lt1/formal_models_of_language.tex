@@ -252,12 +252,21 @@ Hi!
 
 
 % Recursively enumerable langs: allows any string that a computer (eg. Turing machine, untyped \lambda calculus, MLP) can generate
-\begin{frame}{Recursively-Enumerable Languages}
+\begin{frame}{Recursively Enumerable Languages}
 \begin{block}{}
 \begin{itemize}
-	\item 
-	\item 
-	\item 
+	\item Recursively enumerable languages allow any string that a computer (or equivalent device) can generate/accept
+	\item There's no guarantee that the computer will ever stop processing the sentence \detail{$\mathcal{O}(\infty)$}
+	\item Essentially any word can occur in any place in the sentence
+	\pause
+	\item Some grammar formalisms that allow recursively enumerable languages include:
+	\begin{itemize}
+		\item Chomskyan grammars (due to transformations / moves)
+		\item Lexical Functional Grammar (LFG)
+		\item Head-driven Phrase Structure Grammar (HPSG)
+	\end{itemize}
+	\pause
+	\item Note that these grammar formalisms can place some restrictions on word order, but they still accept/generate recursively enumerable languages. \pause How is that so? \pause Additional grammar rules can work around such restrictions to accept/generate the string.
 \end{itemize}
 \end{block}
 \end{frame}
