@@ -6,5 +6,5 @@
  month     = {October},
  address   = {Kyoto, Japan},
  pages     = {74--81},
- url       = {http://orchid.kuee.kyoto-u.ac.jp/WAT/papers/submissions/W15/W15-5009.pdf},
+ url       = {https://www.aclweb.org/anthology/W15-5009.pdf},
 }
