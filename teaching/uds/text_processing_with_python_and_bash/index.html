@@ -67,6 +67,61 @@
   </div>
 
   <div class="section">
+    <h2>Example Text Files</h2>
+    <ul>
+    <li>Small Text: <a href="frankie.txt">Excerpt from Frankenstein</a></li>
+    <li>Medium Text: <a href="../../../corpora/mann_buddenbrooks.txt.xz">Thomas Mann - Buddenbrooks</a></li>
+	<!-- <li>(Large) <a href="http://www.statmt.org/wmt14/translation-task.html#download">Workshop on Machine Translation (2014), Monolingual Data</a></li> -->
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>Commands</h2>
+    <ul>
+    <li><code>ls</code> - <strong>L</strong>i<strong>s</strong>t files in current directory/folder/Verzeichnis</li>
+    <li><code>man</code> - <strong>Man</strong>ual (documentation) of a command.  Also online in <a href="http://manpages.debian.org/cgi-bin/man.cgi?locale=de">Deutsch</a> &amp; <a href="http://manpages.debian.org/cgi-bin/man.cgi">English</a>.  These are usually referred to as "man pages"</li>
+    <li><code>--help</code> - Common command argument to show quick help</li>
+    <li><code>pwd</code> - <strong>P</strong>rint <strong>w</strong>orking <strong>d</strong>irectory (folder)</li>
+    <li><code>cd</code> - <strong>C</strong>hange to a new <strong>d</strong>irectory.  "<strong>.</strong>" (without quotes) represents your current directory, and "<strong>..</strong>" represents the parent directory</li>
+    <li><code>mv</code> - <strong>M</strong>o<strong>v</strong>e or rename a file/Datei</li>
+    <li><code>cp</code> - <strong>C</strong>o<strong>p</strong>y a file</li>
+    <li><code>mkdir</code> - <strong>M</strong>a<strong>k</strong>e a new <strong>dir</strong>ectory (folder)</li>
+    <li><code>rm</code> - <strong>R</strong>e<strong>m</strong>ove (delete) a file. Use <code>rmdir</code> for empty directories</li>
+    <li><code>cat</code> - Con<strong>cat</strong>enate (show) a file</li>
+    <li><code>more</code> - Show a text file one screen at a time.  Use the spacebar to go down, <code>q</code> to quit</li>
+    <li><code>head</code> - Show the first few lines of a text file</li>
+    <li><code>tail</code> - Show the last few lines of a text file</li>
+    <li><code>dos2unix</code> - Convert a Windows-formatted text file to Unix format</li>
+    <li><code>unix2dos</code> - Vice versa</li>
+    <li><code>nano</code> - Simple text editor</li>
+    <li><code>antiword</code> - Convert Word document to plaintext file</li>
+    <li><code>catdoc</code> - Like <code>antiword</code></li>
+    <li><code>pdftk</code> - Useful tool for working with PDFs.  For example, to join two files: <code>pdftk file1.pdf file2.pdf cat output new.pdf</code>.  You can also split, extract specific pages, rotate, encrypt/decrypt, fill-in PDF forms. </li>
+    <li><code>echo</code> - Display a message.  For example, <code>echo 'hello world'</code></li>
+    <li><code>gzip</code> - Compress a file (also: <code>zip</code>, <code>xz</code>)</li>
+    <li><code>gunzip</code> - Uncompress a file (also: <code>unzip</code>, <code>unxz</code>)</li>
+    <li><code>zcat</code> - Display a compressed file (also: <code>xzcat</code>)</li>
+    <li><code>wc</code> - Count the number of characters, words, and lines of a text file.  <code>--max-line-length</code> is also useful</li>
+    <li><code>diff</code> - Show differences between two text files</li>
+    <li><code>sort</code> - Sort the lines of a text file</li>
+    <li><code>shuf</code> - Shuffle (randomize) the lines of a text file</li>
+    <li><code>uniq</code> - Merge repeated lines in a text file (or with <code>--count</code>: show number of repeated lines. Useful on sorted input)</li>
+    <li><code>cut</code> - Extract a column from a text file</li>
+    <li><code>paste</code> - Merge multiple columns from different text files</li>
+    <li><code>grep</code> - Search for a given pattern in a text file.  <a href="https://www.gnu.org/software/grep/manual/grep.html#Command_002dline-Options">Useful arguments</a>: <code>-r</code>, <code>-i</code>, <code>-c</code>, <code>-e</code>, <code>-v</code>, <code>-o</code>, <code>-w</code> (spells <em>ricevow</em> :-)</li>
+    <li><code>pcregrep</code> - Like <code>grep</code> but more advanced.  See below for a handout on pattern matching (regular expressions).</li>
+    <li><code>tr</code> - Substitute characters in a text file</li>
+    <li><code>perl -p -e</code> - Advanced substitutions/replacements in a text file</li>
+    <li><code>wget</code> - Download a file from the web</li>
+    <li><code>iconv</code> - Convert text from one encoding to another (eg. <a href="https://en.wikipedia.org/wiki/ISO/IEC_8859-1">ISO-8859-1</a> to <a href="https://en.wikipedia.org/wiki/UTF-8">UTF-8</a>)</li>
+    <li><code>fortune</code> - Try it and see!</li>
+    <li><code>clear</code> - Clear the screen (but it doesn't clean your monitor :-)</li>
+    <li><code>history</code> - See what you've been typing in your shell</li>
+    <li><code>exit</code> - Exit command-line shell</li>
+    </ul>
+  </div>
+
+  <div class="section">
     <h2><a href="https://en.wikibooks.org/wiki/Bash_Shell_Scripting">Shell Scripting</a></h2>
     <ul>
     <li><code>command1 | command2</code> - Pipe: Make the output of one command as the input to another command</li>
