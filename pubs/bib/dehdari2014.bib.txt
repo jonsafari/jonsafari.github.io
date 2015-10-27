@@ -1,0 +1,10 @@
+@phdthesis{dehdari-2014,
+ author    = {Jon Dehdari},
+ title     = {A Neurophysiologically-Inspired Statistical Language Model},
+ school    = {The Ohio State University},
+ address   = {Columbus, OH, USA},
+ year      = {2014},
+ url       = {http://rave.ohiolink.edu/etdc/view?acc_num=osu1399071363},
+ url       = {http://jon.dehdari.org/pubs/dehdari-2014.pdf},
+}
+
