@@ -57,6 +57,21 @@
 -->
 
   <div class="section">
+    <h2><a href="https://en.wikibooks.org/wiki/Bash_Shell_Scripting">Shell Scripting</a></h2>
+    <ul>
+    <li><code>command1 | command2</code> - Pipe: Make the output of one command as the input to another command</li>
+    <li><code>command &gt; output.txt</code> - Redirect the output of a command into a file</li>
+    <li><code>command &gt;&gt; output.txt</code> - Append the output of a command to the end of a (possibly already existing) file</li>
+    <li><code>command1 &amp;&amp; command2</code> - Only do <code>command2</code> if <code>command1</code> is successful (no errors)</li>
+    <li><code>command1 || command2</code> - Do <code>command2</code> regardless of whether <code>command1</code> is successful</li>
+    <li><code>x=42</code>  - Save the value 42 to a variable <code>x</code>.  You can use the variable later as <code>$x</code></li>
+    <li><code>if [...] command fi</code> - Do <code>command</code> if the thing in square brackets is true</li>
+    <li><code>for x in a b c d; do command; done</code> - Loop (wiederholt) over list <code>a b c d</code>, doing <code>command</code> each time</li>
+    </ul>
+  </div>
+
+
+  <div class="section">
 <h2>Useful Translations: English - Deutsch</h2>
 
 <h3>Keys &amp; Symbols - Tasten u. Symbole</h3>
@@ -66,7 +81,6 @@
 		<tr><th></th><th> <b>English</b> </th><th> <b>Deutsch</b> </th></tr>
 	</thead>
 	<tbody>
-			<tr><td> <code>@</code> </td><td> at sign </td><td> das At-Zeichen / die Klammeraffe </td></tr>
 			<tr><td> <code>@</code> </td><td> at sign </td><td> das At-Zeichen / die Klammeraffe </td></tr>
 			<tr><td> <code>#</code> </td><td> hash / pound / number sign </td><td> die Raute / das Doppelkreuz </td></tr>
 			<tr><td> <code>^</code> </td><td> caret </td><td> das Einfügezeichen / das Caret-Zeichen </td></tr>
