@@ -60,9 +60,9 @@
     <h2>Installation</h2>
     <p>
     <ol>
-      <li>Windows Users: Install <a href="https://cygwin.com/install.html">Cygwin</a>.  On the step "Select Packages", ensure that the "bin" box is checked for antiword, catdoc, dos2unix, nano, pcre, pdftk, poppler, python3, unzip, wget, zip</li>
-      <li>Mac Users: Go to <a href="http://www.maclife.com/article/feature/terminal_tips_every_mac_usershould_know">Applications -> Utilities -> Terminal</a></li>
-      <li>Linux Users: You rock!  You already know what to do.</li>
+      <li><b>Windows</b> Users: Install <a href="https://cygwin.com/install.html">Cygwin</a>.  On the step "Select Packages", ensure that the "bin" box is checked for all of the following: antiword, catdoc, dos2unix, nano, pcre, pdftk, poppler, python3, unzip, wget, zip</li>
+      <li><b>Mac</b> Users: Go to <a href="http://www.maclife.com/article/feature/terminal_tips_every_mac_usershould_know">Applications -> Utilities -> Terminal</a></li>
+      <li><b>Linux</b> Users: You rock!  You already know what to do.</li>
 	</ol>
   </div>
 
@@ -198,8 +198,8 @@ cd -</pre>
       </li>
       <li>
         <code>shuf</code> - Shuffle (randomize) the lines of a text file<br>
-        <pre>shuf frankie.txt
-shuf frankie.txt</pre>
+        <pre>shuf frankie.txt | head
+shuf frankie.txt | head</pre>
       </li>
       <li>
         <code>uniq</code> - Merge repeated lines in a text file (or with <code>--count</code>: show number of repeated lines. Useful on sorted input).  For example, to count how many times each word occurs in a text file:<br>
