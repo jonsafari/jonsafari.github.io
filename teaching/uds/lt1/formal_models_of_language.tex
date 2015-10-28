@@ -1,6 +1,7 @@
 \documentclass{beamer}
 
 \usepackage{verbatim}
+\usepackage{url}
 \usepackage{xcolor} % See documentation PDF at http://www.ctan.org/pkg/xcolor
 \definecolor{darkgreen}{rgb}{0,0.3,0}
 \definecolor{lightgrey}{rgb}{0.65,0.65,0.65}
@@ -232,7 +233,6 @@ Hi!
 
 % MCS lang: same, allows full reduplication (cross-serial deps) and a^n b^n c^n d^n: n^6 time. TAG, CCG, LIG, Head Grammars, 
 \begin{frame}{Mildly Context-Sensitive Languages}
-\begin{block}{}
 \begin{itemize}
 	\item Mildly context-sensitive (MCS) languages include phenomena like reduplication and cross-serial dependencies.
 	\item Example: $\bf a \ b \ c \ a^{\prime} \ b^{\prime} \ c^{\prime}$
@@ -242,21 +242,22 @@ Hi!
 	\pause
 	\item Processing MCS languages can be done in about $\mathcal{O}(n^6)$ time, with quadratic memory usage \detail{($\mathcal{O}(n^2)$)}
 	\pause
-	\item Some grammar formalisms that can handle MCS languages include:
+	\item {\small Mildly context-sensitive is very different from context-sensitive, which is much more powerful}
+	\item Some grammar formalisms that can handle MCS langs:
 	\begin{itemize}
-		\item Tree Adjoining Grammar (TAG)
-		\item Combinatory Categorial Grammar (CCG)
-		\item Linear Indexed Grammars (LIG)
-		\item Head Grammars (HG)
+	\begin{footnotesize}
+		\item \href{https://en.wikipedia.org/wiki/Tree-adjoining_grammar}{Tree Adjoining Grammar} (TAG)
+		\item \href{https://en.wikipedia.org/wiki/Combinatory_categorial_grammar}{Combinatory Categorial Grammar} (CCG)
+		\item \href{https://en.wikipedia.org/wiki/Indexed_grammar\#Linear_indexed_grammars}{Linear Indexed Grammars} (LIG) (easy to understand)
+		\item \href{https://en.wikipedia.org/wiki/Head_grammar}{Head Grammars} (HG)
+	\end{footnotesize}
 	\end{itemize}
 \end{itemize}
-\end{block}
 \end{frame}
 
 
 % Recursively enumerable langs: allows any string that a computer (eg. Turing machine, untyped \lambda calculus, MLP) can generate
 \begin{frame}{Recursively Enumerable Languages}
-\begin{block}{}
 \begin{itemize}
 	\item Recursively enumerable languages allow any string that a computer (or equivalent device) can generate/accept
 	\item There's no guarantee that the computer will ever stop processing the sentence
@@ -264,14 +265,13 @@ Hi!
 	\pause
 	\item Some grammar formalisms that allow recursively enumerable languages include:
 	\begin{itemize}
-		\item Chomskyan grammars (due to transformations / moves)
-		\item Lexical Functional Grammar (LFG)
-		\item Head-driven Phrase Structure Grammar (HPSG)
+		\item \href{https://en.wikipedia.org/wiki/Transformational_grammar}{Chomskyan grammars} (due to transformations / moves)
+		\item \href{https://en.wikipedia.org/wiki/Lexical_functional_grammar}{Lexical Functional Grammar} (LFG)
+		\item \href{https://en.wikipedia.org/wiki/Head-driven_phrase_structure_grammar}{Head-driven Phrase Structure Grammar} (HPSG) (due to \textsc{Slash} features)
 	\end{itemize}
 	\pause
 	\item Note that these grammar formalisms can place some restrictions on word order, but they still accept/generate recursively enumerable languages. \pause How is that so? \pause Additional grammar rules can work around such restrictions to accept/generate the string.
 \end{itemize}
-\end{block}
 \end{frame}
 
 
