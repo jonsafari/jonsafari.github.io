@@ -202,14 +202,14 @@ cd -</pre>
 shuf frankie.txt</pre>
       </li>
       <li>
-        <code>uniq</code> - Merge repeated lines in a text file (or with <code>--count</code>: show number of repeated lines. Useful on sorted input)<br>
+        <code>uniq</code> - Merge repeated lines in a text file (or with <code>--count</code>: show number of repeated lines. Useful on sorted input).  For example, to count how many times each word occurs in a text file:<br>
         <pre>tr ' ' '\n' &lt; frankie.txt | sort | uniq -c | sort -rn &gt; word_count.txt</pre>
       </li>
     </ul>
     <h3>Process Columnar Data Files</h3>
     <ul>
       <li>
-        <code>awk</code> - <a href="https://en.wikipedia.org/wiki/Awk">Advanced text-processing language</a><br>
+        <code>awk</code> - <a href="https://en.wikipedia.org/wiki/Awk">Advanced text-processing language</a>.  For example, to reorder the first and second columns in a column-oriented data file:<br>
         <pre>awk -e 'BEGIN {OFS="\t"}; {print $2, $1}' < word_count.txt > word_count2.txt</pre>
       </li>
       <li>
@@ -226,42 +226,38 @@ cut -f 1 word_count2.txt &gt; words.txt</pre>
     <ul>
       <li>
         <code>grep</code> - Search for a given pattern in a text file.  <a href="https://www.gnu.org/software/grep/manual/grep.html#Command_002dline-Options">Useful arguments</a>: <code>-r</code>, <code>-i</code>, <code>-c</code>, <code>-e</code>, <code>-v</code>, <code>-o</code>, <code>-w</code> (spells <em>ricevow</em> :-)<br>
-        <pre></pre>
+        <!-- <pre></pre> -->
       </li>
       <li>
         <code>pcregrep</code> - Like <code>grep</code> but more advanced.  See below for a handout on pattern matching (regular expressions).<br>
-        <pre></pre>
+        <!-- <pre></pre> -->
       </li>
       <li>
         <code>tr</code> - Substitute characters in a text file<br>
-        <pre></pre>
+        <!-- <pre></pre> -->
       </li>
       <li>
         <code>perl -p -e</code> - Advanced substitutions/replacements in a text file<br>
-        <pre></pre>
+        <!-- <pre></pre> -->
       </li>
     </ul>
     <h3>Etc.</h3>
     <ul>
       <li>
         <code>iconv</code> - Convert text from one encoding to another (eg. <a href="https://en.wikipedia.org/wiki/ISO/IEC_8859-1">ISO-8859-1</a> to <a href="https://en.wikipedia.org/wiki/UTF-8">UTF-8</a>)<br>
-        <pre></pre>
+        <pre>iconv -f ISO_8859-1 -t UTF-8 &lt; file_iso.txt &gt; file_utf8.txt</pre>
       </li>
 	  <!-- <li>
-        <code>fortune</code> - Try it and see!<br>
-        <pre></pre>
+        <code>fortune</code> - Try it and see!
       </li> -->
       <li>
-        <code>clear</code> - Clear the screen (but it doesn't clean your monitor :-)<br>
-        <pre></pre>
+        <code>clear</code> - Clear the screen (but it doesn't clean your monitor :-)
       </li>
       <li>
-        <code>history</code> - See what you've been typing in your shell<br>
-        <pre></pre>
+        <code>history</code> - See what you've been typing in your shell
       </li>
       <li>
-        <code>exit</code> - Exit command-line shell<br>
-        <pre></pre>
+        <code>exit</code> - Exit command-line shell
       </li>
     </ul>
   </div>
@@ -271,35 +267,35 @@ cut -f 1 word_count2.txt &gt; words.txt</pre>
     <ul>
     <li>
         <code>command1 | command2</code> - Pipe: Make the output of one command as the input to another command<br>
-        <pre></pre>
+        <!-- <pre></pre> -->
       </li>
     <li>
         <code>command &gt; output.txt</code> - Redirect the output of a command into a file<br>
-        <pre></pre>
+        <!-- <pre></pre> -->
       </li>
     <li>
         <code>command &gt;&gt; output.txt</code> - Append the output of a command to the end of a (possibly already existing) file<br>
-        <pre></pre>
+        <!-- <pre></pre> -->
       </li>
     <li>
         <code>command1 &amp;&amp; command2</code> - Only do <code>command2</code> if <code>command1</code> is successful (no errors)<br>
-        <pre></pre>
+        <!-- <pre></pre> -->
       </li>
     <li>
         <code>command1 || command2</code> - Do <code>command2</code> regardless of whether <code>command1</code> is successful<br>
-        <pre></pre>
+        <!-- <pre></pre> -->
       </li>
     <li>
         <code>x=42</code>  - Save the value 42 to a variable <code>x</code>.  You can use the variable later as <code>$x</code><br>
-        <pre></pre>
+        <!-- <pre></pre> -->
       </li>
     <li>
         <code>if [...] command fi</code> - Do <code>command</code> if the thing in square brackets is true<br>
-        <pre></pre>
+        <!-- <pre></pre> -->
       </li>
     <li>
         <code>for x in a b c d; do command; done</code> - Loop (wiederholt) over list <code>a b c d</code>, doing <code>command</code> each time<br>
-        <pre></pre>
+        <!-- <pre></pre> -->
       </li>
     </ul>
   </div>
