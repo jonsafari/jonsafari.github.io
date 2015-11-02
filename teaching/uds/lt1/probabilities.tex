@@ -157,6 +157,22 @@
 \end{itemize}
 \end{frame}
 
+\begin{frame}{Entropy}
+\begin{itemize}
+	\item \textbf{Entropy} measures how predictable the data is
+	\pause
+	\begin{equation*}
+	H(X) = - \sum_{x \in X} p(x) \log_2 p(x)
+	\end{equation*}
+	\pause
+	\begin{center}
+		\vspace*{0.5em}
+		\includegraphics[width=0.7\textwidth]{images/koehn_2010_fig_3_4.pdf}
+	 \end{center}
+	{\tiny (courtesy of Koehn, 2010)}
+\end{itemize}
+\end{frame}
+
 
 % sample, interpolation, entropy
 
@@ -171,6 +187,16 @@
 \end{itemize}
 \end{frame}
 
+
+\begin{frame}{Rule-based and Statistical NLP}
+\begin{itemize}
+	\item Rule-based models are a subset of statistics-based models
+	\pause
+	\item Rules have an unsmoothed, uniform distribution -- each rule has an equiprobable chance
+	\pause
+	\item Grammatical: $p(x) > 0$\,, ungrammatical: $p(x) = 0$
+\end{itemize}
+\end{frame}
 
 % \begin{frame}{}
 % \begin{itemize}
