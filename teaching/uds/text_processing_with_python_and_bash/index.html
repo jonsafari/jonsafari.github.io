@@ -226,15 +226,26 @@ cut -f 1 word_count2.txt &gt; words.txt</pre>
     <ul>
       <li>
         <code>grep</code> - Search for a given pattern in a text file.  <a href="https://www.gnu.org/software/grep/manual/grep.html#Command_002dline-Options">Useful arguments</a>: <code>-r</code>, <code>-i</code>, <code>-c</code>, <code>-e</code>, <code>-v</code>, <code>-o</code>, <code>-w</code> (spells <em>ricevow</em> :-)<br>
-        <!-- <pre></pre> -->
+        <pre>grep 'north' frankie.txt     # Search for lines containing "north" in the text file frankie.txt
+grep -i 'north' frankie.txt  # Search lines containing "north", ignoring uppercase/lowercase distinction
+grep -c 'north' frankie.txt  # Count how many lines contain "north"
+grep -v 'the' frankie.txt    # Search lines not containing "the" in frankie.txt
+grep    'm.st' frankie.txt   # Search lines containing "m", then any letter, then "st"
+grep -o 'm.st' frankie.txt   # Show only the matching text containing "m", then any letter, then "st"
+grep -w 'north' frankie.txt  # The pattern "north" must be an entire word, not part of a word
+grep -iw 'north' frankie.txt # You can combine options together</pre>
       </li>
       <li>
-        <code>pcregrep</code> - Like <code>grep</code> but more advanced.  See below for a handout on pattern matching (regular expressions).<br>
+		  <code>pcregrep</code> - Like <code>grep</code> but more advanced.  See the <a href="regex_handout.pdf">handout on pattern matching</a> (regular expressions).<br>
         <!-- <pre></pre> -->
       </li>
       <li>
         <code>tr</code> - Substitute characters in a text file<br>
-        <!-- <pre></pre> -->
+        <pre>tr 'e' 'E'    &lt; frankie.txt   # Replace all occurrences of "e" with "E" in frankie.txt
+tr -d 'e'     &lt; frankie.txt   # Delete all occurrences of "e"
+tr -d 'aeiou' &lt; frankie.txt   # Delete all vowels
+tr ' ' '\n'   &lt; frankie.txt   # Replace all spaces with newlines
+</pre>
       </li>
       <li>
         <code>perl -p -e</code> - Advanced substitutions/replacements in a text file<br>

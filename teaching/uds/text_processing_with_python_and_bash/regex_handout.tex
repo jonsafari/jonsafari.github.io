@@ -1,0 +1,87 @@
+\documentclass[11pt]{article}
+%%% Jon Dehdari's review of regexen
+
+\usepackage{mathpazo}
+\usepackage{setspace}
+%\usepackage{natbib}
+%\usepackage{tipa}
+\usepackage{graphicx}
+%\usepackage{amsmath}
+\usepackage{amssymb}
+%\usepackage[dvipsnames]{color}
+%\usepackage{cancel}
+%\usepackage[normalem]{ulem}
+%\usepackage{qtree}
+%\usepackage{linguex}
+%\renewcommand{\refdash}{}
+%\usepackage{tree-dvips}
+%\usepackage{cgloss}
+%\usepackage{txfonts}
+%\usepackage{times}
+\usepackage{units}
+%\usepackage{avm}
+\usepackage{color}
+\definecolor{darkblue}{rgb}{0,0,.45}
+\definecolor{blue}{rgb}{0,0,.6}
+\definecolor{maroon}{rgb}{.4,0,0}
+\definecolor{lightgrey}{rgb}{.7,.7,.7}
+\usepackage[pdfborder=0 0 0, colorlinks=true, linkcolor=darkblue, urlcolor={blue}]{hyperref}
+\usepackage[vmargin=1.3in, hmargin=1.5in]{geometry}
+%\addtolength{\topmargin}{-0.75in}
+%\addtolength{\textheight}{1.00in}
+
+%\bibliographystyle{lsalikealt}
+
+\newcommand{\bss}{\char`\\\hspace{-.45ex}\char`\\} % Stupid backslash, esp. in code
+\newcommand{\bs}{\char`\\} % Stupid backslash, esp. in code
+\newcommand{\code}[1]{{\texttt{{\color{lightgrey}\raisebox{.45ex}{$\ulcorner$}\hspace{-.5ex}{\color{maroon}#1}\hspace{-.54ex}\raisebox{.45ex}{$\urcorner$}}}}}
+
+\begin{document}
+\noindent%
+{\LARGE \textsc{Regular Expressions} } \\[.55ex]
+%{\Large \textsc{Linguistics 384} } \\[.25ex]
+
+
+\begin{spacing}{1.35}
+Regular expression queries provide a powerful way of searching texts, allowing for higher-level descriptions than just literal words or characters.  For example, to search for either ``car" or ``cars", use the pattern \texttt{cars?} .
+The \texttt{?} allows the previous element (``\texttt{s}") to occur either 0 or 1 time.
+
+\vspace{1em}
+\noindent \begin{tabular}{lll}
+ \textbf{Pattern   } & \textbf{Description}                                                             & \textbf{Example query}  \\
+ \texttt{.         } & Match \textbf{any} character                                                     & \texttt{ b.t         }  \\
+ \texttt{?         } & Match the previous element \textbf{zero or one} time                             & \texttt{ car.?       }  \\
+ \texttt{*         } & Match the previous element \textbf{zero or more} times                           & \texttt{ car.*       }  \\
+ \texttt{+         } & Match the previous element \textbf{one or more} times                            & \texttt{ car.+       }  \\
+ \texttt{\{3,7\}   } & Match the previous element \textbf{between} 3 and 7 times                        & \texttt{ .\{10,12\}  }  \\
+ \texttt{\{3,\}    } & Match the previous element \textbf{at least} 3 times                             & \texttt{ .\{14,\}    }  \\
+ \texttt{\{,7\}    } & {\footnotesize Match the previous element \textbf{no more than} 7 times (including 0)} & \texttt{ .\{,2\} }  \\
+ \texttt{|         } & Match the previous element \textbf{or} the subsequent element                    & \texttt{ ab|cd       }  \\
+ \texttt{(...)     } & \textbf{Group} the characters within the parentheses                             & \texttt{ talk(ed|ing)}  \\
+ \texttt{[ptk]     } & Match \textbf{either} \texttt{p}, \texttt{t}, or \texttt{k}                      & \texttt{ [mb]et      }  \\
+ \texttt{[\^{}ptk] } & Match anything \textbf{except} \texttt{p}, \texttt{t}, or \texttt{k}             & \texttt{ [\^{}mb]et  }  \\
+ \texttt{\^{}a     } & Match \texttt{a} only at the \textbf{beginning} of an entire query               & \texttt{ \^{}met     }  \\
+ \texttt{a\$       } & Match \texttt{a} only at the \textbf{end} of an entire query                     & \texttt{ met\$       }  \\
+ \texttt{\bs{}w    } & Match any \textbf{alphabetic or numeric} character (\underline{w}ord-like)       & \texttt{ \bs{}w+     }  \\
+ \texttt{\bs{}W    } & Match anything \textbf{except alphabetic or numeric} characters                  & \texttt{ \bs{}W+     }  \\
+ \texttt{\bs{}d    } & Match any \textbf{number} (\underline{d}igit)                                    & \texttt{ \bs{}w+\bs{}.\bs{}d+ }  \\
+ \texttt{\bs{}D    } & Match anything \textbf{except numbers}                                           & \texttt{             }  \\
+ \texttt{\bs{}s    } & Match any \textbf{space} character (eg. space, tab)                              & \texttt{             }  \\
+ \texttt{\bs{}S    } & Match anything \textbf{except space} characters                                  & \texttt{             }  \\
+ \texttt{\bs{}b    } & \textbf{Word boundary}                                                           & \texttt{ \bs{}bhello\bs{}b }  \\
+\end{tabular}
+\vspace{1em}
+
+\clearpage
+\section{Examples}
+Find either Meghan or Megan: \code{Megh?an} \\
+Find either Katelyn or Catelyn: \code{[CK]atelyn} \\
+Find either Ben or Benjamin: \code{Ben(jamin)?} \\
+Find either Emily or Emilie: \code{Emil(ie|y)} \\
+Find a credit card number: \code{\bs{}d\{16\}} \\
+Find a recent year: \code{(19|20)\bs{}d\{2\}} \\
+Find either Detmar or Dettmar or Dietmar or Dietmarr: \\
+%Find a local phone number: \code{\bs{}d\{3\}-\bs{}d\{4\}} \\
+\end{spacing}
+%\bibliography{localbib}
+\end{document}
