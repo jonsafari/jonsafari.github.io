@@ -1,9 +1,11 @@
-\documentclass{beamer}
+\documentclass[xcolor=pdftex,x11names,table,hyperref]{beamer}
 
 \usepackage{verbatim}
+\usepackage{setspace}
 \usepackage{url}
 \usepackage{xcolor} % See documentation PDF at http://www.ctan.org/pkg/xcolor
 \definecolor{darkgreen}{rgb}{0,0.3,0}
+\definecolor{darkblue}{rgb}{.05,.05,.30}
 \definecolor{lightgrey}{rgb}{0.65,0.65,0.65}
 \usepackage{tikzsymbols}
 
@@ -21,6 +23,8 @@
 
 \newcommand{\code}[1]{{\color{darkgreen}\texttt{#1}}}
 \newcommand{\detail}[1]{{\color{lightgrey}\small{}#1}}
+\newcommand{\teeny}[1]{\scalebox{0.09}{#1}}
+\newcommand{\tablecolors}{\rowcolors{2}{blue!12}{white}} % Cool table colors
 
 
 \begin{document}
