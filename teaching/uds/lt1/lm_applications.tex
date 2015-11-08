@@ -53,7 +53,7 @@
 	Bayes' Theorem: \\[0.5em]
 	\includegraphics[width=0.90\textwidth]{images/bayes_theorem.png} \\[1.0em]
 	\pause
-	Noisy Channel Model: \\[0.5em]
+	Noisy Channel Model (applied to translation): \\[0.5em]
 	\includegraphics[width=0.86\textwidth]{images/noisy_channel.png}
 \end{frame}
 
@@ -135,10 +135,10 @@
 	\item[ASR]: p(recognize speech) vs.\ p(wreck a nice beach) vs.\ p(wreck an ice peach), ...
 	\item[Cipher cracking]: p(attack at dawn) vs.\ p(uebvmkdvkdbsqk)
 	\item[Google Suggest]: p(how to cook french fries) vs.\ p(how to cook french dictionary)
-	\item[IR]: query(cats and the cradle): doc1(i like cats) vs.\ doc2(i like dogs)
-	\item[MT \& NLG]: lex: p(use the force) vs.\ p(use the power);  ordering: p(ready are you) vs.\ p(are you ready)
+	\item[MT \& NLG]: lex: p(use the force) vs.\ p(use the power); \\ ordering: p(ready are you) vs.\ p(are you ready)
 	\item[OCR]: p(today is your day) vs.\ p(+qdav ls y0ur d4ij)
-	%\item[LangID: p() vs. p()
+	\item[IR]: query(cats and the cradle): doc1(i like cats) vs.\ doc2(i like dogs)
+	\item[LangID]: query(a blue watch): lang1(the green witch \ldots) vs.\ lang2(la bruja verde \ldots)
 	\end{description}
 	\end{small}
 \end{block}
@@ -179,11 +179,9 @@
 \tiny{From Li \& Hovy (2015)\nocite{li-hovy2015}}
 \end{frame}
 
-\begin{frame}{}
-\begin{itemize}
-	\item 
-	\item 
-\end{itemize}
+\begin{frame}{Illustration with Image Caption Generation}
+	\includegraphics[width=1.03\textwidth]{images/xu-etal2015_icml_fig4.png} \\[1.5em]
+	\tiny{From Xu et al (2015; ICML, Fig.\,4)\nocite{xu-etal2015}}.  This uses the neural attention model, which we'll discuss later in the semester.
 \end{frame}
 
 
