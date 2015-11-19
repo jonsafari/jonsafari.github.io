@@ -94,15 +94,26 @@
 \begin{itemize}
 	\item \small{\textbf{Supervised learning} uses \textbf{manually-annotated data}} \hfill
 		\raisebox{-2.0em}{\includegraphics[width=0.13\textwidth]{images/scriptorium-monk-at-work-crop.jpg}}
-	\pause
-	\item It's usually expensive and small
+	\begin{itemize}
+		\pause
+		\item It's usually expensive and small
+		\pause
+		\item It's usually evaluated on \textbf{accuracy} (or related idea) of `correct' label, given unannotated test input
+	\end{itemize}
 	\pause
 	\item \textbf{Unsupervised learning} uses \textbf{unannotated data} \hfill
 		\raisebox{-2.0em}{\includegraphics[width=0.17\textwidth]{images/Bart-simpson-01.png}}
-	\pause
-	\item It's usually big and noisy. Just like the world around us.
+	\begin{itemize}
+		\pause
+		\item It's usually big and noisy. Just like the world around us.
+		\pause
+		\item It's usually evaluated on the probability of the unannotated test input ($\propto$ \textbf{perplexity}), or a downstream task
+	\end{itemize}
 	\pause
 	\item \textbf{Semi-supervised learning} uses \textbf{both} unannotated and annotated data
+	\begin{itemize}
+		\item It's usually evaluated just like supervised learning tasks
+	\end{itemize}
 \end{itemize}
 \end{frame}
 
