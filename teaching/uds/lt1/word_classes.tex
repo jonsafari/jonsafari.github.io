@@ -96,18 +96,18 @@
 		\raisebox{-2.0em}{\includegraphics[width=0.13\textwidth]{images/scriptorium-monk-at-work-crop.jpg}}
 	\begin{itemize}
 		\pause
-		\item It's usually expensive and small
-		\pause
 		\item It's usually evaluated on \textbf{accuracy} (or related idea) of `correct' label, given unannotated test input
+		\pause
+		\item The data's\textsuperscript{\scalebox{0.50}{$^1$}} usually expensive and small
 	\end{itemize}
 	\pause
 	\item \textbf{Unsupervised learning} uses \textbf{unannotated data} \hfill
 		\raisebox{-2.0em}{\includegraphics[width=0.17\textwidth]{images/Bart-simpson-01.png}}
 	\begin{itemize}
 		\pause
-		\item It's usually big and noisy. Just like the world around us.
-		\pause
 		\item It's usually evaluated on the probability of the unannotated test input ($\propto$ \textbf{perplexity}), or a downstream task
+		\pause
+		\item The data's usually big and noisy. Just like the world around us.
 	\end{itemize}
 	\pause
 	\item \textbf{Semi-supervised learning} uses \textbf{both} unannotated and annotated data
@@ -115,17 +115,72 @@
 		\item It's usually evaluated just like supervised learning tasks
 	\end{itemize}
 \end{itemize}
+\teeny{That's right: ``data is''\,.}
 \end{frame}
 
-% word classes: ad/disadvantages over word representations; inducing them: exchange (plain, predictive, conditional), brown, complexity of both, performance; how many to use? examples of word clusters
+\begin{frame}{Words \textit{vs}.\ Word Classes}
+\begin{itemize}
+	\item Using word classes reduces the number of parameters in language models, which means \textbf{generalization}
+	\pause
+	\item But, some sequences of words are \textbf{lexicalized}, meaning they are based on the specific words involved
+	\pause
+	\item For example:   ``\,It's raining cats and \underline{\hspace{2em}}\,''
+	\pause
+	\item Using word-based language models, the next word will probably be `\textit{dogs}'
+	\pause
+	\item But class-based LMs only see something like ``\,PRP VBZ VBG NNS CC \underline{\hspace{2em}}\,''
+	\item So they would predict something like `\textit{shares}', if they were trained on the WSJ corpus
+\end{itemize}
+\end{frame}
+
+\begin{frame}{How Many Word Classes Should I Use?}
+	\begin{large}
+	The more word classes you use, the closer you get to a word-based model \\[1.0em]
+
+	\pause
+	If you use a class-based LM by itself, more word classes is usually better, especially if you have a lot of training data \\[1.0em]
+
+	\pause
+	However if you interpolate a class-based LM with a word-based LM, fewer word classes is usually better, because you get complementary information
+	\end{large}
+\end{frame}
+
+\begin{frame}{How Can You Cluster Words?}
+\begin{itemize}
+	\item If you represent words as vectors of real numbers, you can use general clustering algorithms like $k$-means clustering agglomerative clustering
+	\pause
+	\item You can also use discrete versions of these two algorithms, to cluster words directly from plaintext
+	\pause
+	\item Discrete agglomerative word clustering is usually called \textbf{Brown clustering}
+	\item Discrete $k$-means word clustering is usually called \textbf{exchange algorithm clustering}
+\end{itemize}
+\end{frame}
+
 \begin{frame}{}
+	\hspace*{-19.0em}%
+	\scalebox{0.77}{%
+		\input{cluster_cluster_mindmap.pgf}
+	}%scalebox
+\end{frame}
+
+% inducing word classes: exchange (plain, predictive, conditional), brown, complexity of both, performance; how many to use? examples of word clusters
+
+\begin{frame}{Exchange Algorithm}
 \begin{itemize}
 	\item 
 	\item 
 \end{itemize}
 \end{frame}
 
-\begin{frame}{}
+\begin{frame}{Predictive Exchange and Conditional Exchange}
+\begin{itemize}
+	\item 
+	\item 
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}{Brown Clustering}
 \begin{itemize}
 	\item 
 	\item 
@@ -133,13 +188,6 @@
 \end{frame}
 
 % class-based LMs: smoothing? advantages/dis- over word-based LMs; PP
-
-\begin{frame}{}
-\begin{itemize}
-	\item 
-	\item 
-\end{itemize}
-\end{frame}
 
 \begin{frame}{}
 \begin{itemize}
