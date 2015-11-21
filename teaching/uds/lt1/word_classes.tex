@@ -166,9 +166,22 @@
 % inducing word classes: exchange (plain, predictive, conditional), brown, complexity of both, performance; how many to use? examples of word clusters
 
 \begin{frame}{Exchange Algorithm}
+\begin{enumerate}
+	\item Randomly assign each word to a class
+	\pause
+	\item For each word, change its word class to the one giving the best likelihood of the training data
+	\pause
+	\item Do the last step for a few times (maybe 10--20 iterations)
+\end{enumerate}
+
+\pause
 \begin{itemize}
-	\item 
-	\item 
+	\item Thus the basic time complexity is $\mathcal{O}(|V| \times |C| \times i)$
+	\item $|V|$ is the size of the vocabulary \\
+	      $|C|$ is the number of word classes \\
+	      $i$ is the number of iterations
+\pause
+	\item There's a little more added complexity is how you calculate training-set likelihood
 \end{itemize}
 \end{frame}
 
