@@ -8,6 +8,7 @@
 \definecolor{darkblue}{rgb}{.05,.05,.30}
 \definecolor{lightgrey}{rgb}{0.65,0.65,0.65}
 \usepackage{tikzsymbols}
+\usetikzlibrary{matrix,arrows,positioning,automata,shadows,shapes.geometric}
 
 
 \setbeamertemplate{section in toc}[sections numbered]
@@ -165,7 +166,29 @@
 
 % inducing word classes: exchange (plain, predictive, conditional), brown, complexity of both, performance; how many to use? examples of word clusters
 
-\begin{frame}{Exchange Algorithm}
+\begin{frame}{Brown Clustering (hierarchical clusters)}
+\begin{enumerate}
+	\item Assign the most frequent words to their own class
+	\pause
+	\item For the remaining words, assign the next most frequent word to the class giving the best likelihood of the training data
+	\pause
+	\item There is no step 3.
+	\pause
+	\item Optionally recursively merge the remaining classes, again based on likelihood
+\end{enumerate}
+\pause
+\begin{itemize}
+	\item Above is \href{http://people.csail.mit.edu/pliang/papers/meng-thesis.pdf}{Percy-style} Brown clustering, which can be more efficient than the original algorithm
+	\pause
+	\item The time complexity is $\mathcal{O}( |V| \times |C|^2 )$
+	\item $|V|$ is the size of the vocabulary \\
+	      $|C|$ is the number of word classes \\
+	\pause
+	\item Thus it's fairly fast for small clusters ($<400$), but slow for large clusters ($>800$)
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Exchange Algorithm (flat clusters)}
 \begin{enumerate}
 	\item Randomly assign each word to a class
 	\pause
@@ -173,7 +196,6 @@
 	\pause
 	\item Do the last step for a few times (maybe 10--20 iterations)
 \end{enumerate}
-
 \pause
 \begin{itemize}
 	\item Thus the basic time complexity is $\mathcal{O}(|V| \times |C| \times i)$
@@ -193,19 +215,55 @@
 \end{frame}
 
 
-\begin{frame}{Brown Clustering}
-\begin{itemize}
-	\item 
-	\item 
-\end{itemize}
-\end{frame}
-
 % class-based LMs: smoothing? advantages/dis- over word-based LMs; PP
 
-\begin{frame}{}
+\begin{frame}{Class-based Language Models}
 \begin{itemize}
-	\item 
-	\item 
+	\item So how do we use word classes as a language model?
+	\pause
+	\item The most common form ($C_i$ is the word class of word $w_i$):
+	\begin{equation*}
+		P(w_i|w_{i-1}) =  P(w_i | C_i) \, P(C_i | C_{i-1})
+	\end{equation*}
+	\vspace*{0.0em}
+
+\scalebox{0.74}{%
+\begin{tikzpicture}[->,>=stealth,line cap=round,shorten >=1pt,auto,node distance=2.3cm,
+                    semithick, initial text={},
+					every state/.style={fill=darkblue,draw=none,text=white,circular drop shadow},
+					accepting/.style={fill=white,draw=none,text=black,general shadow={fill=white, shadow scale=2}},
+					hidden/.style ={white!95!black,text=black},
+				]
+
+  \node[state]				(s)				   {\texttt{<s>}};
+  \node[state]				(C1) [right of=s]  {\texttt{PRP}};
+  \node[state,accepting]	(w1) [below of=C1] {it};
+  \node[state]				(C2) [right of=C1] {\texttt{VBZ}};
+  \node[state,accepting]	(w2) [below of=C2] {'s};
+  \node[state]				(C3) [right of=C2] {\texttt{VBG}};
+  \node[state,accepting]	(w3) [below of=C3] {raining};
+  \node[state]				(C4) [right of=C3] {\texttt{NNS}};
+  \node[state,accepting]	(w4) [below of=C4] {cats};
+  \node[state]				(C5) [right of=C4] {\texttt{CC}};
+  \node[state,accepting]	(w5) [below of=C5] {and};
+
+  \path (s)  edge              node {} (C1)
+        (C1) edge              node {} (C2)
+             edge              node {} (w1)
+        (C2) edge              node {} (C3)
+             edge              node {} (w2)
+        (C3) edge              node {} (C4)
+             edge              node {} (w3)
+        (C4) edge              node {} (C5)
+             edge              node {} (w4)
+        (C5) edge              node {} (w5)
+		 ;
+\end{tikzpicture}
+}
+
+\pause
+\item Notice $C_i$, which is called a \textbf{bottleneck variable}
+\item The history is `squeezed' through this point, in order to summarize and generalize the history
 \end{itemize}
 \end{frame}
 
