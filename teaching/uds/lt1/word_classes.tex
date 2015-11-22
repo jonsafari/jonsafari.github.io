@@ -207,23 +207,13 @@
 \end{itemize}
 \end{frame}
 
-\begin{frame}{Predictive Exchange and Conditional Exchange}
-\begin{itemize}
-	\item 
-	\item 
-\end{itemize}
-\end{frame}
-
-
-% class-based LMs: smoothing? advantages/dis- over word-based LMs; PP
-
 \begin{frame}{Class-based Language Models}
 \begin{itemize}
 	\item So how do we use word classes as a language model?
 	\pause
-	\item The most common form ($C_i$ is the word class of word $w_i$):
+	\item The most common form ($c_i$ is the word class of word $w_i$):
 	\begin{equation*}
-		P(w_i|w_{i-1}) =  P(w_i | C_i) \, P(C_i | C_{i-1})
+		P(w_i|w_{i-1}) \,\triangleq\,  P(w_i | c_i) \, P(c_i | c_{i-1})
 	\end{equation*}
 	\vspace*{0.0em}
 
@@ -262,11 +252,30 @@
 }
 
 \pause
-\item Notice $C_i$, which is called a \textbf{bottleneck variable}
+\item Notice $c_i$, which is called a \textbf{bottleneck variable}
 \item The history is `squeezed' through this point, in order to summarize and generalize the history
 \end{itemize}
 \end{frame}
 
+
+\begin{frame}{Predictive Exchange and Conditional Exchange}
+\begin{itemize}
+	\item The previous model is used in both Brown clustering and exchange algorithm clustering to determine the likelihood of the training set.
+	We can use different models as well.
+	\pause
+	\item The \emph{predictive exchange algorithm} uses this model:
+	\begin{equation*}
+		P(w_i|w_{i-1}) \,\triangleq\, P(w_i | c_i) \, P(c_i | w_{i-1})
+	\end{equation*}
+	\item The \emph{conditional exchange algorithm} uses this model:
+	\begin{equation*}
+		P(w_i|w_{i-1}) \,\triangleq\, P(w_i | c_{i-1})
+	\end{equation*}
+\end{itemize}
+\end{frame}
+
+
+% class-based LMs: smoothing? advantages/dis- over word-based LMs; PP
 
 
 
