@@ -164,7 +164,6 @@
 	}%scalebox
 \end{frame}
 
-% inducing word classes: exchange (plain, predictive, conditional), brown, complexity of both, performance; how many to use? examples of word clusters
 
 \begin{frame}{Brown Clustering (hierarchical clusters)}
 \begin{enumerate}
@@ -275,8 +274,51 @@
 \end{frame}
 
 
-% class-based LMs: smoothing? advantages/dis- over word-based LMs; PP
 
+\begin{frame}{Uses of Word Clusters}
+\begin{footnotesize}
+\begin{block}{Machine Translation}
+	\begin{itemize}
+		\itemsep-0.4em
+		\item Word alignment {\tiny (Brown et al, 1993; Och \& Ney, 2000)} \nocite{brown-etal1993,och-ney2000}
+	\item {\footnotesize Factored/class-based translation models} \nocite{koehn-hoang2007,wuebker-etal2013,mediani-etal2012} {\tiny (Koehn \& Hoang, 2007; {\it inter alia})} %Wuebker et al, 2013; Mediani et al, 2012)}
+		\item Reordering models {\tiny (Cherry, 2013)} \nocite{cherry2013}
+		\item Preordering {\tiny (Stymne, 2012)} \nocite{stymne2012}
+		\item Target-side inflection {\tiny (Chahuneau et al, 2013)} \nocite{chahuneau-etal2013}
+		\item Syntax-augmented machine translation {\tiny (Zollmann \& Vogel, 2011)} \nocite{zollmann-vogel2011}
+		\item Sparse word features {\tiny (Haddow et al, 2015)} \nocite{haddow-etal2015}
+		\item Operation sequence models {\tiny (Durrani et al, 2014)} \nocite{durrani-etal2014}
+		%\item {\tiny ()} \nocite{}
+	\end{itemize}
+\end{block}
+\pause
+\begin{block}{Other NLP Tasks}
+	\begin{itemize}
+		\itemsep-0.4em
+		\item Training Neural Net Lang.\ Models {\tiny (Goodman, 2001; Mnih \& Hinton, 2009; ...)} \nocite{goodman2001a,mnih-hinton2009}
+		\item Parsing {\tiny (Koo et al, 2008; Candito \& Seddah, 2010; Kong et al, 2014)} \nocite{koo-etal2008,candito-seddah2010,kong-etal2014}
+		\item Semantic Parsing {\tiny (Zhao et al, 2009)} \nocite{zhao-etal2009}
+		\item Chunking {\tiny (Turian et al, 2010)} \nocite{turian-etal2010}
+		\item NER {\tiny (Miller et al, 2004, {\it inter alia})} \nocite{miller-etal2004,liang2005,ratinov-roth2009,turian-etal2010,ritter-etal2011}
+		\item Tagging of Twitter Feeds {\tiny (Owoputi et al, 2013; Nooralahzadeh et al, 2014)} \nocite{owoputi-etal2013,nooralahzadeh-etal2014}
+		\item Structure Transfer {\tiny (T\"{a}ckstr\"{o}m et al, 2012)} \nocite{tackstrom-etal2012}
+		\item Discourse Relation Discovery {\tiny (Rutherford \& Xue, 2014)} \nocite{rutherford-xue2014}
+	\end{itemize}
+\end{block}
+\end{footnotesize}
+\end{frame}
+
+
+\begin{frame}[allowframebreaks]
+ \frametitle{References}
+ \begin{tiny}
+ \begin{spacing}{0.70}
+\bibliographystyle{apalike}
+\bibliography{bib}
+\addcontentsline{toc}{section}{References}
+ \end{spacing}
+ \end{tiny}
+\end{frame}
 
 
 
