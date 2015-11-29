@@ -106,43 +106,60 @@
 
 
 % applications: analogy, qa, nnlm's
-\begin{frame}{}
+\begin{frame}{Applications of Word Vectors}
 \begin{itemize}
-	\item 
-	\item 
+	\item \textbf{Word distances}.  For example, closest words to `\textit{Sweden}':
+		\begin{center}
+		\begin{footnotesize}
+		\begin{tabular}{rl}
+			\bf Word & \bf Cosine Distance \\
+			\hline
+			Norway & 0.75 \\
+			Denmark & 0.72 \\
+			Finland & 0.62 \\
+			Switzerland & 0.59 \\
+			\ldots & \\
+		\end{tabular}
+		\end{footnotesize}
+		\end{center}
+		\pause
+	\item \textbf{Analogy}.  E.g., \textit{Japan} is to \textit{Tokyo} as \textit{Germany} is to \textit{Berlin}
+		\begin{center}
+		\includegraphics[width=0.54\textwidth]{images/countries_capitals.png} 
+		\end{center}
+		\pause
+		{\scriptsize Japan -- Tokyo $\approx$ Germany -- Berlin }
 \end{itemize}
 \end{frame}
 
 
-\begin{frame}{}
+\begin{frame}{Applications of Word Vectors}
 \begin{itemize}
-	\item 
-	\item 
+	\item \textbf{\href{http://research.microsoft.com/en-us/um/people/cburges/tech_reports/msr-tr-2011-129.pdf}{Sentence Completion}} (actually just restricted language modeling):
+	\item ``All red-headed men who are above the age of {\color{darkblue} [ 800 $|$ seven $|$ twenty-one $|$ 1,200 $|$ 60,000 ]} years , are eligible.''
+	\item ``That is his {\color{darkblue} [ generous $|$ mother's $|$ successful $|$ favorite $|$ main~]} fault , but on the whole he's a good worker.''
+	\pause
+	\item \href{http://arxiv.org/pdf/1301.3781.pdf}{Mikolov et al (2013b)} selected the test word that best predicted the context
 \end{itemize}
 \end{frame}
 
 
 % models, relationship with projection layers of nnlm's
-\begin{frame}{}
+\begin{frame}{Projection Layer in Neural Language Models}
 \begin{itemize}
-	\item 
-	\item 
-\end{itemize}
-\end{frame}
-
-
-\begin{frame}{}
-\begin{itemize}
-	\item 
-	\item 
+	\item \textbf{Neural Language Modeling} -- this was actually one of the earliest uses of word vectors.  We'll talk more about these later this semester \\
+		\begin{center}
+		\includegraphics[width=0.55\textwidth]{images/bengio-etal2003_pg6_image_alt.pdf} 
+		\end{center}
 \end{itemize}
 \end{frame}
 
 
 % word2vec: cbow, sg
-\begin{frame}{}
+\begin{frame}{word2vec: CBOW \& Skip-gram}
 \begin{itemize}
 	\item 
+		\includegraphics[width=0.74\textwidth]{images/mikolov-etal2013b_fig1.png} 
 	\item 
 \end{itemize}
 \end{frame}
@@ -192,7 +209,7 @@
 
 % bilingual word vectors
 
-\begin{frame}{}
+\begin{frame}{Bilingual Word Vectors}
 \begin{itemize}
 	\item 
 	\item 
@@ -206,6 +223,15 @@
 \end{itemize}
 \end{frame}
 
+
+\begin{frame}{Try It Out!}
+\begin{itemize}
+	\item Original word2vec code: \url{https://code.google.com/p/word2vec/} -- includes nice illustrations
+	\item Python version: \href{http://radimrehurek.com/gensim}{Gensim}
+	\item Java version in \href{http://deeplearning4j.org/word2vec.html}{DL4J}
+	\item \href{http://nlp.stanford.edu/projects/glove}{Glove}
+\end{itemize}
+\end{frame}
 
 
 
