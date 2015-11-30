@@ -162,17 +162,17 @@
 	\pause
 	\item In fact, you don't need a neural network at all. He removed the hidden layer, giving a traditional logistic regression model
 	\pause
-	\item He developed a simplified form of training called negative sampling (derived from earlier NCE)
+	\item He developed a simplified form of training called negative sampling (derived from earlier NCE).  It's a little like a binary MaxEnt  classifier
 \end{itemize}
 \end{frame}
 
 
 \begin{frame}{word2vec: CBOW \& Skip-gram}
-\includegraphics[width=0.74\textwidth]{images/mikolov-etal2013b_fig1.png}
-\begin{itemize}
-	\item 
-	\item 
-\end{itemize}
+\includegraphics[width=0.90\textwidth]{images/mikolov-etal2013b_fig1.png}
+%\begin{itemize}
+%	\item 
+%	\item 
+%\end{itemize}
 \end{frame}
 
 
@@ -193,20 +193,28 @@
 \begin{itemize}
 	\item Glove and Latent Semantic Analysis (LSA) count the co-occurrences of word pairs, then use matrix factorization techniques like singular value decomposition (SVD) for dimensionality reduction of this original matrix \\
 		\begin{center}
-		\includegraphics[width=0.52\textwidth]{images/singular-value-decomposition_from_wp.png} 
+		\includegraphics[width=0.42\textwidth]{images/singular-value-decomposition_from_wp.png} 
 		\end{center}
 \end{itemize}
 \end{frame}
 
-
-% bilingual word vectors
-
-\begin{frame}{Bilingual Word Vectors}
+\begin{frame}{Unifying these Approaches}
 \begin{itemize}
-	\item 
-	\item 
+	\item Word2vec, Glove, and LSA all do matrix factorization \href{https://levyomer.files.wordpress.com/2014/09/neural-word-embeddings-as-implicit-matrix-factorization.pdf}{(Levy \& Goldberg, 2014)}, but the successful ones are weighted for word frequency
+	\item Pointwise Mutual Information (PMI) is (implicitly) used by these:
+		\begin{equation*}
+			\text{PMI}(x,y) = log \frac{P(x,y)}{P(x) \, P(y)}
+		\end{equation*}
 \end{itemize}
 \end{frame}
+
+
+% \begin{frame}{Bilingual Word Vectors}
+% \begin{itemize}
+% 	\item BilBOWA
+% 	\item 
+% \end{itemize}
+% \end{frame}
 
 
 \begin{frame}{Try Them Out!}
