@@ -156,16 +156,19 @@
 
 
 % word2vec: cbow, sg
+\begin{frame}{Word2vec}
+\begin{itemize}
+	\item Tom\'{a}\v{s} Mikolov and colleagues found that you don't need the full neural-net language model to get useful word vectors
+	\pause
+	\item In fact, you don't need a neural network at all. He removed the hidden layer, giving a traditional logistic regression model
+	\pause
+	\item He developed a simplified form of training called negative sampling (derived from earlier NCE)
+\end{itemize}
+\end{frame}
+
+
 \begin{frame}{word2vec: CBOW \& Skip-gram}
-\begin{itemize}
-	\item 
-		\includegraphics[width=0.74\textwidth]{images/mikolov-etal2013b_fig1.png} 
-	\item 
-\end{itemize}
-\end{frame}
-
-
-\begin{frame}{}
+\includegraphics[width=0.74\textwidth]{images/mikolov-etal2013b_fig1.png}
 \begin{itemize}
 	\item 
 	\item 
@@ -173,36 +176,25 @@
 \end{frame}
 
 
-% metaparameters: models, window size, normalization (softmax, neg. sampling)
-\begin{frame}{}
+\begin{frame}{Hyperparameters}
 \begin{itemize}
-	\item 
-	\item 
+	\item Window size: how much surrounding context to use
+	\item Normalization: softmax (traditional) vs.\ hierarchical softmax vs.\ negative sampling
+	\item Vector dimensions: 100--500 common
+	\item Number of negative samples: 3--10 common
+	\item Number of training epochs, initial learning rate, negative sample distribution ($\alpha = 0.75$), model, \ldots
 \end{itemize}
 \end{frame}
 
 
-\begin{frame}{}
+
+
+\begin{frame}{Matrix Factorization of Count Co-Occurrences}
 \begin{itemize}
-	\item 
-	\item 
-\end{itemize}
-\end{frame}
-
-
-% glove, maybe SVD-based approaches
-\begin{frame}{}
-\begin{itemize}
-	\item 
-	\item 
-\end{itemize}
-\end{frame}
-
-
-\begin{frame}{}
-\begin{itemize}
-	\item 
-	\item 
+	\item Glove and Latent Semantic Analysis (LSA) count the co-occurrences of word pairs, then use matrix factorization techniques like singular value decomposition (SVD) for dimensionality reduction of this original matrix \\
+		\begin{center}
+		\includegraphics[width=0.52\textwidth]{images/singular-value-decomposition_from_wp.png} 
+		\end{center}
 \end{itemize}
 \end{frame}
 
@@ -216,15 +208,8 @@
 \end{itemize}
 \end{frame}
 
-\begin{frame}{}
-\begin{itemize}
-	\item 
-	\item 
-\end{itemize}
-\end{frame}
 
-
-\begin{frame}{Try It Out!}
+\begin{frame}{Try Them Out!}
 \begin{itemize}
 	\item Original word2vec code: \url{https://code.google.com/p/word2vec/} -- includes nice illustrations
 	\item Python version: \href{http://radimrehurek.com/gensim}{Gensim}
