@@ -225,6 +225,14 @@ cut -f 1 word_count2.txt &gt; words.txt</pre>
     <h3>Search and/or Substitute a Pattern Within a File</h3>
     <ul>
       <li>
+        <code>tr</code> - Substitute characters in a text file<br>
+        <pre>tr 'e' 'E'    &lt; frankie.txt   # Replace all occurrences of "e" with "E" in frankie.txt
+tr -d 'e'     &lt; frankie.txt   # Delete all occurrences of "e"
+tr -d 'aeiou' &lt; frankie.txt   # Delete all vowels
+tr ' ' '\n'   &lt; frankie.txt   # Replace all spaces with newlines
+</pre>
+      </li>
+      <li>
         <code>grep</code> - Search for a given pattern in a text file.  <a href="https://www.gnu.org/software/grep/manual/grep.html#Command_002dline-Options">Useful arguments</a>: <code>-r</code>, <code>-i</code>, <code>-c</code>, <code>-e</code>, <code>-v</code>, <code>-o</code>, <code>-w</code> (spells <em>ricevow</em> :-)<br>
         <pre>grep 'north' frankie.txt     # Search for lines containing "north" in the text file frankie.txt
 grep -i 'north' frankie.txt  # Search lines containing "north", ignoring uppercase/lowercase distinction
@@ -240,16 +248,12 @@ grep -iw 'north' frankie.txt # You can combine options together</pre>
         <!-- <pre></pre> -->
       </li>
       <li>
-        <code>tr</code> - Substitute characters in a text file<br>
-        <pre>tr 'e' 'E'    &lt; frankie.txt   # Replace all occurrences of "e" with "E" in frankie.txt
-tr -d 'e'     &lt; frankie.txt   # Delete all occurrences of "e"
-tr -d 'aeiou' &lt; frankie.txt   # Delete all vowels
-tr ' ' '\n'   &lt; frankie.txt   # Replace all spaces with newlines
-</pre>
-      </li>
-      <li>
         <code>perl -p -e</code> - Advanced substitutions/replacements in a text file<br>
         <!-- <pre></pre> -->
+      </li>
+      <li>
+        <code>rename</code> - Rename many files, according to a pattern<br>
+        <pre>rename 's/ /_/g' *.txt     # Replaces all spaces in a filename with underscores, for all files ending in .txt</pre>
       </li>
     </ul>
     <h3>Etc.</h3>
@@ -277,36 +281,56 @@ tr ' ' '\n'   &lt; frankie.txt   # Replace all spaces with newlines
     <h2><a href="https://en.wikibooks.org/wiki/Bash_Shell_Scripting">Shell Scripting</a></h2>
     <ul>
     <li>
-        <code>command1 | command2</code> - Pipe: Make the output of one command as the input to another command<br>
+        <code>command1 | command2</code> &nbsp; - Pipe: Make the output of one command as the input to another command<br>
         <!-- <pre></pre> -->
       </li>
     <li>
-        <code>command &gt; output.txt</code> - Redirect the output of a command into a file<br>
+        <code>command &gt; output.txt</code> &nbsp; - Redirect the output of a command into a file<br>
+		<pre>echo 'Hi' &gt; output.txt
+cat output.txt
+echo 'Bye' &gt; output.txt
+cat output.txt</pre>
+      </li>
+    <li>
+        <code>command &gt;&gt; output.txt</code> &nbsp; - Append the output of a command to the end of a (possibly already existing) file<br>
+		<pre>echo 'Hi' &gt; output.txt
+cat output.txt
+echo 'Bye' &gt;&gt; output.txt
+cat output.txt</pre>
+      </li>
+    <li>
+        <code>command1 &amp;&amp; command2</code> &nbsp; - Only do <code>command2</code> if <code>command1</code> is successful (no errors)<br>
         <!-- <pre></pre> -->
       </li>
     <li>
-        <code>command &gt;&gt; output.txt</code> - Append the output of a command to the end of a (possibly already existing) file<br>
+        <code>command1 || command2</code> &nbsp; - Do <code>command2</code> regardless of whether <code>command1</code> is successful<br>
         <!-- <pre></pre> -->
       </li>
     <li>
-        <code>command1 &amp;&amp; command2</code> - Only do <code>command2</code> if <code>command1</code> is successful (no errors)<br>
+        <code>x=42</code> &nbsp;&nbsp; - Save the value 42 to a variable <code>x</code>.  You can use the variable later as <code>$x</code><br>
         <!-- <pre></pre> -->
       </li>
     <li>
-        <code>command1 || command2</code> - Do <code>command2</code> regardless of whether <code>command1</code> is successful<br>
-        <!-- <pre></pre> -->
-      </li>
-    <li>
-        <code>x=42</code>  - Save the value 42 to a variable <code>x</code>.  You can use the variable later as <code>$x</code><br>
-        <!-- <pre></pre> -->
-      </li>
-    <li>
-        <code>if [...] command fi</code> - Do <code>command</code> if the thing in square brackets is true<br>
-        <!-- <pre></pre> -->
+        <code>if [[ ... ]]; then command fi</code> &nbsp; - Do <code>command</code> if the thing in square brackets is true<br>
+        <pre>if [[ "$x" == 42 ]]; then
+    echo "Hi"
+else
+    echo "Bye"
+fi</pre>
+        <pre>if [[ "$x" == 3 ]]; then
+    echo "Hi"
+else
+    echo "Bye"
+fi</pre>
       </li>
     <li>
         <code>for x in a b c d; do command; done</code> - Loop (wiederholt) over list <code>a b c d</code>, doing <code>command</code> each time<br>
-        <!-- <pre></pre> -->
+        <pre>for x in Messer Gabel Schere Licht; do
+    echo "Oh no my boy!  Nicht mit $x spielen!"
+done</pre>
+        <!-- <pre>for file in `ls`; do
+    
+done</pre> -->
       </li>
     </ul>
   </div>
@@ -324,9 +348,17 @@ tr ' ' '\n'   &lt; frankie.txt   # Replace all spaces with newlines
   </div>
 
   <div class="section">
-<h2>Useful Translations: English - Deutsch</h2>
+    <h2>Python</h2>
+    <ul>
+      <li><a href="http://www.afterhoursprogramming.com/tutorial/Python/Introduction">A short Python tutorial</a></li>
+      <li><a href="http://www.thomas-guettler.de/vortraege/python/einfuehrung.html">Python, Programmieren macht Spaß</a></li>
+    </ul>
+  </div>
 
-<h3>Keys &amp; Symbols - Tasten u. Symbole</h3>
+  <div class="section">
+    <h2>Useful Translations: English - Deutsch</h2>
+
+    <h3>Keys &amp; Symbols - Tasten u. Symbole</h3>
 
 <table>
 	<thead>
@@ -382,7 +414,6 @@ tr ' ' '\n'   &lt; frankie.txt   # Replace all spaces with newlines
 		<li><a href="https://en.wikibooks.org/wiki/Non-Programmer%27s_Tutorial_for_Python_3/Print_version">Wikibook Non-Programmer's Tutorial for Python 3</a></li>
 		<li><a href="https://docs.python.org/3">Official Python Documentation</a></li>
 		<li><a href="http://www.dirkhovy.com/portfolio/papers/download/pfl_handout.pdf">Python for Linguists: A Gentle Introduction</a></li>
-		<li><a href="http://www.thomas-guettler.de/vortraege/python/einfuehrung.html">Python, Programmieren macht Spaß</a></li>
 		<!--<li><a href=""></a></li>-->
 	</ul>
   </div>
