@@ -125,7 +125,7 @@
 		\pause
 	\item \textbf{Analogy}.  E.g., \textit{Japan} is to \textit{Tokyo} as \textit{Germany} is to \textit{Berlin}
 		\begin{center}
-		\includegraphics[width=0.54\textwidth]{images/countries_capitals.png} 
+		\includegraphics[width=0.54\textwidth]{images/countries_capitals.png}
 		\end{center}
 		\pause
 		{\scriptsize Japan -- Tokyo $\approx$ Germany -- Berlin }
@@ -149,7 +149,7 @@
 \begin{itemize}
 	\item \textbf{Neural Language Modeling} -- this was actually one of the earliest uses of word vectors.  We'll talk more about these later this semester \\
 		\begin{center}
-		\includegraphics[width=0.55\textwidth]{images/bengio-etal2003_pg6_image_alt.pdf} 
+		\includegraphics[width=0.55\textwidth]{images/bengio-etal2003_pg6_image_alt.pdf}
 		\end{center}
 \end{itemize}
 \end{frame}
@@ -193,7 +193,7 @@
 \begin{itemize}
 	\item Glove and Latent Semantic Analysis (LSA) count the co-occurrences of word pairs, then use matrix factorization techniques like singular value decomposition (SVD) for dimensionality reduction of this original matrix \\
 		\begin{center}
-		\includegraphics[width=0.42\textwidth]{images/singular-value-decomposition_from_wp.png} 
+		\includegraphics[width=0.42\textwidth]{images/singular-value-decomposition_from_wp.png}
 		\end{center}
 \end{itemize}
 \end{frame}
@@ -209,12 +209,19 @@
 \end{frame}
 
 
-% \begin{frame}{Bilingual Word Vectors}
-% \begin{itemize}
-% 	\item BilBOWA
-% 	\item 
-% \end{itemize}
-% \end{frame}
+\begin{frame}{Bilingual Word Vectors}
+\begin{center}
+	\includegraphics[height=0.40\textheight]{images/hermann-blunsom2013_fig3.pdf}
+\end{center}
+\vspace*{-1.2em}
+\begin{itemize}
+	\item \href{https://www.aclweb.org/anthology/C12-1089.pdf}{Klementiev et al (2012)}
+	\item \href{http://arxiv.org/abs/1312.6173}{BiCVM} (Hermann \& Blunsom, 2013) (\href{https://github.com/karlmoritz/bicvm}{software})
+	\item \href{http://papers.nips.cc/paper/5270-an-autoencoder-approach-to-learning-bilingual-word-representations}{Bilingual autoencoders} (Chandar et al, 2014) (\href{http://sarathchandar.in/data/corr_net.zip}{software})
+	\item \href{http://arxiv.org/abs/1410.2455}{BilBOWA} (Gouws et al, 2014) (\href{https://github.com/gouwsmeister/bilbowa}{software})
+	\item \href{https://www.aclweb.org/anthology/D15-1131.pdf}{Trans-gram} (Coulmance et al, 2015)
+\end{itemize}
+\end{frame}
 
 
 \begin{frame}{Try Them Out!}
