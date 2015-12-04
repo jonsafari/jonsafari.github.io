@@ -2,6 +2,7 @@
 
 \usepackage{verbatim}
 \usepackage{setspace}
+\usepackage{amsmath}
 \usepackage{url}
 \usepackage{xcolor} % See documentation PDF at http://www.ctan.org/pkg/xcolor
 \definecolor{darkgreen}{rgb}{0,0.3,0}
@@ -63,7 +64,7 @@
 	\pause
 	\item[Matrix]: A 2-dimensional vector
 	\begin{equation*}
-	{\bf A} = 
+	{\boldsymbol A} =
 	\begin{bmatrix}
 	2.1 & -8.5 & 0.1 \\
 	1.1 & 5.0 & -4.4
@@ -79,15 +80,19 @@
 	\begin{Large}
 	\begin{align}
 	%\hspace*{-5.5em}%
-		P(Y = y | \mathbf{X}) & = \frac{e^{\boldsymbol\beta_y \cdot \mathbf{X}}}{\sum_h e^{\boldsymbol\beta_h \cdot \mathbf{X}}}  \nonumber\\[1.0em]
-							  %& = \frac{e^{\boldsymbol\beta_y \cdot \mathbf{X}}}{Z} \raisebox{-1.0em}{\color{green}{\leftarrow \text{``normalization constant''}}}\\[1.0em]
-							  & = \frac{e^{\boldsymbol\beta_y \cdot \mathbf{X}}}{Z} _{\color{green}{ \leftarrow \text{\parbox[t]{0.55\textwidth}{ normalization constant, {\footnotesize to ensure the prob.\ of all possible outcomes sums to 1}}}}}  \nonumber\\[1.0em]
-							 & = \frac{1}{Z} e^{\boldsymbol\beta_y \cdot \mathbf{X}}  \nonumber\\[1.0em]
-							& = \text{softmax}(\beta_y \cdot \mathbf{X}) \nonumber\\[1.0em]
-							& =  \nonumber\\[1.0em]
+		P(y | \mathbf{x}) & = \frac{e^{\boldsymbol W_y \cdot \mathbf{x}} }{Z} \hspace*{0.4em} \substack{\color{green}{ \leftarrow \, \text{\parbox[c]{0.55\textwidth}{ {\tiny \, exponentiation helps ensure scores are positive}}}} \\[1.0em]  \color{green}{ \leftarrow \, \text{\parbox[c]{0.55\textwidth}{ normalization constant, {\footnotesize to ensure the \\[-0.9em] prob.\ of all possible outcomes sums to 1}}}}}  \nonumber\\[1.0em]
+							%& = \frac{1}{Z} e^{\boldsymbol W_y \cdot \mathbf{x}}  \nonumber\\[1.0em]
+							& =	\frac{e^{\boldsymbol W_y \cdot \mathbf{x}}}{\sum_h e^{\boldsymbol W_h \cdot \mathbf{x}}}  \,\, \substack{ \, \\[1.0em]  \color{green}{ \leftarrow \text{\parbox[c]{0.50\textwidth}{ \, to get Z, we just add up scores from \\[-0.8em] all possible outcomes}}}} \nonumber\\[1.0em]
+							& = \text{softmax}(\boldsymbol W_y \cdot \mathbf{x}) \nonumber%\\[1.0em]
+							%& =  \nonumber\\[1.0em]
 	\end{align}
 	\end{Large}
+	\pause
+
+	The input vector $\bf x$ includes an additional dummy value of 1.0\,, called a \textbf{bias term}.
+	This helps determine the offset of the linear separator.  % (but not the shape, for nn's)
 \end{frame}
+
 
 \begin{frame}{}
 \begin{itemize}
@@ -102,14 +107,6 @@
 	\item 
 \end{itemize}
 \end{frame}
-
-\begin{frame}{}
-\begin{itemize}
-	\item 
-	\item 
-\end{itemize}
-\end{frame}
-
 
 
 
