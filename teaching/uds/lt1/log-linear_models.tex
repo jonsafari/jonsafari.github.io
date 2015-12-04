@@ -60,7 +60,7 @@
 
 \begin{frame}{Some Preliminaries}
 \begin{description}
-	\item[Euler's Number]: $e \, = 1 + \frac{1}{1} + \frac{1}{1\cdot 2} + \frac{1}{1\cdot 2\cdot 3} + \cdots \, \approx {\bf 2.71828} $
+	\item[Euler's Number]: ${\mathnormal e} \, = 1 + \frac{1}{1} + \frac{1}{1\cdot 2} + \frac{1}{1\cdot 2\cdot 3} + \cdots \, \approx {\bf 2.71828} $
 	\pause
 	\item[Matrix]: A 2-dimensional vector
 	\begin{equation*}
@@ -80,9 +80,9 @@
 	\begin{Large}
 	\begin{align}
 	%\hspace*{-5.5em}%
-		P(y | \mathbf{x}) & = \frac{e^{\boldsymbol W_y \cdot \mathbf{x}} }{Z} \hspace*{0.4em} \substack{\color{green}{ \leftarrow \, \text{\parbox[c]{0.55\textwidth}{ {\tiny \, exponentiation helps ensure scores are positive}}}} \\[1.0em]  \color{green}{ \leftarrow \, \text{\parbox[c]{0.55\textwidth}{ \textbf{normalization constant}, {\footnotesize to ensure the \\[-0.9em] prob.\ of all possible outcomes sums to 1}}}}}  \nonumber\\[1.0em]
-							%& = \frac{1}{Z} e^{\boldsymbol W_y \cdot \mathbf{x}}  \nonumber\\[1.0em]
-							& =	\frac{e^{\boldsymbol W_y \cdot \mathbf{x}}}{\sum_h e^{\boldsymbol W_h \cdot \mathbf{x}}}  \,\, \substack{ \, \\[1.0em]  \color{green}{ \leftarrow \text{\parbox[c]{0.50\textwidth}{ \, to get Z, we just add up scores from \\[-0.8em] all possible outcomes}}}} \nonumber\\[1.0em]
+		P(y | \mathbf{x}) & = \frac{{\mathnormal e}^{\boldsymbol W_y \cdot \mathbf{x}} }{Z} \hspace*{0.4em} \substack{\color{green}{ \leftarrow \, \text{\parbox[c]{0.58\textwidth}{ {\footnotesize \, exponentiation helps ensure scores are positive}}}} \\[1.0em]  \color{green}{ \leftarrow \, \text{\parbox[c]{0.55\textwidth}{ \textbf{normalization constant}, {\footnotesize to ensure the \\[-0.9em] prob.\ of all possible outcomes sums to 1}}}}}  \nonumber\\[1.0em]
+							%& = \frac{1}{Z} {\mathnormal e}^{\boldsymbol W_y \cdot \mathbf{x}}  \nonumber\\[1.0em]
+							& =	\frac{{\mathnormal e}^{\boldsymbol W_y \cdot \mathbf{x}}}{\sum_h {\mathnormal e}^{\boldsymbol W_h \cdot \mathbf{x}}}  \,\, \substack{ \, \\[1.0em]  \color{green}{ \leftarrow \text{\parbox[c]{0.50\textwidth}{ \, to get Z, we just add up scores from \\[-0.8em] all possible outcomes}}}} \nonumber\\[1.0em]
 							& = \text{softmax}(\boldsymbol W_y \cdot \mathbf{x}) \nonumber%\\[1.0em]
 							%& =  \nonumber\\[1.0em]
 	\end{align}
@@ -91,6 +91,18 @@
 
 	The input vector $\bf x$ includes an additional dummy value of 1.0\,, called a \textbf{bias term}.
 	This helps determine the offset of the linear separator.  % (but not the shape, for nn's)
+\end{frame}
+
+\begin{frame}{Visualization}
+\vspace{0.7em}
+	\begin{center}
+	\includegraphics[height=0.19\textheight]{images/softmax-regression-scalarequation.png} \\[1.1em]
+	\includegraphics[height=0.19\textheight]{images/softmax-regression-vectorequation.png} \\[1.1em]
+	\pause
+	\includegraphics[height=0.29\textheight]{images/softmax-regression-scalargraph.png}
+	\end{center}
+\vspace{0.5em}
+{\tiny Courtesy of \href{http://www.tensorflow.org/tutorials}{TensorFlow}}
 \end{frame}
 
 
@@ -105,10 +117,21 @@
 \end{itemize}
 \end{frame}
 
-\begin{frame}{}
+\begin{frame}{Terminology}
 \begin{itemize}
-	\item 
-	\item 
+	\item Logistic regression is over 50 years old
+	\pause
+	\item It's sometimes also called a \textbf{maximum entropy} classifier (MaxEnt) and softmax regression, \textit{inter alia}
+	\item It also can be viewed as a \textbf{neural network} without any hidden layers
+	\pause
+	\item The model is called a \textbf{log-linear model}.  The following all have a log-linear model, but are trained differently:
+	\begin{itemize}
+		\item \textbf{Logistic regression / MaxEnt / Softmax regression}
+		\item \textbf{Perceptron}
+		\item \textbf{Support vector machines} (SVMs)
+		\item \textbf{Conditional random fields} (CRFs)
+		\item \textbf{Linear discriminant analysis} (LDA)
+	\end{itemize}
 \end{itemize}
 \end{frame}
 
@@ -116,13 +139,11 @@
 
 
 % \begin{frame}{}
-% \begin{block}{}
 % \begin{itemize}
 % 	\item 
 % 	\item 
 % 	\item 
 % \end{itemize}
-% \end{block}
 % \end{frame}
 
 
