@@ -80,7 +80,7 @@
 	\begin{Large}
 	\begin{align}
 	%\hspace*{-5.5em}%
-		P(y | \mathbf{x}) & = \frac{e^{\boldsymbol W_y \cdot \mathbf{x}} }{Z} \hspace*{0.4em} \substack{\color{green}{ \leftarrow \, \text{\parbox[c]{0.55\textwidth}{ {\tiny \, exponentiation helps ensure scores are positive}}}} \\[1.0em]  \color{green}{ \leftarrow \, \text{\parbox[c]{0.55\textwidth}{ normalization constant, {\footnotesize to ensure the \\[-0.9em] prob.\ of all possible outcomes sums to 1}}}}}  \nonumber\\[1.0em]
+		P(y | \mathbf{x}) & = \frac{e^{\boldsymbol W_y \cdot \mathbf{x}} }{Z} \hspace*{0.4em} \substack{\color{green}{ \leftarrow \, \text{\parbox[c]{0.55\textwidth}{ {\tiny \, exponentiation helps ensure scores are positive}}}} \\[1.0em]  \color{green}{ \leftarrow \, \text{\parbox[c]{0.55\textwidth}{ \textbf{normalization constant}, {\footnotesize to ensure the \\[-0.9em] prob.\ of all possible outcomes sums to 1}}}}}  \nonumber\\[1.0em]
 							%& = \frac{1}{Z} e^{\boldsymbol W_y \cdot \mathbf{x}}  \nonumber\\[1.0em]
 							& =	\frac{e^{\boldsymbol W_y \cdot \mathbf{x}}}{\sum_h e^{\boldsymbol W_h \cdot \mathbf{x}}}  \,\, \substack{ \, \\[1.0em]  \color{green}{ \leftarrow \text{\parbox[c]{0.50\textwidth}{ \, to get Z, we just add up scores from \\[-0.8em] all possible outcomes}}}} \nonumber\\[1.0em]
 							& = \text{softmax}(\boldsymbol W_y \cdot \mathbf{x}) \nonumber%\\[1.0em]
@@ -94,10 +94,14 @@
 \end{frame}
 
 
-\begin{frame}{}
+\begin{frame}{Finding Good Values for $\bf W$}
+	\begin{center}
+	\includegraphics[width=0.36\textwidth]{images/big-w.jpg}
+	\end{center}
 \begin{itemize}
-	\item 
-	\item 
+	\item The weight matrix $\bf W$ constitutes the \textbf{parameters} of the model
+	\item Then the main task is to find good values for the weight matrix $\bf W$
+	\item This is done by common \textbf{optimization} techniques, like \href{https://en.wikipedia.org/wiki/Limited-memory_BFGS}{L-BFGS}
 \end{itemize}
 \end{frame}
 
