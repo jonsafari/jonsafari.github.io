@@ -2,6 +2,7 @@
 
 \usepackage{verbatim}
 \usepackage{setspace}
+\usepackage{amssymb}
 \usepackage{url}
 \usepackage{xcolor} % See documentation PDF at http://www.ctan.org/pkg/xcolor
 \definecolor{darkgreen}{rgb}{0,0.3,0}
@@ -211,16 +212,39 @@
 
 \begin{frame}{Bilingual Word Vectors}
 \begin{center}
-	\includegraphics[height=0.40\textheight]{images/hermann-blunsom2013_fig3.pdf}
+	\includegraphics[height=0.42\textheight]{images/hermann-blunsom2013_fig3.pdf}
 \end{center}
-\vspace*{-1.2em}
-\begin{itemize}
-	\item \href{https://www.aclweb.org/anthology/C12-1089.pdf}{Klementiev et al (2012)}
-	\item \href{http://arxiv.org/abs/1312.6173}{BiCVM} (Hermann \& Blunsom, 2013) (\href{https://github.com/karlmoritz/bicvm}{software})
-	\item \href{http://papers.nips.cc/paper/5270-an-autoencoder-approach-to-learning-bilingual-word-representations}{Bilingual autoencoders} (Chandar et al, 2014) (\href{http://sarathchandar.in/data/corr_net.zip}{software})
-	\item \href{http://arxiv.org/abs/1410.2455}{BilBOWA} (Gouws et al, 2014) (\href{https://github.com/gouwsmeister/bilbowa}{software})
-	\item \href{https://www.aclweb.org/anthology/D15-1131.pdf}{Trans-gram} (Coulmance et al, 2015)
-\end{itemize}
+
+\pause
+Monolingual objective: maximize likelihood of training set, where $P(w|c) = \sigma({\bf w \cdot c})$ \\[1.0em]
+Multilingual objective: maximize likelihood of both sentence-aligned training sets (s \& t), based on: $\sigma({\bf w_t \cdot c_t}) + \sigma({\bf w_t \cdot c_s}) + \sigma({\bf w_s \cdot c_s}) + \sigma({\bf w_s \cdot c_t})$
+
+\vspace*{2.0em}
+{\tiny Courtesy of \href{http://arxiv.org/abs/1312.6173}{Hermann \& Blunsom (2013)}}
+\end{frame}
+
+
+\begin{frame}{Bilingual Word Vectors Comparison}
+\vspace*{4.0em}%
+\begin{spacing}{1.2}
+\begin{scriptsize}
+\hspace*{-2.5em}%
+\begin{tabular}{l|llllll}
+	Method & \parbox[c]{4.5em}{No word alignments required} & \parbox[c]{4.4em}{No prior on the mapping between target vectors} & \parbox[c]{4.5em}{No explicit alignments of target vectors} & \parbox[c]{3.9em}{Compu\-tation\-ally efficient} & \parbox[c]{3.5em}{Can leverage monolingual corpus} & \parbox[c]{3.6em}{Free software} \\[0.7em]
+	\hline
+	{\tiny \href{https://www.aclweb.org/anthology/C12-1089.pdf}{Klementiev et al (2012)}} & \checkmark & x & \checkmark & x & \checkmark & x \\
+	%  (Hermann \& Blunsom, 2013)
+	\href{http://arxiv.org/abs/1312.6173}{BiCVM} & \checkmark & \checkmark & x & \checkmark & x & \color{blue}{\href{https://github.com/karlmoritz/bicvm}{\checkmark}} \\
+	%  (Chandar et al, 2014)
+	{\tiny \href{http://papers.nips.cc/paper/5270-an-autoencoder-approach-to-learning-bilingual-word-representations}{Bilingual autoencoders}} & \checkmark & \checkmark & x & x & x & \color{blue}{\href{http://sarathchandar.in/data/corr_net.zip}{\checkmark}} \\
+	% (Gouws et al, 2014) 
+	\href{http://arxiv.org/abs/1410.2455}{BilBOWA} & \checkmark & \checkmark & x & \checkmark & \checkmark & \color{blue}{\href{https://github.com/gouwsmeister/bilbowa}{\checkmark}}  \\
+	% (Coulmance et al, 2015)
+	\href{https://www.aclweb.org/anthology/D15-1131.pdf}{Trans-gram} & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & x \\
+\end{tabular} \\[7.0em]
+\end{scriptsize}
+\end{spacing}
+{\tiny Courtesy of \href{https://www.aclweb.org/anthology/D15-1131.pdf}{Coulmance et al.\ (2015)}}
 \end{frame}
 
 
