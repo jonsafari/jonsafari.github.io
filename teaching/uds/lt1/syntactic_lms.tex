@@ -1,0 +1,170 @@
+\documentclass[xcolor=pdftex,x11names,table,hyperref]{beamer}
+
+\usepackage{verbatim}
+\usepackage{setspace}
+\usepackage{url}
+\usepackage{xcolor} % See documentation PDF at http://www.ctan.org/pkg/xcolor
+\definecolor{darkgreen}{rgb}{0,0.3,0}
+\definecolor{darkblue}{rgb}{.05,.05,.30}
+\definecolor{lightgrey}{rgb}{0.65,0.65,0.65}
+\usepackage{tikzsymbols}
+\usepackage{tikz-qtree}
+
+
+\setbeamertemplate{section in toc}[sections numbered]
+\setbeamertemplate{subsection in toc}[subsections numbered]
+\setbeamertemplate{subsubsection in toc}[subsubsections numbered]
+\usetheme{Singapore}
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{footline}{%
+\vspace{0.0em}%
+\hspace{0.5em}%
+{\color[rgb]{.1,.1,.1} \insertframenumber{}~/~\inserttotalframenumber}
+}
+
+\newcommand{\code}[1]{{\color{darkgreen}\texttt{#1}}}
+\newcommand{\detail}[1]{{\color{lightgrey}\small{}#1}}
+\newcommand{\teeny}[1]{\scalebox{0.09}{#1}}
+\newcommand{\tablecolors}{\rowcolors{2}{blue!12}{white}} % Cool table colors
+
+
+\begin{document}
+
+\title{Probabilistic Context-free Grammars \\and Other Syntactic Language Models \\[1.5em]
+ %\includegraphics[width=0.45\textwidth,angle=180]{images/15118-illustration-of-a-tree-silhouette-pv.png} \\[-1.0em]
+ \includegraphics[height=0.35\textheight,angle=180]{images/tree-169250_960_720.jpg} \\[-1.0em]
+ %\small{Possibilities} \\[1.0em]
+ %LT1 \\[1.0em]
+ }
+\author{\href{http://jon.dehdari.org}{Jon Dehdari}}
+\frame{\titlepage}
+
+\begin{frame}{Kelsey and other Grammers}
+\begin{itemize}
+	\item A \textbf{grammar} here is another word for a language model
+	\item They consist of four separate sets:
+		\begin{description}
+			\item[terminals] -- word types; lowest nodes in syntax trees \\ Examples: \textit{dog, the, eats}
+			\item[non-terminals] -- phrasal types;  middle nodes in syntax trees \\ Examples: \textit{VP, DET, NP}
+			\item[start symbol] -- ``S''; the top node in syntax trees
+			\pause
+		\item[production rules] -- the parameters of the model \\ Examples:
+		\end{description}
+		\vspace{-1.0em}
+		\begin{footnotesize}
+		\begin{spacing}{0.6}
+		\begin{align*}
+			S & \rightarrow NP \ VP \\
+			NP & \rightarrow DET \ N \\
+			NP & \rightarrow ADJ \ N \\
+			VP & \rightarrow V \ NP \\
+			VP & \rightarrow V \\
+			N & \rightarrow dog \\
+			N & \rightarrow cat \\
+			V & \rightarrow barks \\
+			DET & \rightarrow the \\
+		\end{align*}
+		\end{spacing}
+		\end{footnotesize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Visualization}
+\begin{itemize}
+	\item Sentences are often visualized using \textbf{derivation trees}, also known as \textbf{parse trees} or \textbf{syntax trees}
+	\item Example: \\
+		\begin{scriptsize}
+		\tikzset{level distance=2.0em}
+		\begin{tabular}{ll}
+			\Tree [.S [.NP [.DET the ] [.N cat ] ][.VP [.V sat ][.PP [.P on ][.NP [.DET the ] [.N mat ] ] ] ] ] & %
+		\pause
+		\begin{minipage}{0.45\textwidth}
+		\begin{spacing}{0.9}
+		\begin{eqnarray*}
+			S & \rightarrow & NP \ VP \\
+			NP & \rightarrow & DET \ N \\
+			DET & \rightarrow & the \\
+			N & \rightarrow & cat \\
+			VP & \rightarrow & V \ PP \\
+			V & \rightarrow & sat \\
+			PP & \rightarrow & P \ NP \\
+			N & \rightarrow & mat
+		\end{eqnarray*}
+		\end{spacing}
+		\vspace{-10.0em}
+		\end{minipage}
+		\end{tabular}
+		\end{scriptsize}
+	\pause
+	\item Originally these trees were \textbf{mere visualizations} of how you could generate a grammatical sentence, given a grammar
+	\pause
+	\item Then people started to think of these trees as the actual \textbf{structure} of a sentence
+	\pause
+	\item Confusion ensued
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Context-free Grammars}
+\begin{itemize}
+	\item A \textbf{context-free grammar} is a generative model that can generate context-free languages, which are somewhere in the middle of the formal language hierarchy
+	\item Context-free production rules have the general form of a non-termal
+	\item 
+	\item 
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}{PCFGs}
+\begin{itemize}
+	\item 
+	\item 
+	\item 
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}{}
+\begin{itemize}
+	\item 
+	\item 
+	\item 
+\end{itemize}
+\end{frame}
+
+
+% parameter estimation using inside-outside algo (cite)
+% advantages, dis- over regular language models: not incremental, can handle long-distance deps & agreement
+
+% deniz' syn. lm
+
+\begin{frame}{}
+\begin{itemize}
+	\item 
+	\item 
+	\item 
+\end{itemize}
+\end{frame}
+
+
+
+\begin{frame}{}
+\begin{itemize}
+	\item 
+	\item 
+	\item 
+\end{itemize}
+\end{frame}
+
+
+
+
+% \begin{frame}{}
+% \begin{itemize}
+% 	\item 
+% 	\item 
+% 	\item 
+% \end{itemize}
+% \end{frame}
+
+
+\end{document}
