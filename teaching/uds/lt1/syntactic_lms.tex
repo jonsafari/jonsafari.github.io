@@ -179,9 +179,16 @@
 
 \begin{frame}{Inside-Outside Algorithm}
 \begin{itemize}
-	\item The inside-outside algorithm is just the expectation-maximization algorithm applied to trees
+	\item The inside--outside algorithm is just the expectation--maximization algorithm applied to trees
 	\item It uses inside- and outside-probabilities
-	\item ...
+	\item Inside probability:
+	\begin{equation}
+	\beta_j(p,q) = P(w_{pq}|N^j_{pq}, G)
+	\end{equation}
+	\item Outside probability:
+	\begin{equation}
+	\alpha_j(p,q) = P(w_{1(p-1)}, N^j_{pq}, w_{(q+1)m}|G)
+	\end{equation}
 \end{itemize}
 \end{frame}
 
