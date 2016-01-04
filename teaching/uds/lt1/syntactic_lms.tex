@@ -179,19 +179,23 @@
 \begin{itemize}
 	\item So how do we get these probabilities?
 	\item If we have a treebank, we can start with just counting how often productions occur (maximum likelihood estimation)
-	\item If we don't have a treebank, we can still use unannotated text, using the \textbf{inside-outside algorithm}
+	\pause
+	\item If we don't have a treebank, we can still use unannotated text, and apply the \textbf{inside-outside algorithm}
+	\item The inside--outside algorithm is just the expectation--maximization (EM) algorithm applied to trees
+	\item We start by randomly initializing probabilities to all possible rule productions, then use EM to search for good rule probabilities that maximize the likelihood of the training set
 \end{itemize}
 \end{frame}
 
 \begin{frame}{Inside-Outside Algorithm}
 \begin{itemize}
-	\item The inside--outside algorithm is just the expectation--maximization algorithm applied to trees
-	\item It uses inside- and outside-probabilities:
+	\item The inside--outside algorithm uses inside- and outside-probabilities:
+	\begin{itemize}
+		\item Inside probability: $ \beta_j(p,q) = P(w_{pq}|N^j_{pq}, G) $
+		\item Outside probability: $ \alpha_j(p,q) = P(w_{1(p-1)}, N^j_{pq}, w_{(q+1)m}|G) $
+	\end{itemize}
 	\begin{center}
  	\includegraphics[height=0.55\textheight]{images/inside-outside_probs_-_manning_schuetze-1999_fig-11-3.pdf} \\[-1.0em]
 	\end{center}
-	\item Inside probability: $ \beta_j(p,q) = P(w_{pq}|N^j_{pq}, G) $
-	\item Outside probability: $ \alpha_j(p,q) = P(w_{1(p-1)}, N^j_{pq}, w_{(q+1)m}|G) $
 \end{itemize}
 \detail{\scalebox{0.60}{\tiny Image courtesy of Manning \& Sch\"{u}tze (1999), figure 11.3\,.}}
 \end{frame}
