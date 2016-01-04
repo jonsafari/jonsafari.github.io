@@ -6,11 +6,17 @@
 \usepackage{amstext}    % defines the \text command
 \usepackage{array}		% for math mode tabulars
 \usepackage{xcolor} % See documentation PDF at http://www.ctan.org/pkg/xcolor
-\definecolor{darkgreen}{rgb}{0,0.3,0}
+\definecolor{darkgreen}{rgb}{0,0.4,0}
+\definecolor{darkred}{rgb}{0.4,0,0}
 \definecolor{darkblue}{rgb}{.05,.05,.30}
 \definecolor{lightgrey}{rgb}{0.65,0.65,0.65}
 \usepackage{tikzsymbols}
 \usepackage{tikz-qtree}
+\usepackage{amsmath}
+
+\makeatletter
+\newcommand{\xRightarrow}[2][]{\ext@arrow 0359\Rightarrowfill@{#1}{#2}}
+\makeatother
 
 
 \setbeamertemplate{section in toc}[sections numbered]
@@ -180,41 +186,54 @@
 \begin{frame}{Inside-Outside Algorithm}
 \begin{itemize}
 	\item The inside--outside algorithm is just the expectation--maximization algorithm applied to trees
-	\item It uses inside- and outside-probabilities
-	\item Inside probability:
-	\begin{equation}
-	\beta_j(p,q) = P(w_{pq}|N^j_{pq}, G)
-	\end{equation}
-	\item Outside probability:
-	\begin{equation}
-	\alpha_j(p,q) = P(w_{1(p-1)}, N^j_{pq}, w_{(q+1)m}|G)
-	\end{equation}
+	\item It uses inside- and outside-probabilities:
+	\begin{center}
+ 	\includegraphics[height=0.55\textheight]{images/inside-outside_probs_-_manning_schuetze-1999_fig-11-3.pdf} \\[-1.0em]
+	\end{center}
+	\item Inside probability: $ \beta_j(p,q) = P(w_{pq}|N^j_{pq}, G) $
+	\item Outside probability: $ \alpha_j(p,q) = P(w_{1(p-1)}, N^j_{pq}, w_{(q+1)m}|G) $
 \end{itemize}
+\detail{\scalebox{0.60}{\tiny Image courtesy of Manning \& Sch\"{u}tze (1999), figure 11.3\,.}}
 \end{frame}
 
-
-% advantages, dis- over regular language models: not incremental, can handle long-distance deps & agreement
-
-% deniz' syn. lm
-
-\begin{frame}{}
+\begin{frame}{String Probabilities}
 \begin{itemize}
-	\item 
-	\item 
-	\item 
+	\item We use the inside probability of the entire sentence to get the probability of that sentence:
+	\begin{equation*}
+		P(w_{1\,m}|G) = P(N^1 \xRightarrow{*} w_{1\,m}|G) = \beta(1,m)
+	\end{equation*}
+	\item Inside probabilities are calculated recursively \& compositionally for each rule production
+	\item We can do this because rule productions in context-free grammars are, well, context-free!
 \end{itemize}
 \end{frame}
 
 
 
-\begin{frame}{}
+\begin{frame}{PCFGs \textit{vs.}\ $n$-gram Language Models (Lexicalized Probabilistic Regular Grammars)}
 \begin{itemize}
-	\item 
-	\item 
-	\item 
+	\item \color{darkgreen}{PCFGs can better handle long-distance dependencies like subject-verb agreement and filler-gap dependencies}
+	\begin{color}{darkred}
+	\item PCFGs usually give worse perplexity than $n$-gram LMs.  Why?
+	\pause
+	Mostly because PCFGs are unlexicalized -- they use pre-terminals (word classes / POS tags).
+	Thus they fail to account for local co-occurrences like multiword expressions and proper names.
+	\pause
+	\item PCFGs take longer to train
+	\item PCFGs need manually-annotated treebanks to give decent results
+	\item PCFG parsers (eg.\ CKY) are usually not incremental
+	\end{color}
 \end{itemize}
 \end{frame}
 
+
+
+% chelba's structured LMs
+%\begin{frame}{Other Syntactic-y Language Models}
+%\begin{itemize}
+%	\item Structured Language Modeling (Chelba, 2000)
+%	\item 
+%\end{itemize}
+%\end{frame}
 
 
 
