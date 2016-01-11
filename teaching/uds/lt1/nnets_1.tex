@@ -46,7 +46,7 @@
 \end{frame}
 
 % extension of maxent models
-\begin{frame}{Logistic Regression (=Softmax Regression)}
+\begin{frame}{Extending Logistic Regression (=Softmax Regression)}
 \begin{itemize}
 	\item {\small Recall that \textbf{logistic regression} involves the dot product of an input vector and a weight matrix, then a normalized sigmoid function (softmax)}
 	\pause
@@ -84,37 +84,58 @@
 	\bf Name & \bf Visualization & $\bf f(x)=$ & \bf Notes \\
 	\hline
 	Linear  (= Identity) & \actfun{activation_linear_wp.png} & $x$ & Not useful for hidden layers \\
-	Heaviside Step & \actfun{activation_heaviside_step_wp.png} & {\tiny $ \left \{\begin{array}{rcl} 0 & \mbox{for} & x < 0\\ 1 & \mbox{for} & x \ge 0\end{array} \right. $ }  \hspace*{-1.0em} & Not differentiable \\
-{\scriptsize Rectified Linear (ReLU)} & \actfun{activation_relu_wp.png} & {\tiny $ \left \{\begin{array}{rcl} 0 & \mbox{for} & x < 0 \\ x & \mbox{for} & x \ge 0\end{array} \right.$ } \hspace*{-1.0em} & Surprisingly useful in practice \\
+	Heaviside Step & \actfun{activation_heaviside_step_wp.png} & {\tiny $ \left \{\begin{array}{rcl} 0 & \mbox{if} & x < 0\\ 1 & \mbox{if} & x \ge 0\end{array} \right. $ }  \hspace*{-1.0em} & Not differentiable \\
+{\scriptsize Rectified Linear (ReLU)} & \actfun{activation_relu_wp.png} & {\tiny $ \left \{\begin{array}{rcl} 0 & \mbox{if} & x < 0 \\ x & \mbox{if} & x \ge 0\end{array} \right.$ } \hspace*{-1.0em} & Surprisingly useful in practice \\
 	Tanh & \actfun{activation_tanh_wp.png} & $\frac{2}{1+e^{-2x}}-1$ & A soft step function; ranges from -1 to 1 \\
-	Logistic & \actfun{activation_logistic_wp.png} & $\frac{1}{1+e^{-x}}$ & Another soft step function; ranges from 0 to 1 \\
+	Logistic (`sigmoid') & \actfun{activation_logistic_wp.png} & $\frac{1}{1+e^{-x}}$ & Another soft step function; ranges from 0 to 1 \\
 	Softmax & \actfun{activation_logistic_wp.png} & $\frac{e^{\boldsymbol W_y \cdot \mathbf{x}} }{Z} $ & Normalized sigmoidal function. Useful for last layer when training on cross entropy \\
 \end{tabular}
 \end{spacing}
 \end{footnotesize}
+\pause
+{\tiny \href{http://keras.io/activations}{List of activation functions in Keras: \texttt{keras.io/activations}}}
 \end{frame}
 
-% training them via backprop: why, how;
-\begin{frame}{}
+\begin{frame}{Training Neural Networks}
 \begin{itemize}
-	\item 
-	\item 
+	\item At a high level, the weights in a neural net are set by means of the blame game -- whenever it guesses incorrectly, change the weights that were the most responsible for making that guess
+	\pause
+	\item Whenever the network guesses a training instance correctly, don't change anything
+	\pause
+	\item The weights are usually trained by a form of the gradient descent optimization algorithm
+	\item The gradients are calculated by error \textbf{backpropagation}
+	\item First, do a normal forward pass through the network, to determine the \textbf{error/loss} (how different the output was from the `correct' answer)
+	\item Then, do a backwards pass (end to start), changing the weights to minimize errors
 \end{itemize}
+\end{frame}
+
+\begin{frame}{Loss / Objective Functions}
+\begin{itemize}
+	\item \textbf{Discrete Outputs}:
+	\begin{itemize}
+		\item Binary Cross-Entropy (0-1 loss): 0 if correct, 1 if incorrect
+		\item Categorical Cross-Entropy: good old cross-entropy. Eg.\\ 0 if $p(y)=1.0$, \\ 1 if $p(y) = 0.5$, \\ 2 if $p(y)=0.25$, \\ 3 if $p(y)=0.125$, \\ ...
+	\end{itemize}
+	\item \textbf{Continuous Outputs}:
+	\begin{itemize}
+		\item Mean Squared Error (MSE): $\frac{1}{n} \sum_{i=1}^n (\hat{y}_i - y_i)^2$
+		\item Root Mean Squared Error (RMSE): $\sqrt{MSE}$
+		\item Mean Absolute Error (MAE): $\frac{1}{n} \sum_{i=1}^n |\hat{y}_i - y_i|$
+	\end{itemize}
+\end{itemize}
+\pause
+\vspace*{1.0em}
+\href{http://keras.io/objectives}{List of loss functions in Keras: \texttt{keras.io/objectives}}
 \end{frame}
 
 % autoencoders, classifiers
-\begin{frame}{}
+\begin{frame}{Autoencoders}
 \begin{itemize}
-	\item 
-	\item 
-\end{itemize}
-\end{frame}
-
-% loss functions
-\begin{frame}{}
-\begin{itemize}
-	\item 
-	\item 
+	\item An \textbf{autoencoder} is a neural network where the size of the output layer is the same size as the input layer
+	\item The hidden layers are usually smaller
+	\item The goal is to generalize the training data
+	\item Since no labeled data is necessary, autoencoders are an unsupervised learning technique
+	\item Autoencoders trained on language data are neural language models
 \end{itemize}
 \end{frame}
 
@@ -134,11 +155,23 @@
 \end{itemize}
 \end{frame}
 
-% software: theano-based, tensorflow-based, torch-based, others (Caffe, CNN, ...)
-\begin{frame}{}
+% software: theano-based, tensorflow-based, torch-based, others (Caffe, DL4J, CNN, ...)
+\begin{frame}{Software}
 \begin{itemize}
-	\item 
-	\item 
+	\item Most popular neural net software are based on the following: \\[1.0em]
+\begin{tabular}{lll}
+	\bf Name & \bf Lang Support & \bf GPU Support \\
+	\hline
+	\bf Theano & Python & Yes \\
+	\bf TensorFlow & Python, C++ & Yes \\
+	\bf Torch & Lua & Yes \\
+	\bf DL4J & Java, Scala & Yes \\
+\end{tabular}
+\vspace*{1.0em}
+\pause
+\item Many others: Caffe, CXXNet, PyLearn2, DMTK, CNN
+\pause
+\item We'll use \href{http://keras.io}{Keras}, which is really easy and intuitive.  It can use either Theano or TensorFlow as a backend.
 \end{itemize}
 \end{frame}
 
