@@ -31,7 +31,7 @@
 
 \begin{document}
 
-\title{Neural Nets \\[1.5em]
+\title{Neural Networks \\[1.5em]
  %\includegraphics[width=0.5\textwidth]{images/kitten_string_flickr_albaraa.jpg} \\[-1.0em]
  \small{Part 1} \\[1.0em]
  %LT1 \\[1.0em]
@@ -93,7 +93,8 @@
 \end{spacing}
 \end{footnotesize}
 \pause
-{\tiny \href{http://keras.io/activations}{List of activation functions in Keras: \texttt{keras.io/activations}}}
+{\tiny \href{http://keras.io/activations}{List of activation functions in Keras: \texttt{keras.io/activations}}}\\
+\teeny{Images courtesy of \href{https://en.wikipedia.org/wiki/Activation_function}{Wikipedia}}
 \end{frame}
 
 \begin{frame}{Training Neural Networks}
@@ -128,7 +129,6 @@
 \href{http://keras.io/objectives}{List of loss functions in Keras: \texttt{keras.io/objectives}}
 \end{frame}
 
-% autoencoders, classifiers
 \begin{frame}{Autoencoders}
 \begin{itemize}
 	\item An \textbf{autoencoder} is a neural network where the size of the output layer is the same size as the input layer
@@ -139,7 +139,40 @@
 \end{itemize}
 \end{frame}
 
-% discussion of depth, width, dropout, early stopping based on dev set
+\begin{frame}{Tips \& Tricks (discussed in class)}
+\begin{itemize}
+	\item Network depth
+	\item Layer size
+	\item Dropout
+	\item Early stopping
+	\item Optimizers
+	\item Learning rate
+\end{itemize}
+\end{frame}
+
+% software: theano-based, tensorflow-based, torch-based, others (Caffe, DL4J, CNN, ...)
+\begin{frame}{Software}
+\begin{itemize}
+	\item Most popular neural net software are based on the following: \\[1.0em]
+\hspace*{-2.0em}%
+\begin{tabular}{llll}
+	\bf Name & \bf Lang Support & \bf GPU Support & \bf Who \\
+	\hline
+	\bf Theano & Python & Yes & Uni Montreal \\
+	\bf TensorFlow & Python, C++ & Yes & Google \\
+	\bf Torch & Lua & Yes & FB, Twitter, etc. \\
+	\bf DL4J & Java, Scala & Yes & \href{http://skymind.io}{Skymind.io} \\
+\end{tabular}
+\vspace*{1.0em}
+\pause
+\item Many others: Caffe, CXXNet, PyLearn2, DMTK, CNN
+\pause
+\item We'll use \href{http://keras.io}{Keras (keras.io)}, which is really easy and intuitive.  It can use either Theano or TensorFlow as a backend.
+\end{itemize}
+\end{frame}
+
+\iffalse
+% automatic differentiation of graph, why it's nice
 \begin{frame}{}
 \begin{itemize}
 	\item 
@@ -155,34 +188,6 @@
 \end{itemize}
 \end{frame}
 
-% software: theano-based, tensorflow-based, torch-based, others (Caffe, DL4J, CNN, ...)
-\begin{frame}{Software}
-\begin{itemize}
-	\item Most popular neural net software are based on the following: \\[1.0em]
-\begin{tabular}{lll}
-	\bf Name & \bf Lang Support & \bf GPU Support \\
-	\hline
-	\bf Theano & Python & Yes \\
-	\bf TensorFlow & Python, C++ & Yes \\
-	\bf Torch & Lua & Yes \\
-	\bf DL4J & Java, Scala & Yes \\
-\end{tabular}
-\vspace*{1.0em}
-\pause
-\item Many others: Caffe, CXXNet, PyLearn2, DMTK, CNN
-\pause
-\item We'll use \href{http://keras.io}{Keras}, which is really easy and intuitive.  It can use either Theano or TensorFlow as a backend.
-\end{itemize}
-\end{frame}
-
-% automatic differentiation of graph, why it's nice
-\begin{frame}{}
-\begin{itemize}
-	\item 
-	\item 
-\end{itemize}
-\end{frame}
-
 % Second set: recurrent NN's (Elman, GRU, LSTM), BPTT, maybe convolutional nets
 
 \begin{frame}{}
@@ -191,6 +196,7 @@
 	\item 
 \end{itemize}
 \end{frame}
+\fi
 
 
 
