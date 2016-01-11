@@ -75,8 +75,8 @@
 \end{frame}
 
 % activation functions: linear, relu, heaviside step function, tanh, logistic, softmax
-\begin{frame}{Activation Functions}
-	In each layer, the output of the dot product goes through an \textbf{\href{https://en.wikipedia.org/wiki/Activation_function}{activation function}}. Here are some examples: \\[0.3em]
+\begin{frame}{Activation Functions ($\sigma$)}
+	In each layer, the output of the dot product goes through an \textbf{\href{https://en.wikipedia.org/wiki/Activation_function}{activation function}} ($\sigma$). Here are some examples: \\[0.3em]
 \begin{footnotesize}
 \begin{spacing}{0.85}
 \hspace*{-3.0em}%
@@ -136,7 +136,13 @@
 	\item The goal is to generalize the training data
 	\item Since no labeled data is necessary, autoencoders are an unsupervised learning technique
 	\item Autoencoders trained on language data are neural language models
+	\pause
+	\item Autoencoders are occasionally called \href{https://en.wikipedia.org/wiki/Diabolo\#History_and_etymology}{diabolo networks} \\
+	\begin{center}
+	\includegraphics[height=0.35\textheight]{images/diabolo_large_and_small.jpg}
+	\end{center}
 \end{itemize}
+\teeny{Image courtesy of \href{https://commons.wikimedia.org/wiki/File:Diabolo_large_and_small.jpg}{Wikimedia}}
 \end{frame}
 
 \begin{frame}{Tips \& Tricks (discussed in class)}
