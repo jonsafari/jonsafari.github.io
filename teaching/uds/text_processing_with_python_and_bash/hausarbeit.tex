@@ -1,0 +1,133 @@
+\documentclass[11pt]{article}
+
+\usepackage{mathpazo}
+\usepackage{setspace}
+%\usepackage{natbib}
+%\usepackage{tipa}
+\usepackage{graphicx}
+%\usepackage{amsmath}
+\usepackage{amssymb}
+%\usepackage[dvipsnames]{color}
+%\usepackage{cancel}
+%\usepackage[normalem]{ulem}
+%\usepackage{qtree}
+%\usepackage{linguex}
+%\renewcommand{\refdash}{}
+%\usepackage{tree-dvips}
+%\usepackage{cgloss}
+%\usepackage{txfonts}
+%\usepackage{times}
+\usepackage{units}
+%\usepackage{avm}
+\usepackage{color}
+\definecolor{darkblue}{rgb}{0,0,.45}
+\definecolor{blue}{rgb}{0,0,.6}
+\definecolor{maroon}{rgb}{.4,0,0}
+\definecolor{lightgrey}{rgb}{.7,.7,.7}
+\usepackage[pdfborder=0 0 0, colorlinks=true, linkcolor=darkblue, urlcolor={blue}]{hyperref}
+\usepackage[vmargin=1.2in, hmargin=1.2in, a4paper]{geometry}
+%\addtolength{\topmargin}{-0.75in}
+%\addtolength{\textheight}{1.00in}
+
+%\bibliographystyle{lsalikealt}
+
+\newcommand{\bss}{\char`\\\hspace{-.45ex}\char`\\} % Stupid backslash, esp. in code
+\newcommand{\bs}{\char`\\} % Stupid backslash, esp. in code
+\newcommand{\code}[1]{{\texttt{{\color{lightgrey}\raisebox{.45ex}{$\ulcorner$}\hspace{-.5ex}{\color{maroon}#1}\hspace{-.54ex}\raisebox{.45ex}{$\urcorner$}}}}}
+
+\title{Hausarbeit: \\ {\large Ich versteh' nur Bahnhof}}
+
+\begin{document}
+\maketitle
+%\noindent%
+%{\Large \textsc{Assignment 1} } \\[.55ex]
+%{\large \textsc{Linguistics 384} } \\[.25ex]
+
+
+\begin{spacing}{1.35}
+
+% sentiment detector?  # of good vs. bad words
+% language detector? tabulate short list of frequent words
+
+Your final task is to write a Python program, and then write about it.
+Each part is discussed below.
+For the program (only the program), you can (but are not required to) work with \textbf{one} other person in the class on this~(no more than one).
+There should be two email attachments: your term paper (\textit{your\_name}\_hausarbeit.pdf) and your program (\textit{your\_name}\_langid.py).
+Include the program as an appendix to the paper, \textbf{and} as a separate email attachment.
+
+If you have any questions, feel free to email me.
+
+\section{Program}
+{Read and follow all steps}, and include lots of useful comments in the program.\footnote{Start a line with the \, \textbf{\#} \, symbol, followed by your useful comments.}
+The python program should perform language identification -- guess whether an input text is either in German or English
+
+Your program should open and read-in an input file, convert every line to lowercase, and count the frequency of certain words.
+For language identification, count the frequency of: ``the'', ``and'', \& ``of'', as well as ``die'', ``der'', \& ``und''.
+
+%Write briefly why we would want to count these words, as opposed to 
+
+After you've read-in the text file and tabulated all the counts of these words, compare the total count of the English words with the total count of the German words.
+
+Then print out which of the two choices had the most word occurences.
+So at the end of the file the program should print either ``English'' or ``German''.
+Thus you are guessing whether the input file is written in English or German.
+
+
+% list cmd line invocation, provide some sample files and desired output
+From the command-line shell, you should ultimately be able to type: \\
+\code{python3 \textit{name}\_langid.py input.txt} \\
+And the output should simply be either ``German'' or ``English''\,.
+
+You can download sample input files from: \\ \url{http://languagemodel.org/classes/uds/shell_and_python_basics/hausarbeit/sample_input}
+
+
+
+
+\subsection{Example Command-line Usage for Language Identification}
+\begin{spacing}{0.9}
+\begin{verbatim}
+$ python3  name_langid.py  language_input1.txt
+German
+$ python3  name_langid.py  language_input2.txt
+English
+$ python3  name_langid.py  language_input3.txt
+English
+\end{verbatim}
+\end{spacing}
+\vspace*{-1.0em}
+
+
+\subsection{Command-line Arguments in Python}
+In order for your python program to work with the file name that you specify (as above), you should have the following line at the beginning of your python program: \\
+\code{import sys}
+
+Then you can use the first command-line argument as \code{sys.argv[1]}\,.
+For example:
+\begin{spacing}{0.5}
+\begin{verbatim}
+import sys
+
+myfile = open(sys.argv[1])
+
+for line in myfile:
+    print(line)
+	    
+myfile.close()
+\end{verbatim}
+\end{spacing}
+
+
+\section{Paper}
+First, explain at a very high level what your program does and how it works.
+Explain it to an audience who does not know how to program.
+
+Next, state in the paper how you would improve the program to get more accurate results.
+You don't need to implement these proposed improvements.
+
+(more to come ...)
+
+Affirm that you (and possibly one other person in the class, whom you should name) are the sole author(s) of the program.
+You should also affirm that your are the only author of the paper.
+\end{spacing}
+%\bibliography{localbib}
+\end{document}
