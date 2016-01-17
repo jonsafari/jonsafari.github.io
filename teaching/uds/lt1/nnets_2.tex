@@ -9,6 +9,7 @@
 \definecolor{darkblue}{rgb}{.05,.05,.30}
 \definecolor{lightgrey}{rgb}{0.65,0.65,0.65}
 \usepackage{tikzsymbols}
+\usetikzlibrary{matrix,arrows,positioning,automata,shadows,shapes.geometric,shapes.misc}
 
 
 \setbeamertemplate{section in toc}[sections numbered]
@@ -75,7 +76,7 @@
 
 \pause
 
-\hspace*{-2.0em}%
+\hspace*{-2.5em}%
 \begin{minipage}{1.0\textwidth}
 \begin{itemize}
 	\item This involves $|V|$ steps, where $|V|$ is the size of the vocabulary
@@ -106,7 +107,7 @@
 % http://keras.io/layers/recurrent/
 % https://en.wikipedia.org/wiki/LSTM
 
-\begin{frame}{Recurrent Neural Networks for Sequential Data}
+\begin{frame}{Neural Networks for Sequential Data}
 \begin{itemize}
 	\item Feedforward (FF) networks only indirectly deal with sequential data (like language)
 	\item FF Neural LMs are basically `soft' $n$-gram LMs -- their history is still fixed
@@ -123,8 +124,114 @@
 \end{frame}
 
 
+\begin{frame}{Recurrent Neural Networks}
+\hspace*{-1.0em} A neural net with loops is called \textbf{recurrent} \\[1.0em]
+\pause
+
+\hspace*{-3.0em}%
+\begin{tabular}{p{.63\textwidth}p{.4\textwidth}}
+\begin{minipage}{0.6\textwidth}
+\begin{itemize}
+	\item The current hidden layer of the model is based on both the current word and the hidden layer of the previous timestep
+	\item This is implemented by copying the hidden layer to another layer, overwriting the existing weights
+	\item This specific RNN is called an \textbf{Elman network} (or \textbf{simple RNN})
+\end{itemize}
+\end{minipage}
+ & 
+%\begin{scalebox}{0.6}{%
+\begin{minipage}{1.0\textwidth}
+\begin{tiny}
+\input{images/elman_network}
+\end{tiny}
+\end{minipage}
+%}
+\end{tabular} \\[1.0em]
 
 
+\hspace*{-2.5em}%
+\begin{minipage}{1.0\textwidth}
+\begin{itemize}
+	\item To train an RNN, we first need to `unroll' the loops
+\end{itemize}
+\end{minipage}
+\end{frame}
+
+
+
+\begin{frame}{Training RNNs with BPTT}
+\begin{itemize}
+	\item Backpropagation through time (BPTT) trains RNNs by unrolling the most recent part of the loop
+	\item Now the network is feedforward
+	\item {\small Below is an example of an unrolled RNN using last 3 states \detail{($\tau = 3$)} }
+\end{itemize}
+
+\vspace*{0.5em}
+
+\begin{tiny}
+\scalebox{0.94}{%
+\input{images/boden-2002_remake}
+}
+\end{tiny}
+\end{frame}
+
+
+\begin{frame}{Problems with Elman Networks / SRNs}
+\begin{itemize}
+	\item The main problem with Elman networks (SRNs) is that gradients less than 1 become exponentially small over time (the \textbf{vanishing gradient problem}) ...
+	\item and gradients greater than 1 become exponentially large over time (the \textbf{exploding gradient problem})$^{^*}$
+	\item This leads to instability, and bad results
+	\pause
+	\item What if we had another neural network help the first network learn long-distance relationships?
+	\pause
+	\item That's basically what we do when we add more weight matrices to a neural network
+	\pause
+	\item As you might guess, that's what we're going to do ...
+\end{itemize}
+\vspace*{5.0em}
+\teeny{$^*$\,The exploding gradient problem can be alleviated by clipping large gradient values to some maximum number.}
+\end{frame}
+
+
+\begin{frame}{Long Short-term Memory}
+\begin{center}
+\includegraphics[width=0.55\textwidth]{images/lstm_memorycell.png}
+\end{center}
+\vspace*{-2.0em}
+
+\begin{itemize}
+	\item A \textbf{long short-term memory} (LSTM) network adds more weight matrices to function as \emph{soft} `memory gates', so that long-distance phenomena in our data can be held in the network over multiple timesteps
+	\item Input gate: $i_t = \sigma(W_i x_t + U_i h_{t-1} + b_i) $
+	\item Candidate memory state: $ \tilde{C}_t = \text{tanh}( W_c x_t + U_c h_{t-1} + b_c ) $
+	\item Forget gate: $ f_t = \sigma( W_f x_t + U_f h_{t-1} + b_f ) $
+	\item Memory state: $ C_t = i_t \odot \tilde{C}_t + f_t \odot \tilde{C}_{t-1} $
+	\item Output gate: $ o_t = \sigma(W_o x_t + U_o h_{t-1} + V_o C_t + b_o) $
+	\item Output: $ h_t = o_t \odot \text{tanh}(C_t) $
+\end{itemize}
+\teeny{Image courtesy of \url{http://deeplearning.net/tutorial/lstm.html}.  The symbol $\odot$ is the Hadamard product (a.k.a.\ elementwise multiplication), which just multiplies corresponding elements of two matrices and returns another matrix of their products.}
+\end{frame}
+
+
+\begin{frame}{Gated Recurrent Units (GRUs)}
+\begin{center}
+\includegraphics[width=0.75\textwidth]{images/chung-etal2014_fig1.pdf}
+\end{center}
+\vspace*{-1.0em}
+
+\begin{itemize}
+	\item \textbf{Gated recurrent units} (GRUs) are very similar to LSTMs, but are a little simpler
+	\item Both LSTMs and GRUs achieve similar performance on many tasks
+\end{itemize}
+\teeny{Image courtesy of \url{http://arxiv.org/pdf/1412.3555v1.pdf}}
+\end{frame}
+
+
+\begin{frame}{Rube Goldberg Network}
+\begin{itemize}
+	\item 
+	\item 
+	\item 
+\end{itemize}
+\end{frame}
 
 % \begin{frame}{}
 % \begin{itemize}
