@@ -88,12 +88,12 @@
 
 
 \begin{frame}{Speeding Up Normalization}
-\begin{itemize}
+\begin{itemize}[<+->]
 	\item Can we speed up normalization? We can approximate it:
-	\item \textbf{Class-based Decomposition} 
-	\item \textbf{Hierarchical Softmax} extends this idea to a fully binary-branching hierarchy of the vocabulary (like an ontology)
-	\item \textbf{Noise Contrastive Estimation} (NCE)
-	\item \textbf{Self Normalization}
+	\item \textbf{Class-based Decomposition} works like class-based LMs: first determine prob.\ of a given word's class/POS, then the prob.\ of the specific word \detail{$\mathcal{O} ( \sqrt{|V|} )$}
+	\item \textbf{Hierarchical Softmax} extends this idea to a fully binary-branching hierarchy of the vocabulary (like an ontology) \detail{$\mathcal{O} (\log_2(|V|) ) $ }
+	\item \textbf{Noise Contrastive Estimation} (NCE) disposes with MLE (in Softmax).  Instead, a binary classifier is learned: observed training data vs.\ artificially generated noise.  word2vec's negative sampling is a simplified version. \detail{$\mathcal{O} (1) $}
+	\item \textbf{Self Normalization} ensures that the normalization constant $Z$ is close to one. Slow for training, fast for test-time queries
 \end{itemize}
 \end{frame}
 
@@ -108,9 +108,18 @@
 
 \begin{frame}{Recurrent Neural Networks for Sequential Data}
 \begin{itemize}
-	\item Feedforward networks deal with sequential data (like language) only indirectly
-	\item We need loops ...
+	\item Feedforward (FF) networks only indirectly deal with sequential data (like language)
+	\item FF Neural LMs are basically `soft' $n$-gram LMs -- their history is still fixed
+	%\pause
+	\item The model needs to `remember' a longer history, with loops:
 \end{itemize}
+\begin{center}
+\begin{tiny}
+%\begin{scalebox}{0.6}{
+\input{images/elman_network}
+%}
+\end{tiny}
+\end{center}
 \end{frame}
 
 
