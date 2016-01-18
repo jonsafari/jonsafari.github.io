@@ -207,9 +207,27 @@
 	\item Output gate: $ o_t = \sigma(W_o x_t + U_o h_{t-1} + V_o C_t + b_o) $
 	\item Output: $ h_t = o_t \odot \text{tanh}(C_t) $
 \end{itemize}
-\teeny{Image courtesy of \url{http://deeplearning.net/tutorial/lstm.html}.  The symbol $\odot$ is the Hadamard product (a.k.a.\ elementwise multiplication), which just multiplies corresponding elements of two matrices and returns another matrix of their products.}
+\teeny{Image courtesy of a nice tutorial at \url{http://deeplearning.net/tutorial/lstm.html}.  Another nice tutorial is at \url{https://colah.github.io/posts/2015-08-Understanding-LSTMs}.  The symbol $\odot$ is the Hadamard product (a.k.a.\ elementwise multiplication), which just multiplies corresponding elements of two matrices and returns another matrix of their products.}
 \end{frame}
 
+\begin{frame}{Memory Gates}
+\begin{center}
+\includegraphics[width=0.35\textwidth]{images/gate_funny.jpg}
+\end{center}
+%\vspace*{-0.8em}
+
+\hspace*{-1.0em}%
+\begin{minipage}{1.1\textwidth}
+\begin{itemize}[<+->]
+	\item Each soft gate that we use is just another weight matrix that we apply to various inputs, then squash through a logistic function
+	\item For example, if the value of the forget gate $f$ is 0, the memory state from the previous timestep ($C_{t-1}$) is completely forgotten
+	\item If $f=1$, we fully keep the memory state of the previous timestep
+	\item The value of $f$ can be between 0 and 1, so the memory decays
+	\item That's a big difference over Elman networks / SRNs
+\end{itemize}
+\end{minipage}
+\teeny{\scalebox{0.2}{Image ostensibly from \url{http://www.amusingtime.com/funny/funny-signs/page/209}}}
+\end{frame}
 
 \begin{frame}{Gated Recurrent Units (GRUs)}
 \begin{center}
@@ -219,6 +237,8 @@
 
 \begin{itemize}
 	\item \textbf{Gated recurrent units} (GRUs) are very similar to LSTMs, but are a little simpler
+	\item GRUs merge the forget and input gates into a single update gate
+	\item GRUs also merge the hidden state and the cell state
 	\item Both LSTMs and GRUs achieve similar performance on many tasks
 \end{itemize}
 \teeny{Image courtesy of \url{http://arxiv.org/pdf/1412.3555v1.pdf}}
