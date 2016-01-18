@@ -90,7 +90,7 @@
 
 \begin{frame}{Speeding Up Normalization}
 \begin{itemize}[<+->]
-	\item Can we speed up normalization? We can approximate it:
+	\item Can we speed up normalization? We can approximate $Z$\,:
 	\item \textbf{Class-based Decomposition} works like class-based LMs: first determine prob.\ of a given word's class/POS, then the prob.\ of the specific word \detail{$\mathcal{O} ( \sqrt{|V|} )$}
 	\item \textbf{Hierarchical Softmax} extends this idea to a fully binary-branching hierarchy of the vocabulary (like an ontology) \detail{$\mathcal{O} (\log_2(|V|) ) $ }
 	\item \textbf{Noise Contrastive Estimation} (NCE) disposes with MLE (in Softmax).  Instead, a binary classifier is learned: observed training data vs.\ artificially generated noise.  word2vec's negative sampling is a simplified version. \detail{$\mathcal{O} (1) $}
@@ -111,16 +111,15 @@
 \begin{itemize}
 	\item Feedforward (FF) networks only indirectly deal with sequential data (like language)
 	\item FF Neural LMs are basically `soft' $n$-gram LMs -- their history is still fixed
-	%\pause
-	\item The model needs to `remember' a longer history, with loops:
+	\pause
+	\item The model needs to `remember' a longer history, with loops
 \end{itemize}
-\begin{center}
-\begin{tiny}
-%\begin{scalebox}{0.6}{
-\input{images/elman_network}
-%}
-\end{tiny}
-\end{center}
+
+%\begin{center}
+%\begin{tiny}
+%\input{images/elman_network}
+%\end{tiny}
+%\end{center}
 \end{frame}
 
 
@@ -134,7 +133,7 @@
 \begin{itemize}
 	\item The current hidden layer of the model is based on both the current word and the hidden layer of the previous timestep
 	\item This is implemented by copying the hidden layer to another layer, overwriting the existing weights
-	\item This specific RNN is called an \textbf{Elman network} (or \textbf{simple RNN})
+	\item This specific RNN is called an \textbf{Elman network} (or \textbf{simple RNN} / SRN)
 \end{itemize}
 \end{minipage}
  & 
@@ -200,6 +199,7 @@
 
 \begin{itemize}
 	\item A \textbf{long short-term memory} (LSTM) network adds more weight matrices to function as \emph{soft} `memory gates', so that long-distance phenomena in our data can be held in the network over multiple timesteps
+	\pause
 	\item Input gate: $i_t = \sigma(W_i x_t + U_i h_{t-1} + b_i) $
 	\item Candidate memory state: $ \tilde{C}_t = \text{tanh}( W_c x_t + U_c h_{t-1} + b_c ) $
 	\item Forget gate: $ f_t = \sigma( W_f x_t + U_f h_{t-1} + b_f ) $
@@ -210,9 +210,11 @@
 \teeny{Image courtesy of a nice tutorial at \url{http://deeplearning.net/tutorial/lstm.html}.  Another nice tutorial is at \url{https://colah.github.io/posts/2015-08-Understanding-LSTMs}.  The symbol $\odot$ is the Hadamard product (a.k.a.\ elementwise multiplication), which just multiplies corresponding elements of two matrices and returns another matrix of their products.}
 \end{frame}
 
-\begin{frame}{Memory Gates}
+\begin{frame}{Gates}
 \begin{center}
-\includegraphics[width=0.35\textwidth]{images/gate_funny.jpg}
+\includegraphics[height=0.30\textheight]{images/gate_funny.jpg}
+\hspace{1.7em}
+\includegraphics[height=0.30\textheight]{images/bill-gates-pie.jpg}
 \end{center}
 %\vspace*{-0.8em}
 
