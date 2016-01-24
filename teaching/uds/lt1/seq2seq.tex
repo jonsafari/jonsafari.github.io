@@ -94,50 +94,77 @@
 	\item We can combine the neural encoder and decoder of previous slides to form an \textbf{encoder-decoder model}
 	\item This can be used for machine translation, and other tasks that map sequences to sequences
 \begin{center}
-\includegraphics[width=0.60\textwidth]{images/cho_nvidia_fig-2_enc-dec.png}\hspace*{-1.0em}%
+\includegraphics[width=0.40\textwidth]{images/cho_nvidia_fig-2_enc-dec.png}\hspace*{-1.0em}%
+\end{center}
+	\pause
+	\item Monolingual word projections (vectors/embeddings) are trained to maximize likelihood of next word
+	\item Source-side word projections ($\textbf{s}_i$) in an encoder-decoder setting are trained to maximize target-side likelihood
+\end{itemize}
+\teeny{Images courtesy of \url{http://devblogs.nvidia.com/parallelforall/introduction-neural-machine-translation-gpus-part-2}}
+\end{frame}
+
+
+\begin{frame}{Bidirectional RNNs}
+\begin{itemize}
+	\item The basic encoder-decoder architecture doesn't handle long sentences very well
+	\item Everything must fit into a fixed-size vector,
+	\item and RNNs remember recent items better
+	\pause
+	\item We can combine left-to-right and right-to-left RNNs to overcome these issues
+\begin{center}
+\includegraphics[width=0.60\textwidth]{images/cho_nvidia_fig-2_birnn.png}\hspace*{-1.0em}%
+\end{center}
+\end{itemize}
+\teeny{Images courtesy of \url{http://devblogs.nvidia.com/parallelforall/introduction-neural-machine-translation-gpus-part-3}}
+\end{frame}
+
+
+\begin{frame}{What if \ldots}
+\begin{itemize}
+	\item Even bidirectional encoder-decoders have a hard time with long sentences
+	\item We need a way to keep track of what's already been translated and what to translate next
+	\pause
+\begin{center}
+\includegraphics[width=0.40\textwidth]{images/keanu_what_if_nnet.jpg}\hspace*{-1.0em}%
+\end{center}
+	\pause
+	\item For neural nets, the solution is often more neural nets \ldots
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}{Pay Attention!}
+\begin{itemize}
+	\item 
+	\item 
+\begin{center}
+%\includegraphics[width=0.50\textwidth]{images/}\hspace*{-1.0em}%
 \end{center}
 \end{itemize}
 \end{frame}
 
 
 
-% bidirectional RNNs
-\begin{frame}{Bidirectional RNNs}
-\begin{itemize}
-	\item 
-	\item 
-\end{itemize}
-\end{frame}
-
-
-% attention
-\begin{frame}{Pay Attention!}
-\begin{itemize}
-	\item 
-	\item 
-\end{itemize}
-\end{frame}
-
-
-
-% image caption generation
-% http://www.wildml.com/2015/09/recurrent-neural-networks-tutorial-part-1-introduction-to-rnns/
+% see http://www.wildml.com/2015/09/recurrent-neural-networks-tutorial-part-1-introduction-to-rnns/
 \begin{frame}{Image Caption Generation}
 \begin{itemize}
 	\item 
 	\item 
 \end{itemize}
+\begin{center}
+\includegraphics[width=0.90\textwidth]{images/xu-etal2015_icml_fig4.jpg}\hspace*{-1.0em}%
+\end{center}
+\teeny{Images courtesy of \url{http://arxiv.org/abs/1502.03044}}
 \end{frame}
 
 
-
-
-\begin{frame}{}
-\begin{itemize}
-	\item 
-	\item 
-\end{itemize}
+\begin{frame}{Image Caption Generation, Step by Step}
+\begin{center}
+\includegraphics[width=0.90\textwidth]{images/xu-etal2015_icml_fig10b.jpg}\hspace*{-1.0em}%
+\end{center}
+\teeny{Images courtesy of \url{http://arxiv.org/abs/1502.03044}}
 \end{frame}
+
 
 
 
