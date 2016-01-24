@@ -53,10 +53,13 @@
 \begin{frame}{Sentence Vectors}
 \begin{itemize}
 	\item We've seen that words can be represented as vectors. Can sentences be represented as vectors? \pause
-	\item Sure, why not? \pause How can we get them? Maybe from the hidden state at the end of a sentence.
+	\item Sure, why not? \pause How?  From the hidden state at the end of a sentence: \hspace{1.0em}
+	$ \mathbf{h}_i = \phi_{\text{enc}} ( \mathbf{h}_{i-1}, \mathbf{s}_i ) $
+		\small{ \detail{($\phi_{\text{enc}}$ = LSTM or GRU)} }
+	\pause
 	\begin{center} \includegraphics[width=0.63\textwidth]{images/cho_nvidia_fig-3_one-hot.png} \end{center}
 	\pause
-	\item Are they any good?  For Elman networks (SRNs), not so much.  For LSTMs, yes, they're pretty good!
+	\item Are they any good?  For Elman networks (SRNs), not so much.  For LSTMs or GRUs, yes, they're pretty good
 \end{itemize}
 \teeny{Images courtesy of \url{http://devblogs.nvidia.com/parallelforall/introduction-neural-machine-translation-gpus-part-2}}
 \end{frame}
@@ -71,10 +74,15 @@
 % generate text from a vector (decoding)
 \begin{frame}{Generating Sentences from Vectors}
 \begin{itemize}
-	\item 
-	\item 
-\end{itemize}
+	\item We can also try to go the other direction, generating sentences from vectors
+	\item How?  Use an RNN to \textbf{decode}, rather than \textbf{encode} a sentence: \hspace{1.0em}
+		$ \mathbf{z}_i = \phi_{\text{dec}} ( \mathbf{z}_{i-1}, \mathbf{u}_{i-1}, \mathbf{h}_T ) $
+\begin{center}
 \includegraphics[width=0.60\textwidth]{images/cho_nvidia_figure7_internal-hidden-state.png}\hspace*{-1.0em}%
+\end{center}
+	\item $\mathbf{h}_T$ ensures global sentence coherency (\& adequacy in MT); $\mathbf{u}_{i-1}$ ensures local fluency
+\end{itemize}
+\teeny{Images courtesy of \url{http://devblogs.nvidia.com/parallelforall/introduction-neural-machine-translation-gpus-part-2}}
 \end{frame}
 
 
