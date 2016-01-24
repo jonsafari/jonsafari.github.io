@@ -61,7 +61,7 @@
 	\pause
 	\item Are they any good?  For Elman networks (SRNs), not so much.  For LSTMs or GRUs, yes, they're pretty good
 \end{itemize}
-\teeny{Images courtesy of \url{http://devblogs.nvidia.com/parallelforall/introduction-neural-machine-translation-gpus-part-2}}
+\teeny{Image courtesy of \url{http://devblogs.nvidia.com/parallelforall/introduction-neural-machine-translation-gpus-part-2}}
 \end{frame}
 
 \begin{frame}{Sentence Vector Examples}
@@ -82,7 +82,7 @@
 \end{center}
 	\item $\mathbf{h}_T$ ensures global sentence coherency (\& adequacy in MT); $\mathbf{u}_{i-1}$ ensures local fluency
 \end{itemize}
-\teeny{Images courtesy of \url{http://devblogs.nvidia.com/parallelforall/introduction-neural-machine-translation-gpus-part-2}}
+\teeny{Image courtesy of \url{http://devblogs.nvidia.com/parallelforall/introduction-neural-machine-translation-gpus-part-2}}
 \end{frame}
 
 
@@ -100,7 +100,7 @@
 	\item Monolingual word projections (vectors/embeddings) are trained to maximize likelihood of next word
 	\item Source-side word projections ($\textbf{s}_i$) in an encoder-decoder setting are trained to maximize target-side likelihood
 \end{itemize}
-\teeny{Images courtesy of \url{http://devblogs.nvidia.com/parallelforall/introduction-neural-machine-translation-gpus-part-2}}
+\teeny{Image courtesy of \url{http://devblogs.nvidia.com/parallelforall/introduction-neural-machine-translation-gpus-part-2}}
 \end{frame}
 
 
@@ -115,7 +115,7 @@
 \includegraphics[width=0.60\textwidth]{images/cho_nvidia_fig-2_birnn.png}\hspace*{-1.0em}%
 \end{center}
 \end{itemize}
-\teeny{Images courtesy of \url{http://devblogs.nvidia.com/parallelforall/introduction-neural-machine-translation-gpus-part-3}}
+\teeny{Image courtesy of \url{http://devblogs.nvidia.com/parallelforall/introduction-neural-machine-translation-gpus-part-3}}
 \end{frame}
 
 
@@ -133,14 +133,15 @@
 \end{frame}
 
 
+% see http://www.wildml.com/2016/01/attention-and-memory-in-deep-learning-and-nlp/
 \begin{frame}{Pay Attention!}
 \begin{itemize}
-	\item 
-	\item 
+	\item Attention-based decoding adds another network ($\mathbf{a}$) that takes as input the encoder's hidden state ($\mathbf{h}$) and the decoder's hidden state ($\mathbf{z}$), and outputs a probability for each source word at each time step (when and where to pay attention)
 \begin{center}
-%\includegraphics[width=0.50\textwidth]{images/}\hspace*{-1.0em}%
+\includegraphics[width=0.70\textwidth]{images/cho_nvidia_fig-3_attention.png}\hspace*{-1.0em}%
 \end{center}
 \end{itemize}
+\teeny{Image courtesy of \url{http://devblogs.nvidia.com/parallelforall/introduction-neural-machine-translation-gpus-part-3}}
 \end{frame}
 
 
