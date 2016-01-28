@@ -39,11 +39,11 @@
 \author{\href{http://jon.dehdari.org}{Jon Dehdari}}
 \frame{\titlepage}
 
-\begin{frame}{Good Morning!}
-	\begin{center}
-	%\includegraphics[width=0.8\textwidth]{images/.jpg}
-	\end{center}
-\end{frame}
+%\begin{frame}{Good Morning!}
+%	\begin{center}
+%	%\includegraphics[width=0.8\textwidth]{images/.jpg}
+%	\end{center}
+%\end{frame}
 
 % extension of maxent models
 \begin{frame}{Extending Logistic Regression (=Softmax Regression)}
@@ -164,14 +164,15 @@
 \begin{tabular}{llll}
 	\bf Name & \bf Lang Support & \bf GPU Support & \bf Who \\
 	\hline
-	\bf Theano & Python & Yes & Uni Montreal \\
-	\bf TensorFlow & Python, C++ & Yes & Google \\
-	\bf Torch & Lua & Yes & FB, Twitter, etc. \\
-	\bf DL4J & Java, Scala & Yes & \href{http://skymind.io}{Skymind.io} \\
+	\bf \href{http://www.deeplearning.net/software/theano}{Theano} & Python & Yes & Uni Montreal \\
+	\bf \href{https://www.tensorflow.org}{TensorFlow} & Python, C++ & Yes & Google \\
+	\bf \href{http://torch.ch}{Torch} & Lua & Yes & FB, Twitter, etc. \\
+	\bf \href{http://deeplearning4j.org}{DL4J} & Java, Scala & Yes & \href{http://skymind.io}{Skymind.io} \\
+	\bf \href{https://github.com/Microsoft/CNTK}{CNTK} & C++ & Yes & Microsoft \\
 \end{tabular}
 \vspace*{1.0em}
 \pause
-\item Many others: Caffe, CXXNet, PyLearn2, DMTK, CNN
+\item Many others: \href{http://caffe.berkeleyvision.org}{Caffe}, \href{https://github.com/dmlc/mxnet}{MXNet}, \href{https://github.com/clab/cnn}{CNN}
 \pause
 \item We'll use \href{http://keras.io}{Keras (keras.io)}, which is really easy and intuitive.  It can use either Theano or TensorFlow as a backend.
 \end{itemize}
