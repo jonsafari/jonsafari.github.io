@@ -59,14 +59,16 @@
 
 % fully connected ("It's all connected!") vs CNNs and pooling (max, avg, ): use low-level features to form high-level generalizations
 
-\begin{frame}{\Conv{} Networks}
+\begin{frame}{\Conv{} Neural Network (CNN)}
 \begin{itemize}
 	\item Convolutional layers localize connections to a small window of input
-	\item 
 	\begin{center}
-	\includegraphics[width=0.3\textwidth]{images/wp_artificial_neural_network.png}
+	\includegraphics[width=0.7\textwidth]{images/colah_Conv-9-Conv3.png}
 	\end{center}
+	\pause
+	\item Here the input node $x_3$ connects to the second, third, and fourth nodes at the next layer
 \end{itemize}
+\teeny{Image courtesy of \href{https://colah.github.io/posts/2014-07-Conv-Nets-Modular}{Colah's awesome blog}}
 \end{frame}
 
 % Assumes spacial (or maybe temporal) relationship of input
@@ -75,7 +77,7 @@
 \begin{itemize}
 	\item A convolution in this context is just the dot product of a window of input and its weight matrix:
 	\begin{center}
-	\includegraphics[height=0.5\textheight]{images/apple_kernel_convolution.jpg}
+	\includegraphics[height=0.47\textheight]{images/apple_kernel_convolution.jpg}
 	\end{center}
 	\pause
 	\item It's also sometimes called a filter or kernel, because CNNs were originally popular with image processing
@@ -87,10 +89,9 @@
 
 % windows, stride
 
-% max, avg
 \begin{frame}{Pool Party!}
 \begin{itemize}
-	\item \textbf{Pooling} takes the maximum value (max pooling) or arithmetic average (average pooling) of a small block of nodes
+	\item \textbf{Pooling} takes the maximum value (``max pooling'') or arithmetic mean (``average pooling'') of a small block of nodes
 	\begin{center}
 	\includegraphics[height=0.4\textheight]{images/wp_max_pooling.png}
 	\end{center}
@@ -101,6 +102,17 @@
 	\item Pooling layers are usually on top of a \conv{} layer
 \end{itemize}
 \teeny{Image courtesy of \href{https://commons.wikimedia.org/wiki/File:Max_pooling.png}{Wikipedia}}
+\end{frame}
+
+\begin{frame}{Combining \Conv{} Layers and Pooling}
+\begin{itemize}
+	\item We can combine a \conv{} layer and max pooling:
+	\begin{center}
+	\includegraphics[height=0.63\textheight]{images/colah_Conv2-9x5-Conv2Max2Conv2.png}
+	\end{center}
+\item The input is blue, then a \conv{} layer (green), then a max pooling layer (red), then another \conv{} layer (purple), and finally a fully-connected layer is orange
+\end{itemize}
+\teeny{Image courtesy of \href{https://colah.github.io/posts/2014-07-Conv-Nets-Modular}{Colah's awesome blog}}
 \end{frame}
 
 % show edge-detection visual example
