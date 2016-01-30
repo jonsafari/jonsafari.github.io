@@ -43,48 +43,78 @@
 %	\end{center}
 %\end{frame}
 
-% fully connected vs CNNs and pooling (max, avg, )
+\begin{frame}{Too Connected!}
+\begin{itemize}
+	\item All the neural networks that we've seen so far are \emph{fully connected} between each layer
+	\item That is, every node in a layer is connected to every node in the next layer
+	\begin{center}
+	\includegraphics[width=0.3\textwidth]{images/wp_artificial_neural_network.png}
+	\end{center}
+	\pause
+	\item This is fine for small inputs, but not for large inputs
+\end{itemize}
+\end{frame}
+
+% fully connected ("It's all connected!") vs CNNs and pooling (max, avg, ): use low-level features to form high-level generalizations
+
+\begin{frame}{Convolutional Networks}
+\begin{itemize}
+	\item 
+	\item 
+\end{itemize}
+\end{frame}
+
+\begin{frame}{}
+\begin{itemize}
+	\item 
+	\item 
+\end{itemize}
+\end{frame}
+
+% windows, 
+
+% show edge-detection visual example
+
+% max, avg
+\begin{frame}{Pool Party!}
+\begin{itemize}
+	\item 
+	\begin{center}
+	\includegraphics[width=0.8\textwidth]{images/wp_max_pooling.png}
+	\end{center}
+	\item 
+\end{itemize}
+\end{frame}
+
 % application to CV
-% application to char-lm's, citing harvard group's paper
+
+\begin{frame}{}
+\begin{itemize}
+	\item 
+	\item 
+\end{itemize}
+\end{frame}
+
+% application to char-lm's, citing harvard group's paper ( http://arxiv.org/abs/1508.06615 )
+\begin{frame}{Character-based Neural Language Models}
+\begin{itemize}
+	\item 
+	\item 
+	\begin{center}
+	\includegraphics[height=0.8\textheight]{images/kim-etal2016_fig1.pdf}
+	\end{center}
+\end{itemize}
+\end{frame}
+
+
 % ?? recursive NNs
-
-\begin{frame}{}
-\begin{itemize}
-	\item 
-	\item 
-\end{itemize}
-\end{frame}
-
-
-\begin{frame}{}
-\begin{itemize}
-	\item 
-	\item 
-\end{itemize}
-\end{frame}
-
-
-\begin{frame}{}
-\begin{itemize}
-	\item 
-	\item 
-\end{itemize}
-\end{frame}
-
-
-\begin{frame}{}
-\begin{itemize}
-	\item 
-	\item 
-\end{itemize}
-\end{frame}
 
 
 \begin{frame}{Further Reading}
 \textbf{Overviews}:
 \begin{tiny}
 \begin{itemize}
-	\item \url{http://u.cs.biu.ac.il/~yogo/nnlp.pdf}
+	\item \url{http://u.cs.biu.ac.il/~yogo/nnlp.pdf} (\S{} 9)
 	\item \url{https://colah.github.io/posts/2014-07-Conv-Nets-Modular}
 	\item \url{https://colah.github.io/posts/2014-07-Understanding-Convolutions}
 	\item \url{https://colah.github.io/posts/2014-12-Groups-Convolution}
@@ -93,12 +123,16 @@
 	\item \url{http://white.stanford.edu/teach/index.php/An_Introduction_to_Convolutional_Neural_Networks}
 	\item \url{http://deeplearning.net/tutorial/lenet.html}
 	\item \url{https://cs231n.github.io/convolutional-networks}
+	\item \url{http://cs224d.stanford.edu/lectures/CS224d-Lecture13.pdf}
 \end{itemize}
 \end{tiny}
 \textbf{Original Papers}:
-\begin{description}
-	\item 
-\end{description}
+\begin{tiny}
+\begin{itemize}
+	\item LeCun, Yann, \& Bengio, Yoshua. 1995. \href{http://www.iro.umontreal.ca/~lisa/pointeurs/handbook-convo.pdf}{Convolutional networks for images, speech, and time series}. \textit{The handbook of brain theory and neural networks}, 3361.10.
+	\item Kim, Yoon, Yacine Jernite, David Sontag, Alexander M. Rush. 2016. \href{http://arxiv.org/abs/1508.06615}{Character-Aware Neural Language Models}.  In \textit{Proceedings of AAAI-2016}. Phoenix, AZ, USA. \href{http://arxiv.org/abs/1508.06615}{arXiv:1508.06615}. \href{https://github.com/yoonkim/lstm-char-cnn}{Software Link}.
+\end{itemize}
+\end{tiny}
 \end{frame}
 
 
