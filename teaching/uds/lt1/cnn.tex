@@ -25,11 +25,13 @@
 \newcommand{\detail}[1]{{\color{lightgrey}\small{}#1}}
 \newcommand{\teeny}[1]{\scalebox{0.09}{#1}}
 \newcommand{\tablecolors}{\rowcolors{2}{blue!12}{white}} % Cool table colors
+\newcommand{\conv}{convolutional}
+\newcommand{\Conv}{Convolutional}
 
 
 \begin{document}
 
-\title{Convolutional Neural Nets \\[1.5em]
+\title{\Conv{} Neural Nets \\[1.5em]
  %\includegraphics[width=0.5\textwidth]{images/kitten_string_flickr_albaraa.jpg} \\[-1.0em]
  \small{and Character-based Language Models} \\[1.0em]
  %LT1 \\[1.0em]
@@ -57,34 +59,51 @@
 
 % fully connected ("It's all connected!") vs CNNs and pooling (max, avg, ): use low-level features to form high-level generalizations
 
-\begin{frame}{Convolutional Networks}
+\begin{frame}{\Conv{} Networks}
 \begin{itemize}
+	\item Convolutional layers localize connections to a small window of input
 	\item 
-	\item 
+	\begin{center}
+	\includegraphics[width=0.3\textwidth]{images/wp_artificial_neural_network.png}
+	\end{center}
 \end{itemize}
 \end{frame}
 
-\begin{frame}{}
+% Assumes spacial (or maybe temporal) relationship of input
+
+\begin{frame}{Convolutions}
 \begin{itemize}
-	\item 
-	\item 
+	\item A convolution in this context is just the dot product of a window of input and its weight matrix:
+	\begin{center}
+	\includegraphics[height=0.5\textheight]{images/apple_kernel_convolution.jpg}
+	\end{center}
+	\pause
+	\item It's also sometimes called a filter or kernel, because CNNs were originally popular with image processing
+	\pause
+	\item It's common to use the same weight matrix at all positions \detail{(parameter sharing)}, because a cat is a cat regardless of where in the image it is!
 \end{itemize}
+\teeny{Image courtesy of \href{https://developer.apple.com/library/ios/documentation/Performance/Conceptual/vImage/ConvolutionOperations/ConvolutionOperations.html}{Apple}}
 \end{frame}
 
-% windows, 
-
-% show edge-detection visual example
+% windows, stride
 
 % max, avg
 \begin{frame}{Pool Party!}
 \begin{itemize}
-	\item 
+	\item \textbf{Pooling} takes the maximum value (max pooling) or arithmetic average (average pooling) of a small block of nodes
 	\begin{center}
-	\includegraphics[width=0.8\textwidth]{images/wp_max_pooling.png}
+	\includegraphics[height=0.4\textheight]{images/wp_max_pooling.png}
 	\end{center}
-	\item 
+	\pause
+	\item We can view pooling as ``summarizing'' a low-level area of input
+	\item They allow small variations of input \detail{\small{(translation invariance)}}, and preventing overfitting
+	\pause
+	\item Pooling layers are usually on top of a \conv{} layer
 \end{itemize}
+\teeny{Image courtesy of \href{https://commons.wikimedia.org/wiki/File:Max_pooling.png}{Wikipedia}}
 \end{frame}
+
+% show edge-detection visual example
 
 % application to CV
 
@@ -92,18 +111,26 @@
 \begin{itemize}
 	\item 
 	\item 
+	\begin{center}
+	\includegraphics[height=0.80\textheight]{images/deep_cnn_face.jpg}
+	\end{center}
 \end{itemize}
 \end{frame}
 
 % application to char-lm's, citing harvard group's paper ( http://arxiv.org/abs/1508.06615 )
 \begin{frame}{Character-based Neural Language Models}
 \begin{itemize}
-	\item 
-	\item 
+	\item \href{http://arxiv.org/abs/1508.06615}{Kim et al. (2016)} made a nice character-based language model by combining \conv{} layers, LSTMs, and highway networks (like LSTMs for deep networks): \\
 	\begin{center}
-	\includegraphics[height=0.8\textheight]{images/kim-etal2016_fig1.pdf}
+	\includegraphics[height=0.73\textheight]{images/kim-etal2016_fig1.pdf}
 	\end{center}
 \end{itemize}
+\end{frame}
+
+\begin{frame}{Character-based Neural Language Models (cont'd)}
+	\begin{center}
+	\includegraphics[width=1.02\textwidth]{images/kim-etal2016_table6.pdf}
+	\end{center}
 \end{frame}
 
 
@@ -129,7 +156,7 @@
 \textbf{Original Papers}:
 \begin{tiny}
 \begin{itemize}
-	\item LeCun, Yann, \& Bengio, Yoshua. 1995. \href{http://www.iro.umontreal.ca/~lisa/pointeurs/handbook-convo.pdf}{Convolutional networks for images, speech, and time series}. \textit{The handbook of brain theory and neural networks}, 3361.10.
+	\item LeCun, Yann, \& Bengio, Yoshua. 1995. \href{http://www.iro.umontreal.ca/~lisa/pointeurs/handbook-convo.pdf}{\Conv{} networks for images, speech, and time series}. \textit{The handbook of brain theory and neural networks}, 3361.10.
 	\item Kim, Yoon, Yacine Jernite, David Sontag, Alexander M. Rush. 2016. \href{http://arxiv.org/abs/1508.06615}{Character-Aware Neural Language Models}.  In \textit{Proceedings of AAAI-2016}. Phoenix, AZ, USA. \href{http://arxiv.org/abs/1508.06615}{arXiv:1508.06615}. \href{https://github.com/yoonkim/lstm-char-cnn}{Software Link}.
 \end{itemize}
 \end{tiny}
