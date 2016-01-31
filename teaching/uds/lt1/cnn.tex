@@ -23,7 +23,7 @@
 
 \newcommand{\code}[1]{{\color{darkgreen}\texttt{#1}}}
 \newcommand{\detail}[1]{{\color{lightgrey}\small{}#1}}
-\newcommand{\teeny}[1]{\scalebox{0.09}{#1}}
+\newcommand{\teeny}[1]{\scalebox{0.10}{#1}}
 \newcommand{\tablecolors}{\rowcolors{2}{blue!12}{white}} % Cool table colors
 \newcommand{\conv}{convolutional}
 \newcommand{\Conv}{Convolutional}
@@ -39,9 +39,9 @@
 \author{\href{http://jon.dehdari.org}{Jon Dehdari}}
 \frame{\titlepage}
 
-%\begin{frame}{Good Morning!}
+%\begin{frame}{It's All Connected!}
 %	\begin{center}
-%	%\includegraphics[width=0.8\textwidth]{images/.jpg}
+%	\includegraphics[height=1.5\textheight]{images/infographic-yahoo-tv-crazy-wall-v4-FINAL.jpg}
 %	\end{center}
 %\end{frame}
 
@@ -53,7 +53,7 @@
 	\includegraphics[width=0.3\textwidth]{images/wp_artificial_neural_network.png}
 	\end{center}
 	\pause
-	\item This is fine for small inputs, but not for large inputs
+	\item This is fine for a small number of inputs, but can be problematic for a large number of inputs \detail{(\,$|\mathbf{x}| \cdot |\mathbf{h}|$\,)}
 \end{itemize}
 \end{frame}
 
@@ -66,7 +66,7 @@
 	\includegraphics[width=0.7\textwidth]{images/colah_Conv-9-Conv3.png}
 	\end{center}
 	\pause
-	\item Here the input node $x_3$ connects to the second, third, and fourth nodes at the next layer
+	\item For example, the input node $x_3$ connects to the second, third, and fourth nodes at the next layer, which is a normal dot-product + activation function
 \end{itemize}
 \teeny{Image courtesy of \href{https://colah.github.io/posts/2014-07-Conv-Nets-Modular}{Colah's awesome blog}}
 \end{frame}
@@ -75,7 +75,7 @@
 
 \begin{frame}{Convolutions}
 \begin{itemize}
-	\item A convolution in this context is just the dot product of a window of input and its weight matrix:
+	\item A convolution \emph{in this context} is just the dot product of a window of input and its weight matrix:
 	\begin{center}
 	\includegraphics[height=0.47\textheight]{images/apple_kernel_convolution.jpg}
 	\end{center}
@@ -97,7 +97,7 @@
 	\end{center}
 	\pause
 	\item We can view pooling as ``summarizing'' a low-level area of input
-	\item They allow small variations of input \detail{\small{(translation invariance)}}, and preventing overfitting
+	\item They allow small variations of input \detail{\small{(translation invariance)}}, and prevent overfitting
 	\pause
 	\item Pooling layers are usually on top of a \conv{} layer
 \end{itemize}
