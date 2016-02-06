@@ -10,8 +10,8 @@
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    version="1.0"
-   width="211.43748"
-   height="122.08561"
+   width="191.31203"
+   height="114.82697"
    id="svg1415"
    inkscape:version="0.48.5 r10040"
    sodipodi:docname="wp_2D_Cartesian_Coordinates.svg">
@@ -23,6 +23,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -41,7 +42,7 @@
      showgrid="false"
      inkscape:zoom="4.7801096"
      inkscape:cx="101.1077"
-     inkscape:cy="66.65067"
+     inkscape:cy="66.650666"
      inkscape:window-x="0"
      inkscape:window-y="0"
      inkscape:window-maximized="0"
@@ -54,7 +55,7 @@
      id="defs1417" />
   <g
      id="layer1"
-     transform="translate(-76.602,-101.50153)">
+     transform="translate(-76.602,-108.76017)">
     <g
        transform="translate(-309.1428,35.85211)"
        id="g1590">
@@ -251,14 +252,22 @@
          transform="translate(311.3468,63.59458)" />
       <text
          x="459.52655"
-         y="81.544777"
+         y="83.544777"
          style="font-size:20.92140007px;font-family:ArialMT"
-         id="text105">y-axis</text>
+         id="text105">
+        <tspan
+           style="font-size:14px"
+           id="tspan3222">y-axis</tspan>
+      </text>
       <text
          x="536.34882"
          y="136.39828"
          style="font-size:20.92140007px;font-family:ArialMT"
-         id="text107">x-axis</text>
+         id="text107">
+        <tspan
+           style="font-size:14px"
+           id="tspan3224">x-axis</tspan>
+      </text>
       <line
          style="fill:none;stroke:#000000;stroke-width:1.42329836;stroke-miterlimit:10"
          id="line109"
