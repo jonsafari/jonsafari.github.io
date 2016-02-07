@@ -1,0 +1,141 @@
+<html>
+ <head>
+  <title>PDF Tricks</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="icon" type="image/png" href="../images/icons/favicon.png">
+ </head>
+
+ <body>
+  <header>
+   <div class="container">
+    <h1><a href="../index.html">Jon Dehdari</a></h1>
+    <nav>
+     <ul>
+      <li class="active"><a href="../index.html#interests" class="icon star">Interests</a></li>
+      <li><a href="../pubs/" class="icon papers">Publications</a></li>
+      <li><a href="../index.html#software-and-data" class="icon download">Software & Data</a></li>
+      <li><a href="../teaching/" class="icon book">Teaching</a></li>
+      <li><a href="../index.html#contact" class="icon messages">Contact Me</a></li>
+     </ul>
+    </nav>
+   </div>
+  </header>
+
+  <br><br><br>
+  <center><a href="https://en.wikipedia.org/wiki/Portable_Document_Format"><img src="../images/logos/pdf_640.png"  alt="PDF Logo" width=30%></a></center>
+  <br><br><br><br>
+
+  <h1>PDF Tricks</h1>
+  <div class="section">
+	  The <b>Portable Document Format</b> (PDF) is a very nice, open standard for fixed-layout documents.
+	  The first thing to know about PDFs is <b>you don't need Adobe software to create, modify, or read PDFs</b>.
+  </div>
+
+  <!-- Overview, standard, don't need Adobe products -->
+  <!--  convert to/from other formats (eg txt2pdf), print to PDF, fill out forms, edit PDF metadata, PDF/A, "optimized" format, pdfjam stuff, remove one page, hyperref/the other one for more interactive PDFs -->
+  <!-- see http://www.linux.com/learn/tutorials/442414-manipulating-pdfs-with-the-pdf-toolkit -->
+	<div class="section">
+	<h2>How do I join/merge PDFs together?</h2>
+	<pre>
+pdftk input1.pdf input2.pdf input3.pdf  cat output  output.pdf
+	</pre>
+	</div>
+
+	<div class="section">
+	<h2>How do I split all the pages of a PDF?</h2>
+	<pre>
+pdftk input.pdf burst
+	</pre>
+	The output by default is <tt>pg_0001.pdf</tt>, <tt>pg_0002.pdf</tt>, etc.
+	</div>
+
+	<div class="section">
+	<h2>How do I remove or extract certain pages from a PDF?</h2>
+	To remove page 7:
+	<pre>
+pdftk input.pdf  cat '~7'  output  output.pdf 
+	</pre>
+	To remove pages 7, 9, and 14:
+	<pre>
+pdftk input.pdf  cat '~7~9~14'  output output.pdf
+	</pre>
+	To include only pages 3, 8-11, and 15:
+	<pre>
+pdftk input.pdf  cat 3 8-11 15  output output.pdf 
+	</pre>
+	</div>
+
+	<div class="section">
+	<h2>How do I reverse the pages of a PDF?</h2>
+	<pre>
+pdftk input.pdf  cat end-1  output output.pdf
+	</pre>
+	</div>
+
+	<div class="section">
+	<h2>How do I rotate a PDF?</h2>
+	To rotate an entire PDF by 180 degrees (=south):
+	<pre>
+pdftk input.pdf  cat 1-endsouth  output output.pdf
+	</pre>
+	To rotate pages 3 and 8-11 by 270 degrees (=west):
+	<pre>
+pdftk input.pdf  cat 1-2 3west 4-7 8-11west 12-end  output output.pdf
+	</pre>
+	</div>
+
+	<div class="section">
+	<h2>How do I password-protect a PDF?</h2>
+	<pre>
+<a href="https://www.pdflabs.com/docs/pdftk-man-page/#dest-output-enc-user-pw">pdftk</a> input.pdf  output output.pdf  user_pw PROMPT
+	</pre>
+	You will then be prompted for a password.  By default, the password-protected file doesn't allow printing.  You can allow printing thus:
+	<pre>
+pdftk input.pdf  output  output.pdf  user_pw PROMPT  allow printing
+	</pre>
+	</div>
+
+	<div class="section">
+	<h2>How do I convert a PDF to plaintext?</h2>
+	<pre>
+<a href="http://linux.die.net/man/1/pdftotext">pdftotext</a> input.pdf output.txt
+	</pre>
+	</div>
+
+	<!--
+	<div class="section">
+	<h2>How do I convert a plaintext file to PDF?</h2>
+	<pre>
+
+	</pre>
+	</div>
+	-->
+
+	<!--
+	<div class="section">
+	<h2>How do I convert a PDF to HTML?</h2>
+	<pre>
+
+	</pre>
+	</div>
+	-->
+
+	<!--
+	<div class="section">
+	<h2>How do I ?</h2>
+	<pre>
+pdftk 
+	</pre>
+	</div>
+
+	<div class="section">
+	<h2>How do I ?</h2>
+	<pre>
+pdftk 
+	</pre>
+	</div>
+	-->
+
+ </body>
+</html>
