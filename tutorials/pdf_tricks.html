@@ -28,11 +28,13 @@
 
   <h1>PDF Tricks</h1>
   <div class="section">
-	  The <b>Portable Document Format</b> (PDF) is a very nice, open standard for fixed-layout documents.
+	  The <b>Portable Document Format</b> (PDF) is a nice, open standard for fixed-layout documents.
 	  The first thing to know about PDFs is <b>you don't need Adobe software to create, modify, or read PDFs</b>.
+	  <p>
+	  Since PDF is an open standard, there are many useful free software packages.
+	  Some of them are <a href="https://en.wikipedia.org/wiki/PDFtk">PDFtk</a>, <a href="http://linux.die.net/man/1/pdfjam">pdfjam</a>, <a href="https://en.wikipedia.org/wiki/Poppler_(software)">poppler-utils</a>, and some LaTeX packages (<a href="https://en.wikibooks.org/wiki/LaTeX/Hyperlinks">hyperref</a>, <a href="http://www.ctan.org/tex-archive/macros/generic/navigator">navigator</a>).
   </div>
 
-  <!-- Overview, standard, don't need Adobe products -->
   <!--  convert to/from other formats (eg txt2pdf), print to PDF, fill out forms, edit PDF metadata, PDF/A, "optimized" format, pdfjam stuff, remove one page, hyperref/the other one for more interactive PDFs -->
   <!-- see http://www.linux.com/learn/tutorials/442414-manipulating-pdfs-with-the-pdf-toolkit -->
 	<div class="section">
@@ -86,7 +88,16 @@ pdftk input.pdf  cat 1-2 3west 4-7 8-11west 12-end  output output.pdf
 	</div>
 
 	<div class="section">
-	<h2>How do I password-protect a PDF?</h2>
+	<h2>How do I reformat a PDF to 2-up?</h2>
+	<pre>
+<a href="http://linux.die.net/man/1/pdfnup">pdfnup</a> input.pdf
+	</pre>
+	The resulting output is <tt>input-nup.pdf</tt>.
+	The commands <tt>pdfnup</tt> (and <tt>pdfjam</tt>) use <tt>pdflatex</tt>, and have many more formatting options.
+	</div>
+
+	<div class="section">
+	<h2>How do I password-protect and encrypt a PDF?</h2>
 	<pre>
 <a href="https://www.pdflabs.com/docs/pdftk-man-page/#dest-output-enc-user-pw">pdftk</a> input.pdf  output output.pdf  user_pw PROMPT
 	</pre>
@@ -98,6 +109,7 @@ pdftk input.pdf  output  output.pdf  user_pw PROMPT  allow printing
 
 	<div class="section">
 	<h2>How do I convert a PDF to plaintext?</h2>
+	Use the command <tt>pdftotext</tt> from the <tt>poppler-utils</tt> package
 	<pre>
 <a href="http://linux.die.net/man/1/pdftotext">pdftotext</a> input.pdf output.txt
 	</pre>
@@ -121,14 +133,31 @@ pdftk input.pdf  output  output.pdf  user_pw PROMPT  allow printing
 	</div>
 	-->
 
+	<div class="section">
+	<h2>How do I view PDF metadata (author, subject, keywords, etc)?</h2>
+	Use the command <tt>pdfinfo</tt> from the <tt>poppler-utils</tt> package
+	<pre>
+pdfinfo input.pdf
+	</pre>
+	</div>
+
 	<!--
 	<div class="section">
-	<h2>How do I ?</h2>
+	<h2>How do I edit PDF metadata?</h2>
 	<pre>
 pdftk 
 	</pre>
 	</div>
+	-->
 
+	<div class="section">
+	<h2>How do I annotate/draw on a PDF?</h2>
+	<pre>
+<a href="https://en.wikipedia.org/wiki/Xournal">xournal</a> input.pdf 
+	</pre>
+	</div>
+
+	<!--
 	<div class="section">
 	<h2>How do I ?</h2>
 	<pre>
