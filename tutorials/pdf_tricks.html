@@ -130,6 +130,23 @@ paps input.txt | ps2pdf - output.pdf
 	</div>
 
 	<div class="section">
+	<h2>How do I convert a color PDF to grayscale or black-and-white?</h2>
+	Grayscale:
+	<pre>
+gs -dNOPAUSE -dBATCH -q -sOutputFile=- -sDEVICE=psgray  input.pdf | ps2pdf - output.pdf
+	</pre>
+	Monochrome / black-and-white:
+	<pre>
+gs -dNOPAUSE -dBATCH -q -sOutputFile=- -sDEVICE=psmono  input.pdf | ps2pdf - output.pdf
+	</pre>
+	</div>
+
+	<div class="section">
+	<h2>How do I convert a grayscale or black-and-white PDF to color?</h2>
+	Nice try.
+	</div>
+
+	<div class="section">
 	<h2>How do I view PDF metadata (author, subject, keywords, etc)?</h2>
 	Use the command <tt>pdfinfo</tt> from the <tt>poppler-utils</tt> package
 	<pre>
