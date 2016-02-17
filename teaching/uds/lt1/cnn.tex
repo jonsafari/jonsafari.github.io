@@ -65,7 +65,6 @@
 	\includegraphics[width=0.7\textwidth]{images/colah_Conv-9-Conv3.png}
 	\end{center}
 	\pause
-	%?? Actually Frobenius inner product
 	\item For example, the input node $x_3$ connects to the second, third, and fourth nodes at the next layer, which is a normal dot-product + activation function
 \end{itemize}
 \teeny{Image courtesy of \href{https://colah.github.io/posts/2014-07-Conv-Nets-Modular}{Colah's awesome blog}}
@@ -75,15 +74,15 @@
 
 \begin{frame}{Convolutions}
 \begin{itemize}
-	%?? Actually Frobenius inner product
-	\item A convolution \emph{in this context} is just the dot product of a window of input and its weight matrix:
+	% Frobenius inner product
+	\item A convolution \emph{in this context} is just the dot product of a \detail{(vectorized)} window of input and the weights:
 	\begin{center}
 	\includegraphics[height=0.47\textheight]{images/apple_kernel_convolution.jpg}
 	\end{center}
 	\pause
 	\item It's also sometimes called a filter or kernel, because CNNs were originally popular with image processing
 	\pause
-	\item It's common to use the same weight matrix at all positions \detail{(parameter sharing)}, because a cat is a cat regardless of where in the image it is!
+	\item It's common to use the same weights at all positions \detail{(parameter sharing)}, because a cat is a cat regardless of where in the image it is!
 \end{itemize}
 \teeny{Image courtesy of \href{https://developer.apple.com/library/ios/documentation/Performance/Conceptual/vImage/ConvolutionOperations/ConvolutionOperations.html}{Apple}}
 \end{frame}
