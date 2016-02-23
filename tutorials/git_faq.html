@@ -1,0 +1,104 @@
+<html>
+ <head>
+  <title>Git FAQ</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="icon" type="image/png" href="../images/icons/favicon.png">
+ </head>
+
+ <body>
+  <header>
+   <div class="container">
+    <h1><a href="../index.html">Jon Dehdari</a></h1>
+    <nav>
+     <ul>
+      <li class="active"><a href="../index.html#interests" class="icon star">Interests</a></li>
+      <li><a href="../pubs/" class="icon papers">Publications</a></li>
+      <li><a href="../index.html#software-and-data" class="icon download">Software & Data</a></li>
+      <li><a href="../teaching/" class="icon book">Teaching</a></li>
+      <li><a href="../index.html#contact" class="icon messages">Contact Me</a></li>
+     </ul>
+    </nav>
+   </div>
+  </header>
+
+  <br><br><br>
+  <center><a href="https://git-scm.com"><img src="../images/logos/git_logo_320px.png"  alt="Git Logo" width=30%></a></center>
+  <br><br><br><br>
+
+  <h1>Git FAQ</h1>
+  <div class="section">
+	  Git is a popular software for version control, synchronization, and collaboration.
+	  Here are some useful links to help you learn:
+
+	  <ul>
+		  <li><a href="http://git-scm.com/book/en/v2">Pro Git Book</a> - An excellent free book in multiple formats, translated into many languages</li>
+		  <li><a href="http://git-scm.com/doc">Official Documentation</a>, including videos</li>
+		  <li><a href="https://en.wikipedia.org/wiki/Git_(software)">Wikipedia Overview</a></li>
+		  <li><a href="https://training.github.com/kit/downloads/github-git-cheat-sheet.pdf">Git Cheatsheet</a></li>
+		  <li><a href="https://en.wikibooks.org/wiki/Git/Introduction">Wikibooks intro</a></li>
+	  </ul>
+
+  </div>
+
+
+	<div class="section">
+	<h2>How do I undo a commit?</h2>
+	<pre>
+git reset --soft HEAD~
+	</pre>
+	</div>
+
+	<div class="section">
+	<h2>How do I spin-off a new repo from an existing one?</h2>
+	<pre>
+git clone old_repo new_repo
+cd new_repo
+git filter-branch --prune-empty --subdirectory-filter my_subdirectory master
+	</pre>
+	</div>
+
+	<div class="section">
+	<h2>How do I push tags upstream?</h2>
+	<pre>
+git push --tags
+	</pre>
+	This will push <b>all</b> tags.  To push a single tag:
+	<pre>
+git push origin my_tag
+	</pre>
+	</div>
+
+  <!--  collaborate with others, merge request,  -->
+	<!--
+	<div class="section">
+	<h2>How do I ?</h2>
+	<pre>
+git 
+	</pre>
+	</div>
+
+	<div class="section">
+	<h2>How do I ?</h2>
+	<pre>
+git 
+	</pre>
+	</div>
+
+	<div class="section">
+	<h2>How do I ?</h2>
+	<pre>
+git 
+	</pre>
+	</div>
+
+	<div class="section">
+	<h2>How do I ?</h2>
+	<pre>
+git 
+	</pre>
+	</div>
+	-->
+
+ </body>
+</html>
