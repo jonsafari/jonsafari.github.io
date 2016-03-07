@@ -95,6 +95,18 @@ git reset
 	</pre>
 	</div>
 
+	<div class="section">
+	<h2>How do I compare the same file from two different branches ?</h2>
+	Either this way:
+	<pre>
+git diff branch1 branch2 -- file.txt
+	</pre>
+	Or
+	<pre>
+git diff branch1:path/to/file.txt branch2:path/to/file.txt
+	</pre>
+	</div>
+
   <!--  collaborate with others, merge request,  -->
 	<!--
 	<div class="section">
