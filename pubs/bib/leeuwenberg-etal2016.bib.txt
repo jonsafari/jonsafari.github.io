@@ -1,0 +1,11 @@
+@article{leeuwenberg-etal2016,
+ author  = {Leeuwenberg, Artuur  and  Vela, Mihaela  and  Dehdari, Jon  and  van Genabith, Josef},
+ title   = {A Minimally Supervised Approach for Synonym Extraction with Word Embeddings},
+ journal = {The Prague Bulletin of Mathematical Linguistics},
+ volume  = {105},
+ year    = {2016},
+ //pages   = {--},
+ //doi     = {},
+ issn    = {1804-0462},
+ //url     = {http://ufal.mff.cuni.cz/pbml/105/art-leeuwenberg-et-al.pdf},
+}
