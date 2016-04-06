@@ -4,8 +4,8 @@
  journal = {The Prague Bulletin of Mathematical Linguistics},
  volume  = {105},
  year    = {2016},
- //pages   = {--},
- //doi     = {},
+ pages   = {111--142},
+ doi     = {10.1515/pralin-2016-0006},
  issn    = {1804-0462},
- //url     = {http://ufal.mff.cuni.cz/pbml/105/art-leeuwenberg-et-al.pdf},
+ url     = {http://ufal.mff.cuni.cz/pbml/105/art-leeuwenberg-et-al.pdf},
 }
