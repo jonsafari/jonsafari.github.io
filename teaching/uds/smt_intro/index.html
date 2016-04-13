@@ -1,0 +1,291 @@
+<html>
+    <head>
+	<title>Introduction to Machine Translation</title>
+	<link rel="stylesheet" href="../../../css/style.css">
+	<link rel="icon" type="image/png" href="../../../images/icons/favicon.png">
+    </head>
+	<body>
+  <header>
+    <div class="container">
+      <h1><a href="../../../index.html">Jon Dehdari</a></h1>
+      <nav>
+        <ul>
+          <li class="active"><a href="../../../index.html#interests" class="icon star">Interests</a></li>
+          <li><a href="../../../pubs/" class="icon papers">Publications</a></li>
+          <li><a href="../../../index.html#software-and-data" class="icon download">Software & Data</a></li>
+          <li><a href="../../../teaching/" class="icon book">Teaching</a></li>
+          <li><a href="../../../index.html#contact" class="icon messages">Contact Me</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <br><br><br><br><br>
+
+	<!-- <a href="http://www.coli.uni-saarland.de"><img src="../../../images/logos/uni-saarland.png" height="80" alt="Universität des Saarlandes"></a> -->
+	<center><a href="http://statmt.org/moses"><img src="../../../images/logos/moses_coin_tiny.png"  alt="Moses MT System Logo"></a></center>
+	<br><br><br><br>
+
+
+	<h1 style="line-height:160%"><small>Introduction to</small><br/>Machine Translation</h1>
+	<h3>Instructor: Dr. <a href="http://jon.dehdari.org">Jon Dehdari</a></h3>
+	<h3>Summer 2016</h3>
+	Class: Room 2.14 of A2.2<br>
+	Mondays 16:00 (<a href="https://de.wikipedia.org/wiki/Akademische_Zeitangabe"><b>s.t.</b></a>) - 18:00 <br>
+	Starts the 25th of April <br>
+	Offices: <b>FR4.6</b>: 1.15 Building A2.2  <b>DFKI</b>: 1.11 Building D3.1
+
+	<div class="section">
+	<p>
+	This course gives an introduction to machine translation.
+	Since the audience for this class is both computational linguists and translators, we will cover both the theory of how it works as well as how to use it in everyday work.
+	</p>
+
+	</div>
+
+
+	<div class="section">
+	<h2>Outline</h2>
+	<p>
+	<ol>
+
+		<li><b>Machine Translation Overview</b></li>
+		<ul>
+			<li><a href="http://static.lingenio.de/Publikationen/Eberle_Integration_JLCL09.pdf">Überblick über maschinelle Übersetzung</a> - Read all of section 1, sections 2.1-2.3.1, all of section 3.   CoLi student are strongly encouraged to get <a href="http://statmt.org/book/">this book</a></li>
+		<!--
+		<li><a href="http://homepages.inf.ed.ac.uk/pkoehn/publications/esslli-slides-day1.pdf">Old Intro to SMT</a></li>
+		<li><a href="http://www.statmt.org/moses/?n=Moses.Tutorial">Tutorial on phrase-based translation in Moses</a></li>
+		<li><a href="http://people.csail.mit.edu/koehn/publications/tutorial2003.pdf">Old overview of SMT</a></li>
+		-->
+		<li><a href="http://www.specgram.com/CLII.4/09.phlogiston.cartoon.iv.html">Silly, artificial illustration of statistical machine translation</a></li>
+		<li>Concepts: source language (<i>s</i> or <i>f</i>), target language (<i>t</i> or <i>e</i>), parallel text, Vauquois pyramid, fluency &amp; fidelity
+		</ul>
+
+		<!--
+		<li><b>Noisy Channel Model</b><br>
+			<ul>
+				<li>Concepts: encoding/decoding, probability, prior &amp; posterior probabilities </li>
+				<li>Applications: machine translation, speech recognition, spellchecking, <a href="https://en.wikipedia.org/wiki/Optical_character_recognition">OCR</a>, many others</li>
+				<li><img src="noisy_channel.png" alt="Noisy Channel Model Formula"></li>
+			</ul>
+		</li>
+
+
+		<li><b>Install and Prepare Text Corpora</b><br>
+			The following is adapted from the <a href="http://www.statmt.org/moses/manual/manual.pdf">Moses documentation</a>:
+			<ol>
+				<li>Create a directory/folder to store your corpora (text files)
+					<pre>
+mkdir ~/corpora
+					</pre>
+				</li>
+
+<li>Go to that directory
+<pre>
+cd ~/corpora
+</pre>
+		</li>
+
+		<li> Download big parallel corpora
+<pre>
+wget -c http://www.statmt.org/wmt15/training-parallel-nc-v10.tgz
+wget -c http://www.statmt.org/wmt15/dev-v2.tgz
+</pre>
+</li>
+
+<li> Unzip the compressed corpora
+<pre>
+tar zxvf training-parallel-nc-v10.tgz
+tar zxvf dev-v2.tgz
+</pre>
+</li>
+
+<li> Tokenize data (separate punctuation from words)
+<pre>
+~/moses/scripts/tokenizer/tokenizer.perl -l de \
+  < news-commentary-v10.de-en.de \
+  > news-commentary-v10.de-en.tok.de
+~/moses/scripts/tokenizer/tokenizer.perl -l en \
+  < news-commentary-v10.de-en.en \
+  > news-commentary-v10.de-en.tok.en
+</pre>
+</li>
+
+<li> Train a <a href="https://en.wikipedia.org/wiki/Truecasing">Truecaser</a>.  This helps Moses know which words should have an uppercase first letter, like nouns in German
+<pre>
+~/moses/scripts/recaser/train-truecaser.perl \
+  --model truecase-model.de \
+  --corpus news-commentary-v10.de-en.tok.de
+~/moses/scripts/recaser/train-truecaser.perl \
+  --model truecase-model.en \
+  --corpus news-commentary-v10.de-en.tok.en
+</pre>
+</li>
+
+<li> <a href="https://en.wikipedia.org/wiki/Truecasing">Truecase</a> the input data, so that words are in their normal case.  For example "Das" -&gt; "das"
+<pre>
+~/moses/scripts/recaser/truecase.perl \
+  --model truecase-model.de \
+  < news-commentary-v10.de-en.tok.de \
+  > news-commentary-v10.de-en.tok.truecase.de
+~/moses/scripts/recaser/truecase.perl \
+  --model truecase-model.en \
+  < news-commentary-v10.de-en.tok.en \
+  > news-commentary-v10.de-en.tok.truecase.en
+</pre>
+</li>
+			</ol>
+		</li>
+
+
+		<li><b><a href="/tutorials/lm_overview.pdf">Language Models</b></a>
+			<ul>
+				<li>Concepts: bigram, trigram, &amp; <i>n</i>-gram, history, perplexity, backoff, interpolation</li>
+			</ul>
+		</li>
+
+
+		<li><b>Word Alignment</b>
+			<ul>
+				<li><a href="http://people.csail.mit.edu/koehn/publications/tutorial2003.pdf">Overview</a>, slides 17-30</li>
+				<li><a href="http://statmt.org/book/slides/04-word-based-models.pdf">Additional slides</a></li>
+				<li>Download the word alignment program <a href="https://github.com/moses-smt/mgiza">MGIZA</a>:
+					<pre>
+cd ~/moses
+wget https://github.com/moses-smt/mgiza/archive/master.zip
+mv master.zip mgiza.zip
+					</pre>
+				</li>
+				<li>Unzip the file
+					<pre>
+unzip mgiza.zip
+mv mgiza-master mgiza
+cd mgiza/mgizapp
+					</pre>
+				</li>
+				<li>Compile the program.  You first need <tt>cmake</tt> and <tt>gcc</tt> (or clang)
+					<pre>
+cmake .
+make -j 4
+cp scripts/*.{sh,py,pl} bin/
+					</pre>
+				</li>
+				<li>After running EMS (below), here is a sample alignment from the dataset, in <tt>~/corpora/training/giza.1/en-de.A3.final.gz</tt>:
+					<pre>
+elected parliaments do not own our liberties .
+NULL ({ }) gewählte ({ 1 }) Parlamente ({ 2 }) besitzen ({ 5 }) unsere ({ 6 }) Freiheiten ({ 7 }) nicht ({ 3 4 }) . ({ 8 })
+					</pre>
+					<br>
+					<img src="aligned_example.png" width="95%" alt="word alignment illustration">
+					<br>
+				</li>
+			</ul>
+		</li>
+
+
+
+		<li><b>Moses <a href="http://www.statmt.org/moses/?n=FactoredTraining.EMS">Experiment Management System</a> (EMS)</b>
+			<ol>
+				<li>Download the <a href="moses_ems_nc10.conf">example configuration file</a>: <br>
+<pre>
+cd ~/corpora
+wget http://jon.dehdari.org/teaching/uds/moses/moses_ems_nc10.conf
+</pre>
+				</li>
+				<li>Edit the configuration file: <br>
+					<ol>
+						<li><pre>nano moses_ems_nc10.conf</pre></li>
+						<li>Change the first few lines according to your computer's setup</li>
+						<li>Type <tt>Ctrl/Strg</tt> + <tt>o</tt>  to save the file </li>
+						<li>Type <tt>Ctrl/Strg</tt> + <tt>x</tt>  to exit the Nano text editor
+						</li>
+					</ol>
+				</li>
+				<li>Do a dry run (Probelauf): <br>
+					<pre>~/moses/scripts/ems/experiment.perl -config moses_ems_nc10.conf</pre>
+				</li>
+				<li>Do a real Moses run: <br>
+					<pre>nice ~/moses/scripts/ems/experiment.perl -config moses_ems_nc10.conf -exec</pre>
+				</li>
+				<li>The last command can take several hours to run, so you can just leave it running overnight.
+					The output of a test set will be in the file: <tt>~/corpora/evaluation/newstest2009.truecased.<i>number</i></tt> .
+				</li>
+			</ol>
+		</li>
+
+
+		<li><b><a href="http://www.statmt.org/book/slides/05-phrase-based-models.pdf">Phrase-based MT</a></b>
+			<ul>
+				<li>Concepts: phrase extraction, log-linear model, weights</li>
+			</ul>
+		</li>
+
+
+		<li><b>Hierarchical MT</b><!-- http://statmt.org/book/slides/11-tree-based-models.pdf --
+			<ul>
+				<li>Concepts: synchronous grammar, hierarchical phrase extraction</li>
+			</ul>
+			<br><br>
+			<img src="syntax_mt_hangers_de-en.png" width="80%" alt="German-English syntax/hierarchical machine translation illustration using hangers"><br><br><br>
+			<img src="syntax_mt_hangers_fr-en.png" width="80%" alt="French-English syntax/hierarchical machine translation illustration using hangers"><br><br><br><br>
+			<img src="hierarchical_extraction_example.png" width="95%" alt="German-English hierarchical phrase extraction example"><br><br><br>
+		</li>
+
+
+		<li><b>Computer-aided Translation</b>
+		<ul>
+			<li>Translation Memory</li>
+			<li>Post-editing: <a href="https://www.matecat.com">MateCat</a>, <a href="http://rgcl.wlv.ac.uk/projects/PET">PET</a></li>
+		</ul>
+		</li>
+	</ol>
+	</p>
+	</div>
+
+
+	<br>
+	<div class="section">
+		<h2><a href="hausarbeit.pdf">Term Paper / Hausarbeit</a></h2>
+	-->
+	</div>
+
+
+	<br>
+	<div class="section">
+	<h2>External Links</h2>
+	<p>
+	<ul>
+		<li><a href="http://demo.statmt.org">Online Demonstration of the Moses Machine Translation System</a></li>
+		<li><a href="http://statmt.org/moses">Moses Main Page</a></li>
+		<li><a href="http://www.statmt.org/moses/manual/manual.pdf">The Full Moses Manual</a></li>
+		<li>Free Corpora:</li>
+		<ul>
+			<li><a href=" http://www.statmt.org/wmt15/translation-task.html#download">WMT 2015</a>.  Previous years contain different languages, including Hindi, Spanish, and Hungarian</li>
+			<li><a href="http://aclweb.org/aclwiki/index.php?title=List_of_resources_by_language">ACL Wiki, "Resources by Language"</a></li>
+			<li><a href="http://opus.lingfil.uu.se">OPUS - open parallel corpora</a></li>
+		</ul>
+		<li>Corpus Processing Tools:</li>
+		<ul>
+			<li><a href="http://corpus.tools">corpus.tools</a></li>
+			<li><a href="https://github.com/jonsafari/habeas-corpus">https://github.com/jonsafari/habeas-corpus</a></li>
+			<li><a href="https://github.com/kpu/preprocess">https://github.com/kpu/preprocess</a></li>
+		</ul>
+	</ul>
+	</p>
+	</div>
+
+	<br>
+	<br>
+	<div class="section">
+		<center>
+			<font size="-3">
+				<i>
+					Die Umgangssprache ist ein Teil des menschlichen Organismus und nicht weniger kompliziert als dieser.<br>
+					<div style="float:right">&ndash;Ludwig Wittgenstein&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div><br>
+					(Machine Translation: "Maria did not slap the green witch."  &ndash;Wittgenstein)<br/>
+				</i>
+			</font>
+		</center>
+	</div>
+    </body>
+</html>
