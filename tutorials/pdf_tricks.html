@@ -154,18 +154,36 @@ pdfinfo input.pdf
 	</pre>
 	</div>
 
-	<!--
 	<div class="section">
 	<h2>How do I edit PDF metadata?</h2>
+	You can use your favorite text editor.  Search in the file for <tt>/Author</tt>, <tt>/Title</tt>, <tt>/Producer</tt> , etc.
 	<pre>
-pdftk 
+sensible-editor input.pdf
 	</pre>
+	The general format is, for example <tt>/Title (The Title Goes Here)</tt>, where keys start with a slash, and the values are surrounded by parentheses.  Keys include <tt>/Author</tt>, <tt>/Title</tt>, <tt>/Keywords</tt>, <tt>/Subject</tt>, and a few others.
 	</div>
-	-->
 
 	<div class="section">
 	<h2>How do I annotate/draw on a PDF?</h2>
 	<a href="https://en.wikipedia.org/wiki/Xournal">Xournal</a> or <a href="https://en.wikipedia.org/wiki/Okular">Okular</a> (Tools-&gt;Review)
+	</div>
+
+	<div class="section">
+	<h2>How do I manually edit a PDF?</h2>
+	First convert your binary PDF to a text-based PDF:
+	<pre>
+qpdf -qdf input.pdf input_text.pdf
+	</pre>
+	Now you can edit it with your favorite text editor:
+	<pre>
+sensible-editor input_text.pdf
+	</pre>
+	<!--
+	You can optionally convert it back to a binary PDF:
+	<pre>
+fix-qdf input_text.pdf  &gt; modified.pdf
+	</pre>
+	-->
 	</div>
 
 	<!--
