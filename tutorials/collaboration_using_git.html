@@ -71,15 +71,20 @@
 	  Both <a href="https://bitbucket.org">Bitbucket</a> and <a href="https://about.gitlab.com/gitlab-com">Gitlab</a> allow you to have unlimited free <i>private</i> repos.
         Bitbucket is more popular, but limits the number of people you can share your <i>private</i> repos to 5 people, then you must pay.  Gitlab has no such restrictions, but it less popular.
 		<p>
-        For example, let's say that your username is <tt>myusername</tt>, your repo is named <tt>lm-paper</tt> and you have a collaborator named Bob, who has a Bitbucket ID of <tt>bobusername</tt> :
+		<b>For example</b>, let's say that your username is <tt>myusername</tt>, your repo is named <tt>lm-paper</tt> and you have a collaborator named Bob, who has a Bitbucket ID of <tt>bobusername</tt> :
 		<ol>
 			<li>For private repos, first send an invitation of your private repo to your collaborator(s) (see top-right box "Invite users to this repo").  Then have them also share their fork back with you.</li>
-			<li>Now, for either public or private repos, type:</li>
-			<li><tt>git remote add bob https://myusername@bitbucket.org/bobusername/lm-paper.git</tt></li>
-			<li><tt>git remote -v</tt></li>
-			<li><tt>git fetch bob</tt></li>
-			<li><tt>git merge bob/master</tt></li>
-			<li><tt>git push</tt></li>
+			<li>Now, for either public or private repos, type the following:</li>
+			<li>Bookmark Bob's repo as "bob":<br>
+				<tt>git remote add bob https://myusername@bitbucket.org/bobusername/lm-paper.git</tt></li>
+			<li>Show all bookmarks (Git calls these <tt>remote</tt>'s) :<br>
+				<tt>git remote -v</tt></li>
+			<li>Grab his changes:<br>
+				<tt>git fetch bob</tt></li>
+			<li>Merge his changes into your repo:<br>
+				<tt>git merge bob/master</tt></li>
+			<li>Push the combined result upstream:<br>
+				<tt>git push</tt></li>
 		</ol>
   </div>
 
