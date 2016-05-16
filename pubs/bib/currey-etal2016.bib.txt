@@ -1,0 +1,11 @@
+@inproceedings{currey-etal2016,
+ author    = {Anna Currey  and  Alina Karakanta  and  Jon Dehdari},
+ title     = {Using Related Languages to Enhance Statistical Language Models},
+ booktitle = {Proceedings of the 2016 Conference of the North American Chapter of the Association for Computational Linguistics: Student Research Workshop},
+ month     = {June},
+ year      = {2016},
+ address   = {San Diego, CA, USA},
+ publisher = {Association for Computational Linguistics},
+ //pages     = {--},
+ //url       = {http://www.aclweb.org/anthology/N16-2}
+}
