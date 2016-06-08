@@ -131,6 +131,7 @@ paps input.txt | ps2pdf - output.pdf
 
 	<div class="section">
 	<h2>How do I convert a color PDF to grayscale or black-and-white?</h2>
+	This is useful to see if color graphics in your paper are still readable when printed.<br>
 	Grayscale:
 	<pre>
 gs -dNOPAUSE -dBATCH -q -sOutputFile=- -sDEVICE=psgray  input.pdf | ps2pdf - output.pdf
@@ -184,6 +185,27 @@ sensible-editor input_text.pdf
 fix-qdf input_text.pdf  &gt; modified.pdf
 	</pre>
 	-->
+	</div>
+
+	<div class="section">
+	<h2>How do I rescale/resize a PDF?</h2>
+	For example, to convert from <a href="https://en.wikipedia.org/wiki/ISO_216">A0</a> to A1 size paper:
+	<pre>
+pdfjam --a1paper poster_a0.pdf -o poster_a1.pdf
+	</pre>
+	The command <tt>pdfjam</tt> uses <tt>pdflatex</tt>.  You can manually specify the target size as well.
+	<p>
+	Another option is to use <a href="https://pythonhosted.org/pdftools.pdfposter">pdfposter</a>, which is in the standard Debian/Ubuntu repositories:
+	<pre>
+pdfposter -mA1 poster_a0.pdf poster_a1.pdf
+	</pre>
+	PDFPoster also allows you to easily print out a large poster onto smaller sheets.
+	<p>
+	Lastly, you can also use GhostScript, which isn't very user friendly, but has many options:
+	<pre>
+gs -sPAPERSIZE=a1 -sDEVICE=pdfwrite -dFIXEDMEDIA -dPDFFitPage \
+ -dCompatibilityLevel=1.4 -o poster_a1.pdf  poster_a0.pdf
+	</pre>
 	</div>
 
 	<!--
