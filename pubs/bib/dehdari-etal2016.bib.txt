@@ -6,6 +6,6 @@
  year      = {2016},
  address   = {San Diego, CA, USA},
  publisher = {Association for Computational Linguistics},
- //pages     = {--},
- //url       = {http://www.aclweb.org/anthology/N16-1}
+ pages     = {1169--1174},
+ url       = {http://www.aclweb.org/anthology/N16-1139}
 }
