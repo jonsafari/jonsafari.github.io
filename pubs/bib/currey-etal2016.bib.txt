@@ -7,5 +7,5 @@
  address   = {San Diego, CA, USA},
  publisher = {Association for Computational Linguistics},
  pages     = {24--31},
- url       = {http://www.aclweb.org/anthology/N16-2004}
+ url       = {https://www.aclweb.org/anthology/N/N16/#2000}
 }
