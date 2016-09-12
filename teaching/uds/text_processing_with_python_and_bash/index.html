@@ -354,9 +354,57 @@ done</pre> -->
 
   <div class="section">
     <h2 id="python">Python</h2>
+	<h3>Readings:</h3>
     <ul>
       <li><a href="http://www.afterhoursprogramming.com/tutorial/Python/Introduction">A short Python tutorial</a></li>
       <li><a href="http://www.thomas-guettler.de/vortraege/python/einfuehrung.html">Python, Programmieren macht Spaß</a></li>
+    </ul>
+	<h3>Basics</h3>
+    <ul>
+		<li><b>Printing text</b>:
+			<pre><code class="language-python">print("Hello world!")</code></pre>
+		</li>
+		<li><b>Comments</b> are not executed.  They can be either short or long.  Short comments start with a <code>#</code>, and continue till the end of the line:
+			<pre><code class="language-python"># This is a comment</code></pre>
+			Long comments can span mulitple lines, and start (and end) with three <code>'</code> or <code>"</code> (single or double quotes):
+			<pre><code class="language-python">'''
+This is a comment
+More comments
+Even more
+''' </code></pre>
+		</li>
+		<li><b>Variables</b> store stuff:
+			<pre><code class="language-python">a = 3
+b = 5
+print(a + b)
+print(a * b)
+print(a / b)
+c = a + b
+name = "Bugs Bunny"
+age = 22.5</code></pre>
+			We can change variables:
+			<pre><code class="language-python">j = 3
+j = 5
+j = j + 2  # j is now 7
+j += 2     # equivalent to above line.  j is now 9
+j = j - 1  # j is now 8
+j -= 2     # similar to above line.  j is now 6
+j *= 2     # what do you think j is now?
+j /= 4     # what do you think j is now?
+
+name = "Dr. " + name   # name is now "Dr. Bugs Bunny"</code></pre>
+		</li>
+
+		<li><b>Conditionals</b> ask <i>what if?</i>:
+			<pre><code class="language-python">d = 3
+if d < 5:
+	print("d is greater than five")
+elif d == 5:
+	print("d is equal to five")
+elif d > 5:
+	print("d is greater than five")
+else:
+	print("I have no idea!")</code></pre>
     </ul>
   </div>
 
