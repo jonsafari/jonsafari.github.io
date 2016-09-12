@@ -381,7 +381,8 @@ print(a * b)
 print(a / b)
 c = a + b
 name = "Bugs Bunny"
-age = 22.5</code></pre>
+age = 22.5
+</code></pre>
 			We can change variables:
 			<pre><code class="language-python">j = 3
 j = 5
@@ -392,19 +393,114 @@ j -= 2     # similar to above line.  j is now 6
 j *= 2     # what do you think j is now?
 j /= 4     # what do you think j is now?
 
-name = "Dr. " + name   # name is now "Dr. Bugs Bunny"</code></pre>
+name = "Dr. " + name   # name is now "Dr. Bugs Bunny"
+</code></pre>
 		</li>
 
 		<li><b>Conditionals</b> ask <i>what if?</i>:
 			<pre><code class="language-python">d = 3
 if d < 5:
-	print("d is greater than five")
+    print("d is greater than five")
 elif d == 5:
-	print("d is equal to five")
+    print("d is equal to five")
 elif d > 5:
-	print("d is greater than five")
+    print("d is greater than five")
 else:
-	print("I have no idea!")</code></pre>
+    print("I have no idea!")
+</code></pre>
+		</li>
+
+		<li><b>Lists</b> list things!</i>:
+			<pre><code class="language-python">shopping_list = ['bread', 'apples', 'chocolate']
+print(shopping_list[0])   # prints 'bread'
+print(shopping_list[2])   # prints 'chocolate'
+
+a = [5, -3.7, 0, "spam"]
+</code></pre>
+		</li>
+
+		<!-- <li><b>Tuples</b></i>:
+			<pre><code class="language-python">
+			</code></pre>
+		</li> -->
+
+		<li><b>Dictionaries</b> lookup things</i>:
+		<pre><code class="language-python">counts  = {"the":5033, "blue":218, "waffle":74}
+print(counts["blue"])  # prints 218
+
+weather = {"Monday":"sunny", "Tuesday":"cloudy"}
+print(weather["Tuesday"])   # prints "cloudy"
+weather["Wednesday"] = "partly sunny"
+</code></pre>
+		</li>
+
+		<li><b>Loops</b> do things again and again</i>:
+		<!-- https://youtu.be/9_wd_2o214A?t=1m24s -->
+			<pre><code class="language-python">for x in ["Messer", "Gabel", "Schere", "Licht"]:
+    print("Oh no my boy!  Nicht mit", x, "spielen!")
+</code></pre>
+			<pre><code class="language-python"># Prints three through seven
+for i in range(3,8):
+    print(i)
+</code></pre>
+		</li>
+
+		<li><b>Strings</b></i>:
+			<pre><code class="language-python">a = 'Hello world'
+print(a.upper())           # prints 'HELLO WORLD'
+print(a.replace('o','~'))
+print(a[2:8])
+a + "bye"                  # ??
+a * 3                      # ??
+
+b = a.split()              # b is ['Hello', 'world']
+</code></pre>
+		</li>
+
+		<li><b>Functions</b> do things</i>:
+			<pre><code class="language-python">def hello():
+    print("Hello world!")
+
+hello()
+
+def hello2(x):
+    print("Hello", x)
+
+hello2("Lee")     # prints "Hello Lee"
+
+def foo(x,y):
+    a = x * 2
+    return a + y
+
+foo(3,5)          # gives 11
+</code></pre>
+		</li>
+
+		<li><b>Input &amp; Output</b></i>:
+			<pre><code class="language-python"># Reads in a file, line by line:
+with open("text.txt") as f:
+    for line in f:
+        print(line.upper())
+
+# Writes to a file:
+with open("output.txt", "w") as output:
+    output.write("Hi there")
+	output.write("Bye!")
+</code></pre>
+		</li>
+
+		<li><b><a href="http://matplotlib.org">Data Visualization</a></b></i>:
+			<pre><code class="language-python">import matplotlib.pyplot as plt
+x = [0.5,-0.5,1,0.5,0,-0.5,-1]
+y = [1.0,1.0,0.0,-0.5,-0.5,-0.5,0.0] 
+plt.plot(x, y, linestyle='None', marker='o')
+plt.xlim(-1.5,1.5)
+plt.ylim(-1.0,1.5)
+plt.title("Smiley")
+plt.grid(True)
+plt.show()
+</code></pre>
+			<img width=100% src="images/smiley.png">
 		</li>
     </ul>
   </div>
