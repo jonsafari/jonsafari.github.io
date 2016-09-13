@@ -489,18 +489,25 @@ with open("output.txt", "w") as output:
 </code></pre>
 		</li>
 
-		<li><b><a href="http://matplotlib.org">Data Visualization</a></b></i>:
+		<li><b><a href="http://matplotlib.org">Data Visualization</a></b></i>:<br>
+		First install the <a href="http://matplotlib.org">matplotlib</a> module.  From the Bash command line: <pre><code class="language-bash">pip3 install --user matplotlib</code></pre>
+		From now on you can use this module by importing it:
 			<pre><code class="language-python">import matplotlib.pyplot as plt
+
+# First let's create some data
 x = [0.5,-0.5,1,0.5,0,-0.5,-1]
 y = [1.0,1.0,0.0,-0.5,-0.5,-0.5,0.0] 
+
 plt.plot(x, y, linestyle='None', marker='o')
-plt.xlim(-1.5,1.5)
-plt.ylim(-1.0,1.5)
+plt.xlim(-1.5,1.5)      # horizontal limits of plot
+plt.ylim(-1.0,1.5)      # vertical limits of plot
 plt.title("Smiley")
 plt.grid(True)
 plt.show()
 </code></pre>
 			<img width=100% src="images/smiley.png">
+			<p>
+			Check out some other <a href="http://matplotlib.org/gallery.html">cool examples</a>.
 		</li>
     </ul>
   </div>
