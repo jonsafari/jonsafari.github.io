@@ -26,6 +26,10 @@ a { text-decoration: none; }
 a:link { color: DarkBlue; }
 a:hover { color: Blue; }
 
+h1 {
+    padding-top: 0.75em;
+}
+
 h2 {
     padding-top: 1em;
     padding-bottom: .6em;
