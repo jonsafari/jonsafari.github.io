@@ -1,0 +1,201 @@
+<html>
+ <head>
+  <title>SGE / GridEngine for Users</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/prism.css">
+  <link rel="icon" type="image/png" href="../images/icons/favicon.png">
+ </head>
+
+ <body>
+  <header>
+   <div class="container">
+    <h1><a href="../index.html">Jon Dehdari</a></h1>
+    <nav>
+     <ul>
+      <li class="active"><a href="../index.html#interests" class="icon star">Interests</a></li>
+      <li><a href="../pubs/" class="icon papers">Publications</a></li>
+      <li><a href="../index.html#software-and-data" class="icon download">Software & Data</a></li>
+      <li><a href="../teaching/" class="icon book">Teaching</a></li>
+      <li><a href="../index.html#contact" class="icon messages">Contact Me</a></li>
+     </ul>
+    </nav>
+   </div>
+  </header>
+  <script src="../js/prism.js"></script>
+
+  <br><br><br>
+  <center><a href="http://arc.liv.ac.uk/SGE"><img src="../images/logos/gridengine_logo.png"  alt="GridEngine Logo" width=35%></a></center>
+  <br><br><br><br>
+
+<h1 id="sge-gridengine-for-users">SGE / GridEngine for Users</h1>
+
+<p>Please read all of the following before using a GridEngine cluster.</p>
+
+
+
+<h1 id="current-status">Current Status</h1>
+  <div class="section">
+
+<p>You can get an overview of the cluster by typing <code class="language-bash">qhost</code>, and you can also see the status of the GPUs with <code class="language-bash">qhost -F gpu</code>. <br>
+You can view current jobs in the queue by typing <code class="language-bash">qstat -F gpu</code>. <br>
+If you’re going to use GPUs alot, you might as well alias the long version of the above commands (which include <code class="language-bash">-F gpu</code>) to the short version, in your <code>.bashrc</code> .</p>
+  </div>
+
+
+
+<h1 id="submitting-jobs">Submitting Jobs</h1>
+  <div class="section">
+
+	  <p>The normal way to submit jobs to the cluster is using the <code>qsub</code> command.  For example, <code class="language-bash">qsub myscript.sh</code>.  The many options to the <code>qsub</code> command are described in the manpage, <a href="http://arc.liv.ac.uk/SGE/htmlman/htmlman1/qsub.html"><code class="language-bash">man qsub</code></a>. <br>
+Any command-line argument for qsub can alternatively appear inside the shell script:</p>
+
+<p>For example, either:</p>
+
+
+
+<pre><code class="language-bash">qsub -cwd -e /dev/null myscript.sh</code></pre>
+
+<p>Or:</p>
+
+
+
+<pre><code class="language-bash">qsub myscript.sh</code></pre>
+
+<p>with myscript.sh including the lines:</p>
+
+
+
+<pre><code class="language-bash">#$ -cwd
+#$ -e /dev/null</code></pre>
+
+  </div>
+
+
+<h1 id="using-gpus">Using GPUs</h1>
+	<div class="section">
+
+<p>The basic system only knows about GPU utilization based on what people request within GridEngine.  So if people run GPU jobs on their own (outside of GridEngine), then the system is not aware of them. <br>
+So, to request GPUs with <code>qsub</code>, add the following flag to qsub at the command-line</p>
+
+
+
+<pre><code class="language-bash">-l gpu=1</code></pre>
+
+<p>Or within your <code>qsub</code> script:</p>
+
+
+
+<pre><code class="language-bash">#$ -l gpu=1</code></pre>
+
+<p>This requests one GPU to be used.  GridEngine does <em>not</em> enable your program to use a GPU. Rather, it just keeps track of how many GPUs are being used in the cluster.</p>
+
+	</div>
+
+
+<h1 id="network-wide-disk-space">Network-wide Disk Space</h1>
+Since you don’t know which server will compute your job, you need to use a disk mount point that is accessible to all servers.
+
+<h2>NFS</h2>
+If your local systems administrator configured the cluster to use <a href="https://en.wikipedia.org/wiki/Network_File_System">NFS</a> or something similar, then ensure that your computing jobs output to an NFS-mounted directory.
+You can see where your remote mount points are by typing <code class="language-bash">df -h | grep :</code> .
+
+
+
+
+<h2>SSHFS</h2>
+If NFS is not setup, you can use user-level <a href="https://en.wikipedia.org/wiki/SSHFS">SSHFS</a> instead.
+The following steps only need to be done once.
+
+	<div class="section">
+
+<ol>
+<li>First setup SSH keys. On a computer where you plan on submitting jobs:</li>
+
+
+
+<pre><code class="language-bash">ssh-keygen -b 8192 -t rsa</code></pre>
+
+<p>Use an empty passphrase, and accept other defaults.</p>
+
+<li>For every remote computer, type:</li>
+
+
+
+<pre><code class="language-bash">ssh-copy-id  yourusername@123.456.789.012</code></pre>
+
+<p>Now you don’t need to type a password to login to these servers.</p>
+
+<li>Decide on a hard drive of a remote server that has lots of space, like <code>/hd4</code> on server 123.456.789.012.  You can use <code class="language-bash">df -h</code> to find out disk usage on a given computer.  Then create a directory there:</li>
+
+
+
+<pre><code class="language-bash">mkdir -p /hd4/myusername/sge/
+cd
+ln -s /hd4/myusername/sge/ sge</code></pre>
+
+<p>Remember that files on these servers are <em>not</em> backed-up at all.</p>
+
+<li>Create a shell script like the following as <code>mount-sge.sh</code>, modifying it as necessary.  It’s better to use IP addresses than hostnames:</li>
+
+
+
+<pre><code class="language-bash">user=myusername
+hosts='123.456.789.011 123.456.789.013 123.456.789.014'
+mount_src="${user}@123.456.789.012:/hd4/${user}/sge/"
+mount_tgt="~/sge/"
+
+for host in $hosts; do
+  ssh ${user}@$host sshfs $mount_src $mount_tgt  &amp;&amp;  \
+    echo "Mounted $mount_tgt on $host"  ||  \
+    echo "Mountpoint $mount_tgt on $host is probably already mounted."
+done</code></pre>
+
+<p>Don’t forget to set executable permissions: <code class="language-bash">chmod u+x mount-sge.sh</code> .  Running this script will mount all the necessary mount points, so that the output of all jobs can get sent to a common directory. <br>
+If a server gets rebooted, just rerun this script.</p>
+
+<li>In your <code class="language-bash">qsub</code> script add the following line, to set your working directory to <code class="language-bash">~/sge</code>:</li>
+
+
+
+<pre><code class="language-bash">#$ -wd $HOME/sge/</code></pre>
+
+<p>You can create subdirectories in this path, and modify the above line accordingly. <br>
+You can alternatively just set the output &amp; error path to <code class="language-bash">~/sge</code>:</p>
+
+
+
+<pre><code class="language-bash">#$ -o $HOME/sge/
+#$ -e $HOME/sge/</code></pre>
+
+<p>If you don’t want any error output, set it to <code class="language-bash">/dev/null</code>:</p>
+
+
+
+<pre><code class="language-bash">#$ -e /dev/null/</code></pre>
+
+	</div>
+
+
+	<!--
+<h1 id="sample-qsub-script">Sample qsub script</h1>
+	<div class="section">
+
+<p><a href="sge_test.sh">Here</a> is a simple example qsub script. <br>
+And <a href="sge_test_multi.sh">here</a> is a simple example qsub script for running many jobs at once. <br>
+Don’t forget to modify it as discussed in the GPU section if you will be using GPUs.</p>
+
+	</div>
+	-->
+
+
+<h1 id="further-reading">Further Reading</h1>
+	<div class="section">
+
+<ul>
+<li><a href="http://arc.liv.ac.uk/SGE/howto/basic_usage.html">http://arc.liv.ac.uk/SGE/howto/basic_usage.html</a></li>
+<li><a href="http://arc.liv.ac.uk/SGE/htmlman/htmlman1/qsub.html">http://arc.liv.ac.uk/SGE/htmlman/htmlman1/qsub.html</a></li>
+</ul>
+	</div>
+
+</html>
