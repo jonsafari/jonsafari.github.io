@@ -19,7 +19,10 @@ time, mark, audio, video {
   vertical-align: baseline;
 }
 
-code { color: DarkGreen; }
+code {
+    color: DarkGreen;
+    background-color: #f6f6f6;
+}
 
 a { text-decoration: none; }
 
@@ -28,6 +31,7 @@ a:hover { color: Blue; }
 
 h1 {
     padding-top: 0.75em;
+    padding-bottom: 0.2em;
 }
 
 h2 {
