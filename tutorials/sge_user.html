@@ -28,7 +28,7 @@
   <center><a href="http://arc.liv.ac.uk/SGE"><img src="../images/logos/gridengine_logo.png"  alt="GridEngine Logo" width=35%></a></center>
   <br><br><br><br>
 
-<h1 id="sge-gridengine-for-users">SGE / GridEngine for Users</h1>
+<h1 id="sge-gridengine-for-users">Using SGE / GridEngine</h1>
 
 <p>Please read all of the following before using a GridEngine cluster.</p>
 
@@ -39,7 +39,11 @@
 
 <p>You can get an overview of the cluster by typing <code class="language-bash">qhost</code>, and you can also see the status of the GPUs with <code class="language-bash">qhost -F gpu</code>. <br>
 You can view current jobs in the queue by typing <code class="language-bash">qstat -F gpu</code>. <br>
-If you’re going to use GPUs alot, you might as well alias the long version of the above commands (which include <code class="language-bash">-F gpu</code>) to the short version, in your <code>.bashrc</code> .</p>
+If you’re going to use GPUs alot, you might as well alias the long version of the above commands (which include <code class="language-bash">-F gpu</code>) to the short version, in your <code>.bashrc</code> : </p>
+<pre><code class="language-bash">echo "alias qstat='qstat -F gpu'" &gt;&gt; ~/.bashrc
+echo "alias qhost='qhost -F gpu'" &gt;&gt; ~/.bashrc
+source ~/.bashrc</code>
+</pre>
   </div>
 
 
