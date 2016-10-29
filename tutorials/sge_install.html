@@ -1,0 +1,111 @@
+<html>
+ <head>
+  <title>Installation and Configuration of SGE / GridEngine</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/prism.css">
+  <link rel="icon" type="image/png" href="../images/icons/favicon.png">
+ </head>
+
+ <body>
+  <header>
+   <div class="container">
+    <h1><a href="../index.html">Jon Dehdari</a></h1>
+    <nav>
+     <ul>
+      <li class="active"><a href="../index.html#interests" class="icon star">Interests</a></li>
+      <li><a href="../pubs/" class="icon papers">Publications</a></li>
+      <li><a href="../index.html#software-and-data" class="icon download">Software & Data</a></li>
+      <li><a href="../teaching/" class="icon book">Teaching</a></li>
+      <li><a href="../index.html#contact" class="icon messages">Contact Me</a></li>
+     </ul>
+    </nav>
+   </div>
+  </header>
+  <script src="../js/prism.js"></script>
+
+  <br><br><br>
+  <center><a href="http://arc.liv.ac.uk/SGE"><img src="../images/logos/gridengine_logo.png"  alt="GridEngine Logo" width=40%></a></center>
+  <br><br><br><br>
+
+<h1>Installation &amp; Configuration of SGE / GridEngine</h1>
+The instructions below are general overviews for Debian/Ubuntu-based systems.
+  <br><br>
+
+
+<h1>Master Server</h1>
+The master server controls how, when, and where jobs are executed.  It doesn't (necessarily) run jobs itself.
+
+<h2>Installation</h2>
+<pre><code class="language-bash">sudo apt-get install gridengine-master gridengine-qmon</code></pre>
+
+Questions it will ask during installation:
+<ol>
+	<li>Configure SGE automatically?  <b>Yes</b></li>
+	<li>SGE master hostname:  Type the <b>full</b> domain name of the this computer. You can find that out by typing <code>host $(hostname -i)</code>.  The last part of the output is the full domain name (minus the trailing dot).</li>
+</ol>
+
+Further reading:
+<ul>
+	<li><a href="http://www.socher.org/index.php/Main/HowToInstallSunGridEngineOnUbuntu">http://www.socher.org/index.php/Main/HowToInstallSunGridEngineOnUbuntu</a></li>
+	<li><a href="https://scidom.wordpress.com/tag/parallel">https://scidom.wordpress.com/tag/parallel</a></li>
+	<li><a href="https://informatics.malariagen.net/2011/06/01/gridengine-the-ubuntu-debian-way">https://informatics.malariagen.net/2011/06/01/gridengine-the-ubuntu-debian-way</a></li>
+	<li><a href="http://arc.liv.ac.uk/SGE/howto/commontasks.html">http://arc.liv.ac.uk/SGE/howto/commontasks.html</a></li>
+</ul>
+
+<h2>Configuration</h2>
+You can then configure it using the <code>qconf</code> command (or graphically with Qmon).
+The command-line arguments for qconf follow general patterns.
+For example you can <b>add</b> something with <b><code>-a</code></b>, <b>delete</b> something with <b><code>-d</code></b>, <b>modify</b> something with <b><code>-m</code></b>, <b>show</b> something with <b><code>-s</code></b>.  Uppercase variants of the above read-in from a text file, rather than invoking a text editor (where applicable).
+<p>
+The most important things to add/configure are <b>queues</b>, <b>execution server list</b>, <b>execution servers</b> (esp. if you're using GPUs), <b>parallel environments</b>, <b>complex configurations</b> (like GPUs), and <b>users</b>.
+Read the full man page for more details.
+
+<h2>Man Pages</h2>
+<ul>
+	<li><a href="https://arc.liv.ac.uk/SGE/htmlman/htmlman1/qconf.html"><code>man qconf</code></a>: Overall configuration of master server</li>
+	<li><a href="https://arc.liv.ac.uk/SGE/htmlman/htmlman5/queue_conf.html"><code>man queue_conf</code></a>: configuration of queue</li>
+</ul>
+
+<h2>Enabling GPUs</h2>
+<p>The basic setup for using GPUs within SGE/GridEngine is described <a href="https://serverfault.com/questions/322073/howto-set-up-sge-for-cuda-devices/322249#322249">here</a>.</p>
+
+Other possible setups are described below:
+<ul>
+	<li><a href="">http://gridengine.org/pipermail/users/2012-May/003567.html</a></li>
+	<li><a href="">https://stackoverflow.com/questions/10557816/scheduling-gpu-resources-using-the-sun-grid-engine-sge#14702046</a></li>
+	<li><a href="">https://github.com/UCL/Grid-Engine-Prolog-Scripts</a></li>
+	<li><a href="">https://github.com/HPCKP/GPU-Integration-for-GridEngine</a></li>
+</ul>
+
+
+<h1>Execution Server</h1>
+Execution servers run the actual computing, outputing the results to whatever path was specified using <code>qsub -o ...</code> (or <code>#$ -o ...</code> in a script).
+
+<h2>Installation</h2>
+<pre><code class="language-bash">sudo apt-get install gridengine-exec</code></pre>
+
+Questions it will ask during installation:
+<ol>
+	<li>Configure SGE automatically?  <b>Yes</b></li>
+	<li>SGE master hostname:  Type the <b>full</b> domain name of the master server</li>
+</ol>
+
+Add info about the execution server on the master server by typing <code>sudo qconf -ae <i>host</i></code> .  You can later modify it replacing <code>-ae</code> with <code>-me</code> .
+
+
+<h1>Client</h1>
+The clients submit jobs, typically using the <code>qsub</code> command, just as you could use <code>bash</code> or <code>sh</code> before a shell script.
+More info about using <code>qsub</code> is described in the <a href="sge_user.html">instructions for users</a>.
+
+<h2>Installation</h2>
+<pre><code class="language-bash">sudo apt-get install gridengine-client</code></pre>
+
+Questions it will ask during installation:
+<ol>
+	<li>Configure SGE automatically?  <b>Yes</b></li>
+	<li>SGE master hostname:  Type the <b>full</b> domain name of the master server</li>
+</ol>
+
+<h2>User Commands</h2>
+SGE commands for normal users is described <a href="sge_user.html">here</a>.
