@@ -192,13 +192,50 @@ Don’t forget to modify it as discussed in the GPU section if you will be using
 	</div>
 	-->
 
+<h1 id="example-script">Example Script</h1>
+<pre><code class="language-bash">#!/bin/bash
+
+## Inherit all environment variables
+#$ -V
+
+## Start in current working directory
+#$ -cwd
+
+## Stdout to the following dir
+#$ -o $HOME/sge/
+
+## Stderr to the following dir
+#$ -e $HOME/sge/
+
+## Specify job name
+#$ -N test-3hr
+
+## When will an email be sent.
+## 'e'=end of job
+## 'a'=if job is aborted
+#$ -m ea
+
+## Where to email info
+#$ -M foo@example.com
+
+## Which resources to use
+#$ -l gpu=1
+
+## RAM and swap limits in kilobytes. -v is a bashism
+ulimit -m 8000000
+ulimit -v 10000000
+
+echo "Hello"
+echo "The date is " `date`
+echo "hostname is " `hostname`
+</code></pre>
 
 <h1 id="further-reading">Further Reading</h1>
 	<div class="section">
 
 <ul>
 <li><a href="http://arc.liv.ac.uk/SGE/howto/basic_usage.html">http://arc.liv.ac.uk/SGE/howto/basic_usage.html</a></li>
-<li><a href="http://arc.liv.ac.uk/SGE/htmlman/htmlman1/qsub.html">http://arc.liv.ac.uk/SGE/htmlman/htmlman1/qsub.html</a></li>
+<li><a href="http://arc.liv.ac.uk/SGE/htmlman/htmlman1/qsub.html">qsub manpage</a></li>
 </ul>
 	</div>
 
