@@ -79,6 +79,24 @@ Other possible setups are described below:
 </ul>
 
 
+<h2>Email Notifications</h2>
+Users might want email notifications in qsub by adding the <code>-M user@example.com</code> argument.
+You can install a simple SMTP server to allow this:
+<pre><code class="language-bash">sudo apt-get install ssmtp
+sudo chgrp mail /etc/ssmtp/ssmtp.conf
+sudo chmod 640  /etc/ssmtp/ssmtp.conf
+sudo usermod -a -G mail sgeadmin
+
+# Now modify line: "mailhub=mail" to something like "mailhub=mail.yourdomain.com"
+# If your company doesn't have an email server, follow the GMail instructions at https://wiki.debian.org/sSMTP
+sudo vi /etc/ssmtp/ssmtp.conf
+
+# Now test it out, sending the test email to myemail@gmail.com
+echo 'This is a test' | sudo -u sgeadmin mail -s 'Testing' myemail@gmail.com
+</code></pre>
+
+<br><br>
+
 <h1>Execution Server</h1>
 Execution servers run the actual computing, outputing the results to whatever path was specified using <code>qsub -o ...</code> (or <code>#$ -o ...</code> in a script).
 
@@ -93,6 +111,7 @@ Questions it will ask during installation:
 
 Add info about the execution server on the master server by typing <code>sudo qconf -ae <i>host</i></code> .  You can later modify it replacing <code>-ae</code> with <code>-me</code> .
 
+<br><br>
 
 <h1>Client</h1>
 The clients submit jobs, typically using the <code>qsub</code> command, just as you could use <code>bash</code> or <code>sh</code> before a shell script.
