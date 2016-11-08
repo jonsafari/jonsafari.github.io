@@ -94,6 +94,8 @@ So, to request GPUs with <code>qsub</code>, add the following flag to qsub at th
 
 <p>This requests one GPU to be used.  GridEngine does <em>not</em> enable your program to use a GPU. Rather, it just keeps track of how many GPUs are being used in the cluster.</p>
 
+<p>Don't forget to export all relevant environment variables for CUDA, like PATH and LD_LIBRARY_PATH.</p>
+
 	</div>
 
 
@@ -181,18 +183,10 @@ You can alternatively just set the output &amp; error path to <code class="langu
 	</div>
 
 
-	<!--
-<h1 id="sample-qsub-script">Sample qsub script</h1>
-	<div class="section">
-
-<p><a href="sge_test.sh">Here</a> is a simple example qsub script. <br>
-And <a href="sge_test_multi.sh">here</a> is a simple example qsub script for running many jobs at once. <br>
-Don’t forget to modify it as discussed in the GPU section if you will be using GPUs.</p>
-
-	</div>
-	-->
 
 <h1 id="example-script">Example Script</h1>
+<p>Below is an example script.  <b>For arguments that you always want (like email notifications), you can put those in <code class="language-bash">~/.sge_request</code></b>, omitting the <code>#$</code> . </p>
+
 <pre><code class="language-bash">#!/bin/bash
 
 ## Inherit all environment variables
