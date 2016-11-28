@@ -259,8 +259,11 @@ grep -iw 'north' frankie.txt # You can combine options together</code></pre>
         <!-- <pre></pre> -->
       </li>
       <li>
-        <code>rename</code> - Rename many files, according to a pattern<br>
-		<pre><code class="language-bash">rename 's/ /_/g' *.txt     # Replaces all spaces in a filename with underscores, for all files ending in .txt</code></pre>
+        <code>rename</code> - Rename many files, according to a pattern.<br>
+		<b>In Cygwin</b> and Red Hat-based distros:
+		<pre><code class="language-bash">rename ' ' '_' *.txt   # Replaces all spaces in a filename with underscores, for all files ending in .txt</code></pre>
+		<b>In Ubuntu/Debian</b> and MacOS/OSX via Homebrew/MacPorts:
+		<pre><code class="language-bash">rename 's/ /_/g' *.txt   # Replaces all spaces in a filename with underscores, for all files ending in .txt</code></pre>
       </li>
     </ul>
     <h3>Etc.</h3>
