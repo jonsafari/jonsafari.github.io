@@ -152,7 +152,7 @@ mount_src="${user}@123.456.789.012:/hd4/${user}/sge/"
 mount_tgt="~/sge/"
 
 for host in $hosts; do
-  ssh ${user}@$host sshfs $mount_src $mount_tgt  &amp;&amp;  \
+  ssh ${user}@$host sshfs -o allow_root $mount_src $mount_tgt  &amp;&amp;  \
     echo "Mounted $mount_tgt on $host"  ||  \
     echo "Mountpoint $mount_tgt on $host is probably already mounted."
 done</code></pre>
