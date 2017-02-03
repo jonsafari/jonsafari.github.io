@@ -58,12 +58,20 @@
 
 	<div class="section">
 	<h2>How do I <b>use my favorite TrueType font (TTF)</b> in LaTeX?</h2>
-	Use the command <tt><a href="http://en.wikipedia.org/wiki/Xetex">xelatex</a></tt> &nbsp; &ndash; which is a part of TeXLive, MikTeX, and MacTeX &ndash; and in the preamble add the following:
+	Use the command <tt><a href="http://en.wikipedia.org/wiki/LuaTeX">lualatex</a></tt> or <tt><a href="http://en.wikipedia.org/wiki/Xetex">xelatex</a></tt> &nbsp; &ndash; both of which are included in TeXLive, MikTeX, and MacTeX &ndash; and in the preamble add the following:
 	<pre>
 \usepackage{fontspec}
 \setmainfont{Arial Unicode}	% For example
 	</pre>
 	This also works for OpenType fonts (OTF), which is a superior format.
+	<p>
+	The above command sets that font for the entire document.  If you want to use a special font for just a snippet of text, do the following:
+	<pre>
+\usepackage{fontspec}
+\newfontfamily\myfont{Arial Unicode}
+...
+Foo \myfont{bar} baz
+	</pre>
 	</div>
 
 	<div class="section">
