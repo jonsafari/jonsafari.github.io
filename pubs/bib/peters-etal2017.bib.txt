@@ -1,0 +1,11 @@
+@inproceedings{peters-etal2017,
+  author    = {Peters, Ben  and  Dehdari, Jon  and  van Genabith, Josef},
+  title     = {Massively Multilingual Neural Grapheme-to-Phoneme Conversion},
+  booktitle = {Proceedings of the EMNLP Workshop on Building Linguistically Generalizable NLP Systems},
+  month     = {September},
+  year      = {2017},
+  address   = {Copenhagen, Denmark},
+  publisher = {Association for Computational Linguistics},
+  pages     = {19--26},
+  url       = {http://www.aclweb.org/anthology/W17-5403}
+}

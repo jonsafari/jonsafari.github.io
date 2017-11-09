@@ -1,0 +1,11 @@
+@inproceedings{bowen-etal2017,
+  author    = {Bowen, Fraser  and  Dehdari, Jon  and  van Genabith, Josef},
+  title     = {The Effect of Error Rate in Artificially Generated Data for Automatic Preposition and Determiner Correction},
+  booktitle = {Proceedings of the EMNLP Workshop on Noisy User-generated Text},
+  month     = {September},
+  year      = {2017},
+  address   = {Copenhagen, Denmark},
+  publisher = {Association for Computational Linguistics},
+  pages     = {68--76},
+  url       = {http://www.aclweb.org/anthology/W17-4410}
+}
