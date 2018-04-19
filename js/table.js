@@ -543,6 +543,7 @@ var Table = (function(){
 					do {
 						if (rowCells = cRow.cells) {
 							var cellValue = (col<rowCells.length)?this.getCellValue(rowCells[col],useinnertext):null;
+							cellValue = cellValue.replace(/ - .*/, '');
 							if (sortconvert) cellValue = sortconvert(cellValue);
 							rows[cRowIndex] = [cellValue,tbrows[cRowIndex]];
 						}
@@ -720,6 +721,7 @@ var Table = (function(){
 							filter = tdata.filters[col];
 							if (filter && col<cellsLength) {
 								var val = this.getCellValue(cells[col]);
+								val = val.replace(/ - .*/, '');
 								if (filter.regex && val.search) {
 									hideRow=(val.search(filter)<0);
 								}
@@ -846,7 +848,9 @@ var Table = (function(){
 		for (var i=0,L=bodies.length; i<L; i++) {
 			var tbody = bodies[i];
 			for (var r=0,L2=tbody.rows.length; r<L2; r++) {
-				values[this.getCellValue(tbody.rows[r].cells[col])] = true;
+				the_index = this.getCellValue(tbody.rows[r].cells[col])
+				the_index = the_index.replace(/ - .*/, '');
+				values[the_index] = true;
 			}
 		}
 		var valArray = [];
