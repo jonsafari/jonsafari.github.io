@@ -113,6 +113,7 @@ thead th {
 	background: #BBBBBB;
 	color: DarkRed;
 	font-size: 100% !important;
+	vertical-align: middle;
 }
 
 tbody th {
