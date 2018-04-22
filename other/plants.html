@@ -19,8 +19,19 @@ table img {
 	height: auto;
 	width: auto;
 }
-td {
-	vertical-align: middle;
+td { vertical-align: middle; }
+table.sort01 th.table-sortable {
+	background-image:url("../images/icons/01_unsorted.gif");
+	cursor:pointer;
+	background-position:center left;
+	background-repeat:no-repeat;
+	padding-left:15px;
+}
+table.sort01 th.table-sorted-asc {
+	background-image:url("../images/icons/01_ascending.gif");
+}
+table.sort01 th.table-sorted-desc {
+	background-image:url("../images/icons/01_descending.gif");
 }
 </style>
   <link rel="icon" type="image/png" href="/images/icons/favicon.png">
@@ -54,9 +65,12 @@ td {
   <div class="section">
   </div> -->
 
-  <!-- well drained, fertilize every few months, and dont overwater! -->  
+  <!--
+	  well drained, fertilize every few months, and dont overwater!
+	  http://www.missouribotanicalgarden.org/PlantFinder/PlantFinderSearch.aspx
+  -->
   
-  <table id="t1" class="example table-autosort table-autofilter table-autopage:50 table-stripeclass:alternate table-page-number:t1page table-page-count:t1pages table-filtered-rowcount:t1filtercount table-rowcount:t1allcount">
+  <table id="t1" class="sort01 table-autosort table-autofilter table-autopage:50 table-stripeclass:alternate table-page-number:t1page table-page-count:t1pages table-filtered-rowcount:t1filtercount table-rowcount:t1allcount">
 <thead>
 	<tr>
 		<!-- 
