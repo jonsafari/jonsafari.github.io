@@ -2,10 +2,9 @@
  author  = {Karakanta, Alina and Dehdari, Jon and van Genabith, Josef},
  title   = {Neural machine translation for low-resource languages without parallel corpora},
  journal = {Machine Translation},
- //volume  = {},
  year    = {2017},
  month   = {November}
- //pages   = {--},
+ pages   = {1--23},
  doi     = {10.1007/s10590-017-9203-5},
  issn    = {1573-0573},
  url     = {https://doi.org/10.1007/s10590-017-9203-5},
