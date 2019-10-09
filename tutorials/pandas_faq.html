@@ -1,0 +1,91 @@
+<html>
+ <head>
+  <title>Pandas FAQ</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="icon" type="image/png" href="../images/icons/favicon.png">
+ </head>
+
+ <body>
+  <header>
+   <div class="container">
+    <h1><a href="../index.html">Jon Dehdari</a></h1>
+    <nav>
+     <ul>
+      <li class="active"><a href="../index.html#interests" class="icon star">Interests</a></li>
+      <li><a href="../pubs/" class="icon papers">Publications</a></li>
+      <li><a href="../index.html#software-and-data" class="icon download">Software & Data</a></li>
+      <li><a href="../teaching/" class="icon book">Teaching</a></li>
+      <li><a href="../index.html#contact" class="icon messages">Contact Me</a></li>
+     </ul>
+    </nav>
+   </div>
+  </header>
+
+  <!--
+  <br><br><br>
+  <center><a href="https://git-scm.com"><img src="../images/logos/git_logo_320px.png"  alt="Git Logo" width=30%></a></center>
+  <br><br><br><br>
+  -->
+
+  <h1>Pandas FAQ</h1>
+  <div class="section">
+	  Pandas is a popular Python library for data science.
+	  It feels similar to R.
+	  Here are some useful links:
+
+	  <ul>
+		  <li><a href="https://pandas.pydata.org/pandas-docs/stable/reference/index.html">Pandas API Documentation</a></li>
+	  </ul>
+
+  </div>
+
+
+	<div class="section">
+	<h2>How do I concatenate two dataframes?</h2>
+	<pre><code class="language-python">
+pd.concat([df1, df2])
+	</code></pre>
+	<a href="https://pandas.pydata.org/pandas-docs/stable/user_guide/merging.html">Merge, join, and concatenate</a> guide
+	</div>
+
+	<div class="section">
+	<h2>How do I shuffle a dataframe?</h2>
+	<pre><code class="language-python">
+df.sample(frac=1)
+	</code></pre>
+	To also reset the index:
+	<pre><code class="language-python">
+df.sample(frac=1).reset_index(drop=True)
+	</code></pre>
+	</div>
+
+
+	More to come!
+
+	<!--
+	<div class="section">
+	<h2>How do I ?</h2>
+	<pre><code class="language-python">
+df. 
+	</code></pre>
+	</div>
+
+	<div class="section">
+	<h2>How do I ?</h2>
+	<pre><code class="language-python">
+df. 
+	</code></pre>
+	</div>
+	-->
+
+	<!--
+	<div class="section">
+	<h2>External Links</h2>
+	<ul>
+		<li>When you really screw up: <a href="http://ohshitgit.com">OhShitGit.com</a></li>
+	</ul>
+	</div>
+	-->
+ </body>
+</html>
