@@ -76,6 +76,27 @@ df_nums = df.select_dtypes(include=[np.number])
 	</code></pre>
 	</div>
 
+	<div class="section">
+	<h2>How do I sort by a column?</h2>
+	This should have been <pre>.sort()</pre>, but is instead <pre>.sort_values()</pre> .
+	<pre><code class="language-python">
+df.sort_values(by='column1')
+df.sort_values(by=['column1', 'column2'])
+df.sort_values(by=['column1', 'column2'], ascending=False)
+	</code></pre>
+	</div>
+
+	<div class="section">
+	<h2>How do I get the row(s) in the, say, 90th percentile?</h2>
+	<pre><code class="language-python">
+df['col1'].quantile(.9)
+	</code></pre>
+See also:
+	<pre><code class="language-python">
+df['col1'].rank(pct=True)
+	</code></pre>
+	</div>
+
 
 	More to come!
 
