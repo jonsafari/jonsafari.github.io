@@ -115,6 +115,18 @@ git push origin --delete mybranch
 	</div>
 
 	<div class="section">
+	<h2>How do I follow/add/track someone else's remote branch?</h2>
+	<pre>
+git fetch
+git checkout <i>the-remote-branch</i>
+	</pre>
+	You can list all remote and local branches:
+	<pre>
+git branch -a
+	</pre>
+	</div>
+
+	<div class="section">
 	<h2>How do I find out who edited/messed up a specific line in a file?</h2>
 	<pre>
 git blame file.txt
