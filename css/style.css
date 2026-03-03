@@ -396,3 +396,92 @@ header nav span {
   -webkit-box-shadow: inset 0 1px rgba(255, 255, 255, 0.2), 0 1px rgba(0, 0, 0, 0.2);
   box-shadow: inset 0 1px rgba(255, 255, 255, 0.2), 0 1px rgba(0, 0, 0, 0.2);
 }
+
+/* Mobile responsive styles */
+@media screen and (max-width: 768px) {
+  body {
+    width: 95%;
+    padding: 60px 5px 15px 5px;
+    font-size: 15px;
+  }
+
+  .container {
+    width: 100%;
+  }
+
+  header {
+    position: static;
+    height: auto;
+    line-height: 1.5;
+  }
+
+  header h1 {
+    float: none;
+    text-align: center;
+    padding: 10px 15px;
+    font-size: 1.2em;
+  }
+
+  header nav {
+    float: none;
+    border: none;
+    text-align: center;
+  }
+
+  header nav li {
+    float: none;
+    display: inline-block;
+    padding: 5px 0;
+  }
+
+  header nav a {
+    padding: 8px 10px;
+    font-size: 0.9em;
+    border: none;
+    display: inline-block;
+  }
+
+  header nav a.icon {
+    padding-left: 10px;
+    background-position: 5px 50%;
+  }
+
+  div.section {
+    padding: 10px;
+    margin: 10px 5px;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  #interests img[src*="logo2.png"] {
+    max-width: 200px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  body {
+    font-size: 14px;
+    padding: 50px 5px 15px 5px;
+  }
+
+  header nav li {
+    display: block;
+    border-bottom: 1px solid #2f4b56;
+  }
+
+  header nav a {
+    display: block;
+    padding: 10px 15px;
+  }
+
+  h2 {
+    font-size: 1.2em;
+  }
+
+  h3 {
+    font-size: 1em;
+  }
+}
